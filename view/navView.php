@@ -32,7 +32,7 @@ function displayNav(){
            <li><a href="#">Contact</a></li>
         </ul>
         <?php if(!$bool){ ?>
-         <form id="signin" class="navbar-form navbar-right" role="form" action="login2controller.php" method="post">
+         <form id="signin" class="navbar-form navbar-right" role="form" action="login.php" method="post">
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <?php }

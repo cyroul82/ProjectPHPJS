@@ -1,4 +1,5 @@
 function login() {
+
   var xhr = new XMLHttpRequest();
   try {
     xhr = new XMLHttpRequest();
@@ -9,10 +10,9 @@ function login() {
 
 
 
-  xhr.open("POST", "LoginAjax.php", true);
+  xhr.open("POST", "loginControl.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send("email=" + document.getElementById('email').value + "&password=" + document.getElementById('password').value);
-
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       if (xhr.responseText === "OK") {
@@ -20,7 +20,7 @@ function login() {
       }
 
     } else if (xhr.readyState !== 4) {
-      document.getElementById('test').innerHTML = xhr.responseText;
+      document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Echec lors de la connexion</strong></div>";
     }
   }
   return false;

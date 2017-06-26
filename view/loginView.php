@@ -3,7 +3,7 @@ require('headView.php');
 require('navView.php');
 require('footerView.php');
 
-function displayLogin($erreur){
+function displayLogin(){
  ?>
  <?php displayHead(); ?>
  </head>
@@ -11,19 +11,9 @@ function displayLogin($erreur){
    <?php displayNav(); ?>
 
    <div class="container">
-     <?php if(!empty($erreur)){ ?>
-       <div class="alert alert-danger" role="alert">
-         <strong>Damn it !</strong> <?php echo $erreur; ?>
-       </div>
 
-     <?php } ?>
-     <div id="test"></div>
     <div class="row">
-
       <div class="main">
-
-
-
         <form id="loginForm" role="form" action="" method="post" onsubmit="return login();">
           <div class="form-group">
             <label for="inputUsernameEmail">Email</label>
@@ -47,13 +37,23 @@ function displayLogin($erreur){
           </div>
           <button type="sumbit" class="btn btn btn-primary">Log In</button>
         </form>
+        <div id="error"></div>
 
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center">
+          <div id="map"></div>
+        </div>
+        <div class="col-md-2"></div>
       </div>
 
     </div>
   </div>
 
   <script src="js/login.js" charset="utf-8"></script>
+  <script src="js/map.js" charset="utf-8"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU0fHf2zsjxFQuWJ2It_HbNcpFnjHeMNo&callback=initMap"  type="text/javascript"></script></div>
+
  </body>
- <?php displayFooter(); ?>
- <?php } ?>
+ <?php displayFooter(); } ?>

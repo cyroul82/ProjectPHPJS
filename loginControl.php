@@ -1,48 +1,28 @@
 <?php
 session_start();
 require ("./dao/cnsDao.php");
-
+//check the post value
  if(isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"]) && !empty($_POST["password"])){
    $email = htmlentities($_POST["email"]);
    $password = htmlentities($_POST["password"]);
 
-   if(cnsDao::login($email, $password)){
+   if(cnsDao::existLogin($email, $password)){
+     //save the email into the session
      $_SESSION["email"] = $email;
-     if(isset($_POST["remember"])){
-       $cookie_user="user";
-       $cookie_value=$email;
-       setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-     }
 
+     //check
      if(cnsDao::getGroupUser($email) == 0){
-       $_SESSION["usergroup"] = "admin";
+       $_SESSION["usergroup"] = "commercial";
        echo "OK";
 
      }
      else{
-
-         header("location: index.php");
-         exit();
+       echo "NOK";
      }
 
 
    }
-   else {
 
+ }
 
-    //header("location: Login.php?erreur=Failure Failure ... Your computer will blow up soon !!!");
-    //exit();
-  ?> <div class="alert alert-danger" role="alert">
-    <strong>Damn it !</strong>
-  </div>  <?php
-   }
- }
- else {
-   ?>
-   <div class="alert alert-danger" role="alert">
-     <strong>Damn it !</strong>
-   </div>  <?php
-    // header("location: Login.php?erreur=Fill up the form in order to connect !?");
-    // exit();
- }
 ?>

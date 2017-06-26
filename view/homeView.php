@@ -2,6 +2,7 @@
 require('navView.php');
 require('headView.php');
 require('titleView.php');
+require('footerView.php');
 
 function displayHome($erreur){
 ?>
@@ -32,5 +33,5 @@ function displayHome($erreur){
   </div>
 
 </body>
-</html>
-<?php } ?>
+
+<?php displayFooter(); } ?>
