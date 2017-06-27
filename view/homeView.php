@@ -1,4 +1,5 @@
 <?php
+//Welcome Page !!! :) ;)  :-D
 require('navView.php');
 require('headView.php');
 require('titleView.php');
@@ -6,7 +7,7 @@ require('footerView.php');
 
 function displayHome($erreur){
 ?>
-<?php displayHead(); ?>
+<?php displayHead("Accueil"); ?>
 </head>
 <body>
   <?php displayNav(); ?>

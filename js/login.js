@@ -8,22 +8,24 @@ function login() {
     return;
   }
 
-
-
   xhr.open("POST", "loginControl.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send("email=" + document.getElementById('email').value + "&password=" + document.getElementById('password').value);
+
+  console.log(document.getElementById('email').value);
+
+
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       if (xhr.responseText === "OK") {
         window.location.href = "index.php";
-      }
-      else if(xhr.readyState === "NOK"){
+      } else if (xhr.readyState === "NOK") {
         document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Echec lors de l'authentification</strong></div>";
 
       }
 
-    } else if (xhr.readyState !== 4) {
+    }
+    if (xhr.readyState !== 4) {
       document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Echec lors de la connexion</strong></div>";
     }
   }

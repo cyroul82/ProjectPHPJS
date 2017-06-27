@@ -8,8 +8,8 @@ class cnsDao
 
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-    $host = "localhost";
-    $bdd = "DB-CNS";
+    $host = "172.16.0.56";
+    $bdd = "db-cns";
     $user = "cns";
     $password = "cns";
 
@@ -32,16 +32,16 @@ class cnsDao
 
 
 //Login - Test if the couple email/password exists in DB
-public static function existLogin($user, $password){
+public static function existLogin($email, $password){
   // connection BDD
-  $mysqlPDO = cnsDao::connect($user, $password);
+  $mysqlPDO = cnsDao::connect();
   // requete SQL
-  $sql = "select * from user where NUM_ADHERENT= ? and NOM_ADHERENT= ? " ;
+  $sql = "select * from user where MAIL_USER= ? and PWD_USER= ? " ;
 
   // preparation requête
   $rs = $mysqlPDO->prepare($sql);
   // execution requete
-  $rs->execute(array($dataResa["numadherent"], $dataResa["nom"] ));
+  $rs->execute(array($email, $password);
   // lecture tous enregistrements et transformation
   // en tableau associatif PHP
   $data=$rs->fetchAll();

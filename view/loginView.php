@@ -1,11 +1,12 @@
 <?php
+//Display the login page
 require('headView.php');
 require('navView.php');
 require('footerView.php');
 
 function displayLogin(){
  ?>
- <?php displayHead(); ?>
+ <?php displayHead("Login"); ?>
  </head>
  <body>
    <?php displayNav(); ?>
@@ -14,7 +15,8 @@ function displayLogin(){
 
     <div class="row">
       <div class="main">
-        <form id="loginForm" role="form" action="" method="post" onsubmit="return login();">
+        <!-- Login Form -->
+        <form id="loginForm" role="form" method="post" onsubmit="return login();">
           <div class="form-group">
             <label for="inputUsernameEmail">Email</label>
             <div class="input-group">
@@ -37,9 +39,12 @@ function displayLogin(){
           </div>
           <button type="sumbit" class="btn btn btn-primary">Log In</button>
         </form>
+        <!-- End Login From -->
         <div id="error"></div>
 
       </div>
+
+      <!-- Google Maap -->
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 text-center">
@@ -47,6 +52,7 @@ function displayLogin(){
         </div>
         <div class="col-md-2"></div>
       </div>
+      <!-- End Google Map -->
 
     </div>
   </div>
