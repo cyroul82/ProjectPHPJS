@@ -18,6 +18,10 @@ function login() {
       if (xhr.responseText === "OK") {
         window.location.href = "index.php";
       }
+      else if(xhr.readyState === "NOK"){
+        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Echec lors de l'authentification</strong></div>";
+
+      }
 
     } else if (xhr.readyState !== 4) {
       document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Echec lors de la connexion</strong></div>";
