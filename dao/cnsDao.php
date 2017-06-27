@@ -2,7 +2,6 @@
 
 //This class is a toolbox to communicate with the DataBase
 //- check incomming data, connect, request, check results, close the database
-
 class cnsDao
 {
 
@@ -69,6 +68,23 @@ public static function getGroupUser($email){
   return $group;
 
 }
+
+// add a new client to the db in client table
+public static function addNewClient($client){
+    $mysqlPDO = cnsDao::connect();
+
+    $sql = "insert into client (CA, EFFECTIF, RAISON_SOCIALE, CODE_POSTAL, TELEPHONE, NOM_NATURE, TYPE_SOCIETE, ADRESSE_DU_CLIENT, COMMENTAIRE) values(:ca, :effectif , :raisonSociale, :codePostal, :telephone, :nature, :type, :adresse, :commentaire)";
+    $result =$mysqlPDO->prepare($sql);
+    $result->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
+    $nombre= $result->rowCount();
+
+    $result->closeCursor();
+    cnsDao::disconnect($mysqlPDO);
+    //return the number of row affected, 0 if none
+    return $nombre;
+}
+
+
 
 }
  ?>
