@@ -58,13 +58,12 @@ public static function existLogin($email, $password){
 public static function getGroupUser($email){
   $mysqlPDO = cnsDao::connect();
 
-  $sql = "select USERGROUP from user where email=?";
+  $sql = "select USERGROUP from user where MAIL_USER=?";
 
   $rs = $mysqlPDO->prepare($sql);
   $rs->execute(array($email));
-  $data=$rs->fetch();
+  $data=$rs->fetch(PDO::FETCH_ASSOC);
   $group = $data['USERGROUP'];
-  var_dump($data);
   $rs->closeCursor();
   cnsDao::disconnect($mysqlPDO);
   return $group;

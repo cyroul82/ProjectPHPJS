@@ -2,14 +2,12 @@
 session_start();
 function displayNav(){
   $bool=false;
-  $group=1;
-  var_dump($_SESSION["group"]);
+  $group=0;
   if(isset($_SESSION["email"])){
     $bool = true;
   }
   if(isset($_SESSION["group"])){
     $group = $_SESSION["group"];
-    var_dump($group);
 
   }
 
