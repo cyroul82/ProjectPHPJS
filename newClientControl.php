@@ -13,6 +13,14 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["effectif"]) && !empty($_POST["effectif"])
    && isset($_POST["commentaire"]) && !empty($_POST["commentaire"])
  ) {
+
+
+
+
+
+
+
+
    $client = new Client();
    $client->setRaisonSociale(trim(htmlentities($_POST["raisonSociale"])));
    $client->setNature(trim(htmlentities($_POST["nature"])));
