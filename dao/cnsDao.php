@@ -83,9 +83,10 @@ public static function addNewClient($client){
     cnsDao::disconnect($mysqlPDO);
     //return the number of row affected, 0 if none
     return $nombre;
+  }
 
-// Fonction d'appel de la liste de tout les Clients
-public static function AllClientList(){
+    // Fonction d'appel de la liste de tout les Clients
+  public static function AllClientList(){
   //connection BDD
     $mysqlPDO = cnsDao::connect();
 

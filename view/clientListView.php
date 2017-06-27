@@ -7,7 +7,7 @@ require("view/headView.php");
 require("view/navView.php");
 require("view/titleView.php");
 
-require("view/clientTable.php");
+require("view/clientListTemplateView.php");
 
 
 function displayClientList($data){
@@ -15,8 +15,15 @@ function displayClientList($data){
 <?php displayHead("Liste Clients"); ?>
 </head>
 <body>
-  <?php displayNav();
-        ClientTable($data);?>
+  <div class="container">
+    <fieldset>
+      <legend>Liste de tous les clients</legend>
+      <?php displayNav();
+            ClientTable($data);?>
+    </fieldset>
+  </div>
+
+
 </body>
 
 <?php displayFooter(); } ?>
