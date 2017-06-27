@@ -12,7 +12,6 @@ function login() {
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send("email=" + document.getElementById('email').value + "&password=" + document.getElementById('password').value);
 
-  console.log(document.getElementById('email').value);
 
 
   xhr.onreadystatechange = function() {
@@ -24,8 +23,8 @@ function login() {
 
     }
     if (xhr.readyState !== 4) {
-      document.getElementById('error').innerHTML = xhr.responseText;
-      // document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Echec lors de la connexion</strong></div>";
+      // document.getElementById('error').innerHTML = xhr.responseText;
+      document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Echec lors de la connexion</strong></div>";
     }
   }
   return false;
