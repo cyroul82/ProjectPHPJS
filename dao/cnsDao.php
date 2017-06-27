@@ -78,7 +78,7 @@ public static function AllClientList(){
     // recupere liste de tout les clients depuis table TypeFilm
     $sql='select ID_CLIENT, RAISON_SOCIALE, TELEPHONE, CA,NOM_NATURE  from client order by RAISON_SOCIALE';
     // pour mise au point
-    echo $sql; // pour mise au point
+    // echo $sql; // pour mise au point
 
   // preparation requête
   try {
@@ -101,6 +101,9 @@ public static function AllClientList(){
   }
     // retourne le tableau associatif de resultats
     return $data;
+
+
+
 }
 
 
