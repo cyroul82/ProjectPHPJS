@@ -69,6 +69,7 @@ public static function getGroupUser($email){
 
 }
 
+
 // add a new client to the db in client table
 public static function addNewClient($client){
     $mysqlPDO = cnsDao::connect();
@@ -82,8 +83,43 @@ public static function addNewClient($client){
     cnsDao::disconnect($mysqlPDO);
     //return the number of row affected, 0 if none
     return $nombre;
-}
+  }
 
+    // Fonction d'appel de la liste de tout les Clients
+  public static function AllClientList(){
+  //connection BDD
+    $mysqlPDO = cnsDao::connect();
+
+    // recupere liste de tout les clients depuis table TypeFilm
+    $sql='select ID_CLIENT, RAISON_SOCIALE, TELEPHONE, CA,NOM_NATURE  from client order by RAISON_SOCIALE';
+    // pour mise au point
+    // echo $sql; // pour mise au point
+
+  // preparation requête
+  try {
+  $rs=$mysqlPDO->prepare($sql);
+  // execution requete
+  $rs->execute();
+  // lecture tous enregistrements
+  // et transformation en tableau associatif PHP
+  $data=$rs->fetchAll();
+       // pour test
+       // var_dump($data) ;
+
+  // pour faire propre
+  $rs->closeCursor();
+  cnsDao::disconnect($mysqlPDO);
+  }
+  catch (Exception $e) {
+  // en cas erreur on affiche un message et on arrete tout
+  die("die('<h1>Erreur de lecture en base de données : </h1>".$e->getMessage());
+  }
+    // retourne le tableau associatif de resultats
+    return $data;
+
+
+
+}
 
 
 }
