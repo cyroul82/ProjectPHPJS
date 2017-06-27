@@ -16,18 +16,19 @@
       <?php displayNav();?>
       <?php displayTitle();?>
 
+<!-- Barre de recherche -->
          <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
+        <div class="container">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-
                 <a data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop1" href="#"> Search by <b class="caret"></b></a>
 
                 <ul aria-labelledby="myTabDrop1" role="menu" class="dropdown-menu dropdown-menu-inverse">
-                  <li><a data-toggle="tab" href="#dropdown1">ID Client</a></li>
-                  <li><a data-toggle="tab" href="#dropdown2">Name</a></li>
-                  <li><a data-toggle="tab" href="#dropdown3">City</a></li>
-                  <li><a data-toggle="tab" href="#dropdown4">Activity</a></li>         
+                  <li><a data-toggle="tab" href="#dropdown1">All</a></li>
+                  <li><a data-toggle="tab" href="#dropdown2">ID Client</a></li>
+                  <li><a data-toggle="tab" href="#dropdown3">Name</a></li>
+                  <li><a data-toggle="tab" href="#dropdown4">City</a></li>
+                  <li><a data-toggle="tab" href="#dropdown5">Activity</a></li>         
                 </ul>
             </li>
           </ul>
@@ -40,6 +41,8 @@
           </form>
         </div>
       </nav>
+
+
 
             </div>
           </div>
