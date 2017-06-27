@@ -41,7 +41,7 @@ public static function existLogin($email, $password){
   // preparation requête
   $rs = $mysqlPDO->prepare($sql);
   // execution requete
-  $rs->execute(array($email, $password);
+  $rs->execute(array($email, $password));
   // lecture tous enregistrements et transformation
   // en tableau associatif PHP
   $data=$rs->fetchAll();
@@ -53,6 +53,22 @@ public static function existLogin($email, $password){
   cnsDao::disconnect($mysqlPDO);
   // retour booleen indiquant si trouve
   return ($nombre != 0);
+}
+
+public static function getGroupUser($email){
+  $mysqlPDO = cnsDao::connect();
+
+  $sql = "select USERGROUP from user where email=?";
+
+  $rs = $mysqlPDO->prepare($sql);
+  $rs->execute(array($email));
+  $data=$rs->fetch();
+  $group = $data['USERGROUP'];
+  var_dump($data);
+  $rs->closeCursor();
+  cnsDao::disconnect($mysqlPDO);
+  return $group;
+
 }
 
 }

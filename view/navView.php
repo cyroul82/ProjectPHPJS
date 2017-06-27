@@ -2,12 +2,15 @@
 session_start();
 function displayNav(){
   $bool=false;
-  $group = false;
+  $group=1;
+  var_dump($_SESSION["group"]);
   if(isset($_SESSION["email"])){
     $bool = true;
   }
-  if(isset($_SESSION["usergroup"]) && $_SESSION["usergroup"]=="commercial"){
-    $group = true;
+  if(isset($_SESSION["group"])){
+    $group = $_SESSION["group"];
+    var_dump($group);
+
   }
 
  ?>
@@ -25,8 +28,10 @@ function displayNav(){
        <div id="myNav" class="collapse navbar-collapse">
          <ul class="nav navbar-nav">
            <li><a href="index.php">Home</a></li>
-           <?php if($group) {?>
-           <li><a href="#">Commerical</a></li>
+           <?php if($group==1) {?>
+             <li><a href="newClient.php">Add Client</a></li>
+             <li><a href="listClient.php">List Clients</a></li>
+             <li><a href="searchClient.php">Search </a></li>
 
            <?php } ?>
            <li><a href="#">Contact</a></li>
@@ -37,7 +42,7 @@ function displayNav(){
         </form>
         <?php }
         else { ?>
-          <form id="signin" class="navbar-form navbar-right" role="form" action="#" method="post">
+          <form id="signin" class="navbar-form navbar-right" role="form" action="logout.php" method="post">
            <button type="submit" class="btn btn-primary">Logout</button>
          </form>
       <?php  } ?>
