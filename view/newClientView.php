@@ -77,9 +77,11 @@ function displayNewClient(){ ?>
               <label for="commentaire">Commentaires</label>
               <textarea class="form-control" name="commentaire" placeholder="Commentaires" rows="3"></textarea>
             </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="reset" class="btn btn-default">Reset</button>
+            </div>
 
-            <button type="submit" class="btn btn-default">Submit</button>
-            <button type="reset" class="btn btn-default">Reset</button>
           </form>
           <!-- end form client -->
         </div>

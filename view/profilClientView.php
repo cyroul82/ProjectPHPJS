@@ -4,5 +4,12 @@ require('headView.php');
 require('footerView.php');
 
 function displayProfilClient(){ ?>
+  <?php displayHead("Profil"); ?>
+  </head>
+  <body>
+    <div class="container">
 
-  <?php displayFooter() } ?>
+    </div>
+  </body>
+    <?php displayNav(); ?>
+  <?php displayFooter(); } ?>
