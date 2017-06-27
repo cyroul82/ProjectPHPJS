@@ -8,7 +8,7 @@ require("view/navView.php");
 require("view/titleView.php");
 
 
-function displayClientList($erreur){
+function displayClientList($data,$erreur){
 ?>
 <?php displayHead("Liste Clients"); ?>
 </head>
@@ -22,13 +22,43 @@ function displayClientList($erreur){
         <h1>Liste de tous les Clients</h1>
           <table class="table alert-striped" >
             <?php //class="table table-hover" ?>
-              <dt>sdf</dt>  <dt>fsdg</dt>
+              <tr> titre tableau
+                  <dt>
+
+                    <?php // liste des Clients issus du recordset
+                    foreach($data as $row){
+                    ?>
+                    <option value = "<?php echo $row['ID??'] ?>">
+                    <?php echo $row['RAISON_SOCIALE??']?>
+                      <?php echo $row['TELEPHONE??']?>
+                        <?php echo $row['CA??']?>
+                          <?php echo $row['NATURE??']?>
+                  </option>
+                    <?php
+                    }
+                    ?>
+
+
+                    <?php if(!empty($erreur)){ ?>
+                      <div class="alert alert-danger" role="alert">
+                        <strong>Damn it !</strong> <?php echo $erreur; ?>
+                      </div>
+
+
+
+
+
+                  </dt>
+              </tr>
+
+
+
 
 
 
           </div>
 
-      
+
       </div>
     </div>
   </div>
