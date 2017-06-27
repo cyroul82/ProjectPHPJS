@@ -20,9 +20,9 @@ function displayClientList($data){
     <div class="row">
       <div class="col-xs-12 text-center">
         <h1>Liste de tous les Clients</h1>
-          <table class="table alert-striped" >
+          <table class="table table-striped table-hover" >
               <?php //class="table table-hover" ?>
-                <tr> titre tableau
+                <tr>
                   <th>ID CLIENT</th>
                   <th>RAISON SOCIALE</th>
                   <th>TELEPHONE</th>
@@ -33,14 +33,15 @@ function displayClientList($data){
                 <?php // liste des Clients issus du recordset
                 foreach($data as $row){
                 ?>
-                    <td><?php echo $row['ID??']?></td>
-                    <td><?php echo $row['RAISON_SOCIALE??']?></td>
-                    <td><?php echo $row['TELEPHONE??']?></td>
-                    <td><?php echo $row['CA??']?></td>
-                    <td><?php echo $row['NATURE??']?></td>
+                    <td><?php echo $row['ID_CLIENT']?></td>
+                    <td><?php echo $row['RAISON_SOCIALE']?></td>
+                    <td><?php echo $row['TELEPHONE']?></td>
+                    <td><?php echo $row['CA']?></td>
+                    <td><?php echo $row['NOM_NATURE']?></td>
               </tr>
-
                 <?php } ?>
+
+
           </table>
           </div>
       </div>

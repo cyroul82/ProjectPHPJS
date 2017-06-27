@@ -6,9 +6,8 @@ require("view/clientListView.php");
 require("dao/cnsDao.php");
 
 $data = array();
-// $data = cnsDao::AllClientList();
+$data = cnsDao::AllClientList();
 
-$erreur="";
-displayClientList($erreur);
+displayClientList($data);
 
  ?>
