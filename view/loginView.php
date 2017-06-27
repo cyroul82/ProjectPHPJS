@@ -12,7 +12,7 @@ function displayLogin(){
    <?php displayNav(); ?>
 
    <div class="container">
-
+     <div id="error"></div>
     <div class="row">
       <div class="main">
         <!-- Login Form -->
@@ -40,7 +40,7 @@ function displayLogin(){
           <button type="sumbit" class="btn btn btn-primary">Log In</button>
         </form>
         <!-- End Login From -->
-        <div id="error"></div>
+
 
       </div>
 

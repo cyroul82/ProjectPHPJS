@@ -21,18 +21,18 @@ function displayNav(){
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="index.php"></a>
+         <a class="navbar-brand" href="index.php">ABI Project</a>
        </div>
        <div id="myNav" class="collapse navbar-collapse">
          <ul class="nav navbar-nav">
-           <li><a href="index.php">Home</a></li>
+           <li><a href="index.php"><i class="glyphicon glyphicon-home"></i> Home</a></li>
            <?php if($group==1) {?>
-             <li><a href="newClient.php">Add Client</a></li>
-             <li><a href="listClient.php">List Clients</a></li>
-             <li><a href="searchClient.php">Search </a></li>
+             <li><a href="newClient.php"><i class="glyphicon glyphicon-user"></i> Add Client</a></li>
+             <li><a href="listClient.php"><i class="glyphicon glyphicon-th-list"></i> List Clients</a></li>
+             <li><a href="searchClient.php"><i class="glyphicon glyphicon-search"></i> Search </a></li>
 
            <?php } ?>
-           <li><a href="#">Contact</a></li>
+           <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Contact</a></li>
         </ul>
         <?php if(!$bool){ ?>
          <form id="signin" class="navbar-form navbar-right" role="form" action="login.php" method="post">
