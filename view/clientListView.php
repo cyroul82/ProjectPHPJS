@@ -8,7 +8,7 @@ require("view/navView.php");
 require("view/titleView.php");
 
 
-function displayClientList($data,$erreur){
+function displayClientList($data){
 ?>
 <?php displayHead("Liste Clients"); ?>
 </head>
@@ -21,48 +21,30 @@ function displayClientList($data,$erreur){
       <div class="col-xs-12 text-center">
         <h1>Liste de tous les Clients</h1>
           <table class="table alert-striped" >
-            <?php //class="table table-hover" ?>
-              <tr> titre tableau
-                  <dt>
-
-                    <?php // liste des Clients issus du recordset
-                    foreach($data as $row){
-                    ?>
-                    <option value = "<?php echo $row['ID??'] ?>">
-                    <?php echo $row['RAISON_SOCIALE??']?>
-                      <?php echo $row['TELEPHONE??']?>
-                        <?php echo $row['CA??']?>
-                          <?php echo $row['NATURE??']?>
-                  </option>
-                    <?php
-                    }
-                    ?>
-
-
-                    <?php if(!empty($erreur)){ ?>
-                      <div class="alert alert-danger" role="alert">
-                        <strong>Damn it !</strong> <?php echo $erreur; ?>
-                      </div>
-
-
-
-
-
-                  </dt>
+              <?php //class="table table-hover" ?>
+                <tr> titre tableau
+                  <th>ID CLIENT</th>
+                  <th>RAISON SOCIALE</th>
+                  <th>TELEPHONE</th>
+                  <th>CHIFFRE D'AFFAIRE</th>
+                  <th>NATURE</th>
+              </tr>
+              <tr>
+                <?php // liste des Clients issus du recordset
+                foreach($data as $row){
+                ?>
+                    <td><?php echo $row['ID??']?></td>
+                    <td><?php echo $row['RAISON_SOCIALE??']?></td>
+                    <td><?php echo $row['TELEPHONE??']?></td>
+                    <td><?php echo $row['CA??']?></td>
+                    <td><?php echo $row['NATURE??']?></td>
               </tr>
 
-
-
-
-
-
+                <?php } ?>
+          </table>
           </div>
-
-
       </div>
     </div>
-  </div>
-
 </body>
 
 <?php displayFooter(); } ?>
