@@ -6,7 +6,7 @@ function displayNav(){
   if(isset($_SESSION["email"])){
     $bool = true;
   }
-  if(isset($_SESSION["usergroup"]) && $_SESSION["usergroup"]=="admin"){
+  if(isset($_SESSION["usergroup"]) && $_SESSION["usergroup"]=="commercial"){
     $group = true;
   }
 
