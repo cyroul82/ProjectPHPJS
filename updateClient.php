@@ -33,13 +33,14 @@ try{
    $client->setCa(trim(htmlentities($_POST["ca"])));
    $client->setEffectif(trim(htmlentities($_POST["effectif"])));
    $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
-   $nombre = cnsDao::addNewClient($client);// A MODIFIER
+
 
    header("location: profilClient.php");// A MODIFIER
 }
 catch (Exception $e){
    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-header("location: view/updateClientView.module.php"); //A MODIFIER
+  //  header("location: view/updateClientView.module.php"); //A MODIFIER
+  displayPageUpdateClient();
 
 }
 
