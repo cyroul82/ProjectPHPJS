@@ -17,6 +17,7 @@ class Client{
 
   // constructor
   public function __constructor(){
+
   }
 
 
@@ -41,7 +42,7 @@ class Client{
 
 
     public function setNature($nature){
-    if($nature!="Principale" && $nature!="Secondaire" && $nature!="Ancienne" ){
+    if($nature!="principale" && $nature!="secondaire" && $nature!="ancienne" ){
         throw new Exception("Erreur de Nature de Societe, on essaie de vous pirater!");}
     else{
         $this->nature = $nature;
@@ -49,7 +50,7 @@ class Client{
   }
 
   public function setType($type){
-    if($type!="Privé"&&$type!="Public"){
+    if($type!="prive" && $type!="public"){
       throw new Exception("Erreur de Type de Societe, on essaie de vous pirater!");
     }
     else{
