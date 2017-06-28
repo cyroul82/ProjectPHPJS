@@ -3,8 +3,8 @@ require("view/modules/footerView.php");
 require("view/modules/headView.php");
 require("view/modules/navView.php");
 require("view/modules/titleView.php");
-require("dao/cnsDao.php");
 require("view/modules/newClientView.php");
+
 function displayPageNewClient(){
 displayHead("Accueil");
 ?>

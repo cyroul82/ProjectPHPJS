@@ -1,4 +1,9 @@
 <?php
 require("view/listClient.view.php");
-displayPageListClient();
+require("dao/cnsDao.php");
+
+$data = array();
+$data = cnsDao::AllClientList();
+
+displayPageListClient($data);
  ?>

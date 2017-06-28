@@ -6,19 +6,15 @@ require("view/modules/headView.php");
 require("view/modules/navView.php");
 require("view/modules/clientListView.php");
 require("view/modules/searchClientView.php");
-require("dao/cnsDao.php");
 
-function displayPageListClient(){
+function displayPageListClient($data){
 
-$data = array();
-$data = cnsDao::AllClientList();
-
-displayHead("Liste Clients"); ?>
-</head>
-<?php displayNav(); ?>
-<body>
-  <?php displaySearch(); ?>
-  <?php displayClientList($data); ?>
-</body>
+  displayHead("Liste Clients"); ?>
+  </head>
+  <?php displayNav(); ?>
+  <body>
+    <?php displaySearch(); ?>
+    <?php displayClientList($data); ?>
+  </body>
 
 <?php displayFooter();  }?>

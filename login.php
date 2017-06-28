@@ -1,3 +1,8 @@
 <?php
 require("view/login.view.php");
-displayPageLogin(); ?>
+if(isset($_SESSION['email'])){
+  header("location: index.php");
+}
+else {
+displayPageLogin();
+}?>

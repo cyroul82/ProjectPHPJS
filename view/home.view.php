@@ -7,12 +7,7 @@ require('view/modules/footerView.php');
 require('view/modules/homeView.php');
 
 
-function displayPageHome(){
-  
-  if(isset($_GET["erreur"])){
-    $erreur=htmlentities($_GET["erreur"]);
-  }
-  else $erreur="";
+function displayPageHome($erreur){
 
 displayHead("Accueil"); ?>
 </head>

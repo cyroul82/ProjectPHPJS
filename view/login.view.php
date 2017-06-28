@@ -8,10 +8,7 @@ require("dao/cnsDao.php");
 require("view/modules/mapView.php");
 
 function displayPageLogin(){
-if(isset($_SESSION['email'])){
-  header("location: index.php");
-}
-else {
+
 
 ?>
 <?php displayHead("Contact"); ?>
@@ -22,4 +19,4 @@ else {
   <?php displayMap(); ?>
 </body>
 
-<?php displayFooter();  } }?>
+<?php displayFooter();   }?>
