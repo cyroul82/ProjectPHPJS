@@ -1,3 +1,2 @@
-<?php
-require("view/newClientView.php");
-displayNewClient(); ?>
+<?php require("view/newClient.view.php");
+displayPageNewClient(); ?>
