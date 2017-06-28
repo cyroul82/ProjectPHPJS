@@ -86,6 +86,7 @@ public static function addNewClient($client){
   }
 
     // Fonction d'appel de la liste de tout les Clients
+  //retourne un tableau de clients
   public static function AllClientList(){
       //connection BDD
         $mysqlPDO = cnsDao::connect();

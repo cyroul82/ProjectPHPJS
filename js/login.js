@@ -1,6 +1,6 @@
 function login() {
 
-  var xhr = new XMLHttpRequest();
+  var xhr;
   try {
     xhr = new XMLHttpRequest();
   } catch (e) {

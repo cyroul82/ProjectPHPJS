@@ -4,9 +4,7 @@
 
 // Module de présentation
 
-
-// Afficher page
-// This controller update a list of all the Clients
-
+// Afficher page - This controller update a list of all the Clients
 require("view/search.view.php");
-displayPageSearchClient();?>
+displayPageSearchClient();
+?>
