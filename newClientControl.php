@@ -14,31 +14,28 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["commentaire"]) && !empty($_POST["commentaire"])
  ) {
 
-try{
+  try{
+     $client = new Client();
+     $client->setRaisonSociale(trim(htmlentities($_POST["raisonSociale"])));
+     $client->setNature(trim(htmlentities($_POST["nature"])));
+     $client->setType(trim(htmlentities($_POST["type"])));
+     $client->setAdresse(trim(htmlentities($_POST["adresse"])));
+     $client->setVille(trim(htmlentities($_POST["ville"])));
+     $client->setCodePostal(trim(htmlentities($_POST["codePostal"])));
+     $client->setTelephone(trim(htmlentities($_POST["telephone"])));
+     $client->setCa(trim(htmlentities($_POST["ca"])));
+     $client->setEffectif(trim(htmlentities($_POST["effectif"])));
+     $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
+     $nombre = cnsDao::addNewClient($client);
 
+     header("location: profilClient.php");
+   }
+  catch(Exception $e){
 
-   $client = new Client();
-   $client->setRaisonSociale(trim(htmlentities($_POST["raisonSociale"])));
-   $client->setNature(trim(htmlentities($_POST["nature"])));
-   $client->setType(trim(htmlentities($_POST["type"])));
-   $client->setAdresse(trim(htmlentities($_POST["adresse"])));
-   $client->setVille(trim(htmlentities($_POST["ville"])));
-   $client->setCodePostal(trim(htmlentities($_POST["codePostal"])));
-   $client->setTelephone(trim(htmlentities($_POST["telephone"])));
-   $client->setCa(trim(htmlentities($_POST["ca"])));
-   $client->setEffectif(trim(htmlentities($_POST["effectif"])));
-   $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
-   $nombre = cnsDao::addNewClient($client);
+    var_dump($e);
 
-   header("location: profilClient.php");
- }
-catch{
-
-
-  
-}
-
-
-
+   }
+ }else {
+   var_dump("salut");
  }
  ?>
