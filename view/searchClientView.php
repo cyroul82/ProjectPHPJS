@@ -1,34 +1,23 @@
 <?php
-  require ("headView.php");
-  require ("navView.php");
-  require ("titleView.php");
-  require ("footerView.php");
-
-  function displaySearch(){
-
+  require("view/clientListTemplateView.php");
+  function displaySearch2($data){
 
 ?>
-<?php displayHead("Search");
-?>
-    </head>
-
-    <body>
-      <?php displayNav();?>
-      <?php displayTitle();?>
 
 <!-- Barre de recherche -->
-         <nav class="navbar navbar-inverse">
         <div class="container">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop1" href="#"> Search by <b class="caret"></b></a>
+          <fieldset>
+        <legend>Recherche de clients</legend>
 
+         <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop1"  href="#"> Search by <b class="caret"></b></a>
                 <ul aria-labelledby="myTabDrop1" role="menu" class="dropdown-menu dropdown-menu-inverse">
-                  <li><a data-toggle="tab" href="#dropdown1">All</a></li>
-                  <li><a data-toggle="tab" href="#dropdown2">ID Client</a></li>
-                  <li><a data-toggle="tab" href="#dropdown3">Name</a></li>
-                  <li><a data-toggle="tab" href="#dropdown4">City</a></li>
-                  <li><a data-toggle="tab" href="#dropdown5">Activity</a></li>         
+                  <li><a data-toggle="tab" id="1" href="#dropdown1">All</a></li>
+                  <li><a data-toggle="tab" id="2" href="#dropdown2">ID Client</a></li>
+                  <li><a data-toggle="tab" id="3" href="#dropdown3">Name</a></li>
+                  <li><a data-toggle="tab" id="4" href="#dropdown4">City</a></li>
+                  <li><a data-toggle="tab" id="5" href="#dropdown5">Activity</a></li>         
                 </ul>
             </li>
           </ul>
@@ -39,15 +28,16 @@
               <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> Search</button>
             </div>
           </form>
-        </div>
-      </nav>
+
+                <div class="resultatTableau">
+                  
 
 
 
-            </div>
-          </div>
-        </body>
-<?php
-displayFooter();
-}
-?>
+
+                </div>
+            </fieldset> 
+        </div>  
+<?php } ?>
+
+
