@@ -1,5 +1,5 @@
 <?php
-require('model/client.php');
+require('model/client2.php');
 require('dao/cnsDao.php');
 
 if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
@@ -27,15 +27,14 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
      $client->setEffectif(trim(htmlentities($_POST["effectif"])));
      $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
      $nombre = cnsDao::addNewClient($client);
-
-     header("location: profilClient.php");
+     echo "OK";
    }
   catch(Exception $e){
-
     var_dump($e);
+    echo "NOK";
 
    }
  }else {
-   var_dump("salut");
+   var_dump("hqsdflmqsdflmqjksdlmf");
+   echo ("NNOK");
  }
- ?>

@@ -16,7 +16,6 @@ function login() {
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      // alert(xhr.responseText);
       if (xhr.responseText === "OK") {
         window.location.href = "index.php";
       }
