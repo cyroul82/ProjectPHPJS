@@ -1,6 +1,6 @@
 <?php
 
-require('view/titleView.php');
+require('titleView.php');
 function displayHome($erreur){
 ?>
 

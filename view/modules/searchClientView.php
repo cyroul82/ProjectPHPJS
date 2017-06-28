@@ -1,9 +1,7 @@
 <?php
   function displaySearch(){
 
-
 ?>
-
 
 <!-- Barre de recherche -->
          <nav class="navbar navbar-inverse">

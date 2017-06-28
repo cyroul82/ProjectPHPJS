@@ -1,7 +1,7 @@
 
 <?php
 // This function display the list of Clients of ABI
-require("view/clientListTemplateView.php");
+require("/clientListTemplateView.php");
 function displayClientList($data){
 ?>
   <div class="container">
