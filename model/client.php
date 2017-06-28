@@ -17,33 +17,27 @@ class Client{
 
   // constructor
   public function __constructor(){
-
+    // $this->effectif = 0;
   }
 
 
   // setters
   public function setIdClient($idClient){
-    if(!is_int($idClient)){
-      throw new Exception("La clef primaire Client n'est pas valide");
+    if(isset($idClient) && intval($idClient)===0){
+        throw new Exception("La clef primaire Client n'est pas valide");
     }
-      else{
-        $this->idClient = $idClient;
-      }
+    else{
+        $this->idClient = intval($idClient);
+    }
   }
 
   public function setRaisonSociale($raisonSociale){
-    if(!is_string($raisonSociale)){
-      throw new Exception("La Raison Sociale n'est pas une string");
+        $this->raisonSociale = strtoupper($raisonSociale);
     }
-    else {
-      $this->raisonSociale = strtoupper($raisonSociale);
-    }
-  }
-
 
     public function setNature($nature){
     if($nature!="principale" && $nature!="secondaire" && $nature!="ancienne" ){
-        throw new Exception("Erreur de Nature de Societe, on essaie de vous pirater!");}
+        throw new Exception("Erreur de NATURE de Societe, on essaie de vous pirater!");}
     else{
         $this->nature = $nature;
     }
@@ -51,7 +45,7 @@ class Client{
 
   public function setType($type){
     if($type!="prive" && $type!="public"){
-      throw new Exception("Erreur de Type de Societe, on essaie de vous pirater!");
+      throw new Exception("Erreur de TYPE de Societe, on essaie de vous pirater!");
     }
     else{
       $this->type = $type;
@@ -59,66 +53,67 @@ class Client{
   }
 
   public function setAdresse($adresse){
-    if(!is_string($adresse) ){
-      throw new Exception("L'adresse n'est pas une string");
-    }
-    else {
-      $this->adresse = $adresse;
+    $this->adresse = $adresse;
   }
-}
 
   public function setVille($ville){
-    if(false)             //!is_string($ville)
-  {
-      throw new Exception("La Ville n'est pas une string");
-    }
-    else {
-      $this->ville = $ville; //strtoupper
-    }
+        $this->ville = strtoupper($ville);
   }
 
   public function setCodePostal($codePostal){
-    $regex = "^([0-9]{5})$";
-    if(preg_match($regex,$codePostal)){
+    $regex = "/^([0-9]{5})$/";
+    if(preg_match($regex,$codePostal)===1){
         $this->codePostal = $codePostal;
     }
     else{
-      throw new Exception("Le code Postal est incorrect");
+      throw new Exception("Le code Postal est incorrect ex:06600");
     }
   }
 
   public function setTelephone($telephone){
-      $regex = " \^(\d\d\s){4}(\d\d)$\ ";
-        if(preg_match($regex,$telephone)){
+      $regex = "/^(\d\d\s){4}(\d\d)$/ ";
+        if(preg_match($regex,$telephone)===1){
             $this->telephone = $telephone;
         }
         else{
-          throw new Exception("Le numero de telephone est incorrect");
+          throw new Exception("Le numero de telephone est incorrect , ex: 06 60 60 60 60");
         }
       }
 
 
   public function setCa($ca){
 
-    if(!is_float($ca) && ($ca<0)) {
-        echo "CA"; //throw new Exception("Le CA n'est pas un decimal >= 0");
+    if($ca===''){
+      $this->ca = '';
     }
-    elseif(isset($effectif) && $ca<1000000*$effectif){
-        throw new Exception("Le CA EST >= 1M€/Personne");
+    elseif($ca!="" && floatval($ca)===0) {
+        echo "CA"; //throw new Exception("Le CA n'est pas un decimal");
     }
-    else {
-            $this->ca = $ca;
+    elseif( $ca!="" && $ca<0){
+        throw new Exception("Le CA doit être  >0 ");
+    }
+    elseif($ca!="" && floatval($ca)!=0){
+        $this->ca = floatval($ca);
     }
   }
-
 
   public function setEffectif($effectif){
-    if(is_int($effectif) && $effectif>0)  {
-      $this->effectif = $effectif;}
-      else{
-            throw new Exception("erreur d'effectif");
+      if($effectif === ''){
+        $this->effectif = '';
       }
-  }
+      elseif($effectif != '' && intval($effectif)===0){
+          throw new Exception("L'effectif doit être un nombre ");
+      }
+    elseif($effectif != '' && ($effectif<0)){
+            throw new Exception("L'effectif doit être >0 ");
+      }
+      elseif($effectif != '' && intval($effectif)!=0 && isset($ca) && $ca < 1000000*$effectif ){ //
+          throw new Exception("Le CA doit être < 1M€/Personne");
+      }
+      elseif($effectif != '' && intval($effectif)!=0){
+              $this->effectif = intval($effectif);
+        }
+    }
 
   public function setCommentaire($commentaire){
     $this->commentaire = $commentaire;

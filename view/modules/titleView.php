@@ -1,4 +1,6 @@
 <?php
+
+//this function display the title
 function displayTitle(){
 
   ?>
