@@ -2,7 +2,10 @@
 require('model/client.php');
 require('dao/cnsDao.php');
 
-if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
+   var_dump($_POST);
+
+if(isset($_POST["idClient"]) && !empty($_POST["idClient"])
+   &&isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["nature"]) && !empty($_POST["nature"])
    && isset($_POST["type"]) && !empty($_POST["type"])
    && isset($_POST["adresse"]) && !empty($_POST["adresse"])
@@ -14,8 +17,10 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["commentaire"]) && !empty($_POST["commentaire"])
  ) {
 
-try{
+  //  var_dump($_POST);
 
+
+try{
 
    $client = new Client();
    $client->setRaisonSociale(trim(htmlentities($_POST["raisonSociale"])));
@@ -28,14 +33,15 @@ try{
    $client->setCa(trim(htmlentities($_POST["ca"])));
    $client->setEffectif(trim(htmlentities($_POST["effectif"])));
    $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
-   $nombre = cnsDao::addNewClient($client);
-
-   header("location: profilClient.php");
- }
-catch{
 
 
-  
+   header("location: profilClient.php");// A MODIFIER
+}
+catch (Exception $e){
+   echo 'Exception reçue : ',  $e->getMessage(), "\n";
+  //  header("location: view/updateClientView.module.php"); //A MODIFIER
+  displayPageUpdateClient();
+
 }
 
 
