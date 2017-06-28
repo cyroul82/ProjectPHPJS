@@ -1,8 +1,8 @@
 <?php
-require('view/loginView.php');
+require("view/login.view.php");
 if(isset($_SESSION['email'])){
   header("location: index.php");
 }
 else {
-displayLogin("");
+displayPageLogin();
 }?>
