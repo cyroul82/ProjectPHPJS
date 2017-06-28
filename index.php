@@ -1,8 +1,6 @@
-<?php
-require('view/homeView.php');
+<?php require("view/home.view.php");
 if(isset($_GET["erreur"])){
   $erreur=htmlentities($_GET["erreur"]);
 }
 else $erreur="";
-displayHome($erreur);
- ?>
+displayPageHome($erreur); ?>

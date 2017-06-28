@@ -1,14 +1,6 @@
 <?php
-require('navView.php');
-require('headView.php');
-require('footerView.php');
-
 function displayNewClient(){ ?>
 
-<?php displayHead("Accueil"); ?>
-</head>
-<body>
-  <?php displayNav(); ?>
   <div class="container">
     <fieldset>
       <legend>Ajouter un nouveau client</legend>
@@ -88,9 +80,4 @@ function displayNewClient(){ ?>
     </fieldset>
   </div>
   <!-- form new client -->
-
-</body>
-
-<?php
-  displayFooter();
- } ?>
+<?php } ?>
