@@ -46,7 +46,7 @@ if(
 // var_dump( (intval($_GET["idClient"]))  );
 // var_dump($client);
 
-cnsDao::UpdateClientDB($client);
+      cnsDao::UpdateClientDB($client);
 
   //  header("location: profilClient.php");// A MODIFIER
   }

@@ -125,7 +125,7 @@ public static function addNewClient($client){
 
 
     // This Function update a Client comming from updateClient.php
-      public static function addNewClient($client){
+      public static function UpdateClientDB($client){
             $mysqlPDO = cnsDao::connect();
 
             $sql = "update client set
@@ -137,7 +137,10 @@ public static function addNewClient($client){
               NOM_NATURE=:nature,
               TYPE_SOCIETE=:type,
               ADRESSE_DU_CLIENT=:adresse,
-              COMMENTAIRE=:commentaire";
+              COMMENTAIRE=:commentaire
+              where ID_CLIENT =1;";//.$client->getIdClient();
+var_dump($sql);
+
             $result =$mysqlPDO->prepare($sql);
             $result->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
             $nombre= $result->rowCount();

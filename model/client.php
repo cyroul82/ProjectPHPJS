@@ -120,7 +120,7 @@ class Client{
   }
 
   // getters
-  public function getIdClient($idClient){
+  public function getIdClient(){
     return $this->idClient;
   }
   public function getRaisonSociale(){
