@@ -1,6 +1,7 @@
 <?php
 require('model/client2.php');
 require('dao/cnsDao.php');
+header('Content-Type: application/json');
 
 if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["nature"]) && !empty($_POST["nature"])
@@ -27,14 +28,39 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
      $client->setEffectif(trim(htmlentities($_POST["effectif"])));
      $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
      $nombre = cnsDao::addNewClient($client);
-     echo "OK";
+     if($nombre === 1){
+       $arr = array('message' => 'ok',
+                  'raisonSociale' => $client->getRaisonSociale(),
+                  'nature' => $client->getNature(),
+                  'type' => $client->getType(),
+                  'adresse' => $client->getAdresse(),
+                  'ville' => $client->getVille(),
+                  'telephone' => $client->getTelephone(),
+                  'codePostal' => $client->getCodePostal(),
+                  'ca' => $client->getCa(),
+                  'effectif' => $client->getEffectif(),
+                  'commentaire' => $client ->getCommentaire()
+                  );
+
+        $json = json_encode($arr);
+        echo $json;
+      }
+      if($nombre !== 1) {
+        $arr = array('message' => 'bad', 'error' => "failed saving into DB");
+        $json = json_encode($arr);
+        echo $json;
+      }
+
+
    }
   catch(Exception $e){
-    var_dump($e);
-    echo "NOK";
+    $arr = array('message' => 'nok', 'error' => $e);
+    $json = json_encode($arr);
+    echo $json;
 
    }
  }else {
-   var_dump("hqsdflmqsdflmqjksdlmf");
-   echo ("NNOK");
+   $arr = array('message' => "nnok");
+   $json = json_encode($arr);
+   echo $json;
  }

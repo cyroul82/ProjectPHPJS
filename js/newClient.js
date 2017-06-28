@@ -7,7 +7,7 @@ function newClient() {
     xhr = null;
     return;
   }
-  var nature;
+  var nature='';
   var natures = document.getElementsByName('nature');
   for (var i = 0; i < natures.length; i++) {
     if (natures[i].checked) {
@@ -15,50 +15,49 @@ function newClient() {
     }
   }
 
-  var type;
+  var type='';
   var types = document.getElementsByName('type');
   for (var i = 0; i < types.length; i++) {
     if (types[i].checked) {
       type = types[i].value;
     }
   }
-  var raisonSociale = document.getElementById('raisonSociale').value;
-  var adresse = document.getElementById('adresse').value;
-  var ville = document.getElementById('ville').value;
-  var codePostal = document.getElementById('codePostal').value;
-  var telephone = document.getElementById('telephone').value;
-  var ca = document.getElementById('ca').value;
-  var effectif = document.getElementById('effectif').value;
-  var commentaire = document.getElementById('commentaire').value;
+  var raisonSociale = encodeURIComponent(document.getElementById('raisonSociale').value);
+  var adresse = encodeURIComponent(document.getElementById('adresse').value);
+  var ville = encodeURIComponent(document.getElementById('ville').value);
+  var codePostal = encodeURIComponent(document.getElementById('codePostal').value);
+  var telephone = encodeURIComponent(document.getElementById('telephone').value);
+  var ca = encodeURIComponent(document.getElementById('ca').value);
+  var effectif = encodeURIComponent(document.getElementById('effectif').value);
+  var commentaire = encodeURIComponent(document.getElementById('commentaire').value);
 
   xhr.open("POST", "newClientControl.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send("raisonSociale=" + raisonSociale +
-    "&nature=" + nature +
-    "&type=" + type +
-    "&adresse=" + adressee +
-    "&ville=" + ville +
-    "&codePostal=" + codePostal +
-    "&telephone=" + telephone +
-    "&ca=" + ca +
-    "&effectif=" + effectif +
-    "&commentaire=" + commentaire);
-
+  xhr.send("raisonSociale=" + raisonSociale + "&nature=" + nature  +
+  "&type=" + type +
+  "&adresse=" + adresse +
+  "&ville=" + ville +
+  "&codePostal=" + codePostal +
+  "&telephone=" + telephone +
+  "&ca=" + ca +
+  "&effectif=" + effectif +
+  "&commentaire=" + commentaire);
 
   xhr.onreadystatechange = function() {
-
     if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(xhr.responseText);
-      if (xhr.responseText === "OK") {
-        window.location.href = "profilClient.php";
+      var response = JSON.parse(xhr.responseText);
+      console.log(response);
+      if(response["message"]==="ok"){
+        window.location.href = "profilClient.php?raisonSociale=";
       }
-      if (xhr.responseText === "NOK") {
+      if(response["message"]==="nok"){
         document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error destroy everything</strong></div>";
-
       }
-      if (xhr.responseText === "NNOK") {
+      if(response["message"]==="nnok"){
         document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error destroy everything</strong></div>";
-
+      }
+      if(response["message"]==="bad"){
+        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error saving into DB</strong></div>";
       }
     }
   }
