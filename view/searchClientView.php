@@ -1,20 +1,9 @@
 <?php
-  require ("headView.php");
-  require ("navView.php");
-  require ("titleView.php");
-  require ("footerView.php");
-
   function displaySearch(){
 
 
 ?>
-<?php displayHead("Search");
-?>
-    </head>
 
-    <body>
-      <?php displayNav();?>
-      <?php displayTitle();?>
 
 <!-- Barre de recherche -->
          <nav class="navbar navbar-inverse">
@@ -28,7 +17,7 @@
                   <li><a data-toggle="tab" href="#dropdown2">ID Client</a></li>
                   <li><a data-toggle="tab" href="#dropdown3">Name</a></li>
                   <li><a data-toggle="tab" href="#dropdown4">City</a></li>
-                  <li><a data-toggle="tab" href="#dropdown5">Activity</a></li>         
+                  <li><a data-toggle="tab" href="#dropdown5">Activity</a></li>
                 </ul>
             </li>
           </ul>
@@ -46,8 +35,5 @@
 
             </div>
           </div>
-        </body>
-<?php
-displayFooter();
-}
-?>
+
+<?php } ?>

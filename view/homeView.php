@@ -1,16 +1,9 @@
 <?php
-//Welcome Page !!! :) ;)  :-D
-require('navView.php');
-require('headView.php');
-require('titleView.php');
-require('footerView.php');
 
+require('view/titleView.php');
 function displayHome($erreur){
 ?>
-<?php displayHead("Accueil"); ?>
-</head>
-<body>
-  <?php displayNav(); ?>
+
 
   <div class="container">
     <div class="jumbotron">
@@ -33,6 +26,4 @@ function displayHome($erreur){
     </div>
   </div>
 
-</body>
-
-<?php displayFooter(); } ?>
+  <?php } ?>
