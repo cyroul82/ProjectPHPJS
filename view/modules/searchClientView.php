@@ -1,5 +1,5 @@
 <?php
-  require("view/clientListTemplateView.php");
+  require("view/modules/clientListTemplateView.php");
   function displaySearch(){
 
 ?>

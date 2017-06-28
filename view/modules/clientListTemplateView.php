@@ -2,14 +2,14 @@
 
 // Display ONLY a table of Client
 
-function ClientTable($data){
+function clientTable($data){
  ?>
 
     <div class="row">
       <div class="col-xs-12 text-center">
 
           <table class="table table-striped table-hover" >
-              <?php //class="table table-hover" ?>
+              
                 <tr>
                   <th class="text-center">ID CLIENT</th>
                   <th class="text-center">RAISON SOCIALE</th>
@@ -27,12 +27,8 @@ function ClientTable($data){
                     <td><?php echo $row['CA']?></td>
                     <td><?php echo $row['NOM_NATURE']?></td>
               </tr>
-                <?php } ?>
-
+              <?php } ?>
           </table>
           </div>
       </div>
-
-
-
-<?php } ?>
+      <?php } ?>
