@@ -2,6 +2,8 @@
 require('model/client.php');
 require('dao/cnsDao.php');
 
+   var_dump($_POST);
+
 if(isset($_POST["idClient"]) && !empty($_POST["idClient"])
    &&isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["nature"]) && !empty($_POST["nature"])
@@ -15,22 +17,10 @@ if(isset($_POST["idClient"]) && !empty($_POST["idClient"])
    && isset($_POST["commentaire"]) && !empty($_POST["commentaire"])
  ) {
 
-$nature= $_POST["nature"];
-$type=$_POST["type"];
-$CP=$_POST["codePostal"];//regex
-$tel=$_POST["telephone"]; //regex
-$ca=$_POST["ca"]; //<1 000 000€/effectif
-$effectif=$_POST["effectif"];//>1
-
-if($nature!="Principale" && $nature!="Secondaire" && $nature!="Ancienne" ){
-// throw new Exception("Erreur de Nature de Societe, on essaie de vous pirater", 1);
-}
+  //  var_dump($_POST);
 
 
-
-
-
-
+try{
 
    $client = new Client();
    $client->setRaisonSociale(trim(htmlentities($_POST["raisonSociale"])));
@@ -46,7 +36,12 @@ if($nature!="Principale" && $nature!="Secondaire" && $nature!="Ancienne" ){
    $nombre = cnsDao::addNewClient($client);// A MODIFIER
 
    header("location: profilClient.php");// A MODIFIER
+}
+catch (Exception $e){
+   echo 'Exception reçue : ',  $e->getMessage(), "\n";
+header("location: view/updateClientView.module.php"); //A MODIFIER
 
+}
 
 
 

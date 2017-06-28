@@ -14,11 +14,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["commentaire"]) && !empty($_POST["commentaire"])
  ) {
 
-
-
-
-
-
+try{
 
 
    $client = new Client();
@@ -35,7 +31,12 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    $nombre = cnsDao::addNewClient($client);
 
    header("location: profilClient.php");
+ }
+catch{
 
+
+  
+}
 
 
 
