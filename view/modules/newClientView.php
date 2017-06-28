@@ -34,7 +34,7 @@ function displayNewClient(){ ?>
                   <input type="radio" name="type" name="typePublic" value="public"> Public
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="type" name="typePublic" value="privé"> Privé
+                  <input type="radio" name="type" name="typePublic" value="prive"> Privé
                 </label>
 
 
