@@ -4,27 +4,26 @@ function displayNewClient(){ ?>
   <div class="container">
     <fieldset>
       <legend>Ajouter un nouveau client</legend>
+        <div id="error"></div>
         <div class="form">
-          <form action="newClientControl.php" method="post">
+          <form action="" onsubmit="return newClient();">
             <div class="form-group">
               <label for="raisonSociale">Raison Sociale</label>
-              <input type="text" class="form-control" name="raisonSociale" placeholder="raison sociale">
+              <input type="text" class="form-control" name="raisonSociale" id="raisonSociale" placeholder="raison sociale" required>
             </div>
 
             <div class="form-group">
 
                 <label for="nature">Nature</label><br>
                 <label class="radio-inline">
-                  <input type="radio" name="nature" name="naturePrincipale" value="principale"> Principale
+                  <input type="radio" name="nature" value="principale" checked> Principale
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="nature" name="natureSecondaire" value="secondaire"> Secondaire
+                  <input type="radio" name="nature"  value="secondaire"> Secondaire
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="nature" name="natureAncienne" value="ancienne"> Ancienne
+                  <input type="radio" name="nature" value="ancienne"> Ancienne
                 </label>
-
-
             </div>
 
             <div class="form-group">
@@ -34,7 +33,7 @@ function displayNewClient(){ ?>
                   <input type="radio" name="type" name="typePublic" value="public"> Public
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="type" name="typePublic" value="prive"> Privé
+                  <input type="radio" name="type" name="typePublic" value="prive" checked> Privé
                 </label>
 
 
@@ -42,32 +41,32 @@ function displayNewClient(){ ?>
 
             <div class="form-group">
               <label for="adresse">Adresse</label>
-              <input type="text" class="form-control" name="adresse" placeholder="adresse">
+              <input type="text" class="form-control" id="adresse" name="adresse" placeholder="adresse" required>
             </div>
 
             <div class="form-group">
               <label for="ville">Ville</label>
-              <input type="text" class="form-control" name="ville" placeholder="ville">
+              <input type="text" class="form-control" id="ville" name="ville" placeholder="ville" required>
             </div>
             <div class="form-group">
               <label for="codePostal">Code Postal</label>
-              <input type="text" class="form-control" name="codePostal" placeholder="code Postal">
+              <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="code Postal" required>
             </div>
             <div class="form-group">
               <label for="telephone">Téléphone</label>
-              <input type="text" class="form-control" name="telephone" placeholder="Téléphone">
+              <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Téléphone" required>
             </div>
             <div class="form-group">
               <label for="ca">Chiffre d'Affaires</label>
-              <input type="text" class="form-control" name="ca" placeholder="Chiffre d'Affaires">
+              <input type="text" class="form-control" id="ca" name="ca" placeholder="Chiffre d'Affaires" required>
             </div>
             <div class="form-group">
               <label for="effectif">Effectif</label>
-              <input type="text" class="form-control" name="effectif" placeholder="effectif">
+              <input type="text" class="form-control" id="effectif" name="effectif" placeholder="effectif" required>
             </div>
             <div class="form-group">
               <label for="commentaire">Commentaires</label>
-              <textarea class="form-control" name="commentaire" placeholder="Commentaires" rows="3"></textarea>
+              <textarea class="form-control" id="commentaire" name="commentaire" placeholder="Commentaires" rows="3"></textarea>
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-default">Submit</button>
@@ -79,5 +78,6 @@ function displayNewClient(){ ?>
         </div>
     </fieldset>
   </div>
+  <script src="js/newClient.js" charset="utf-8"></script>
   <!-- form new client -->
 <?php } ?>

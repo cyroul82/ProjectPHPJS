@@ -31,6 +31,7 @@ class cnsDao
 
 
 //Login - Test if the couple email/password exists in DB
+//return true or false
 public static function existLogin($email, $password){
         // connection BDD
         $mysqlPDO = cnsDao::connect();
@@ -66,12 +67,11 @@ public static function getGroupUser($email){
       $rs->closeCursor();
       cnsDao::disconnect($mysqlPDO);
       return $group;
-
 }
 
-
 // add a new client to the db in client table
-public static function addNewClient($client){
+//return the number of row affected, 0 if none
+public static function addNewClient(&$client){
         $mysqlPDO = cnsDao::connect();
 
         $sql = "insert into client (CA, EFFECTIF, RAISON_SOCIALE, CODE_POSTAL, TELEPHONE, NOM_NATURE, TYPE_SOCIETE, ADRESSE_DU_CLIENT, COMMENTAIRE) values(:ca, :effectif , :raisonSociale, :codePostal, :telephone, :nature, :type, :adresse, :commentaire)";

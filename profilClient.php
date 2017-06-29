@@ -1,7 +1,9 @@
 <?php
-require('view/profilClientView.php');
-if(isset($_GET["idClient"]) && !(empty($_GET["idClient"]))){
+require("view/profilClient.view.php");
+require("model/client.php");
 
-  displayProfilClient($_GET["idClient"]);
-}
+displayPageProfilClient(new Client());
+
+
+
  ?>
