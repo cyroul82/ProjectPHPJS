@@ -210,18 +210,31 @@ public static function GetOneClientDB($idClient){
 
 
 // add a new contact to the db in contact table
-public static function addNewContact($contact){
+public static function addNewContact(&$contact){
+
         $mysqlPDO = cnsDao::connect();
 
         $sql = "insert into client (NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT) values(:nomContact, :photo , :prenomContact, :telContact, :fonctionContact)";
-        $result =$mysqlPDO->prepare($sql);
-        $result->execute(array(':nomContact'=>$contact->getNomContact(), ':photo'=>$contact->getPhoto(), ':prenomContact'=>$contact->getPrenomContact(), ':telContact'=>$contact->getTelContact(), ':fonctionContact'=>$contact->getFonctionContact()));
-        $nombre= $result->rowCount();
 
-        $result->closeCursor();
-        cnsDao::disconnect($mysqlPDO);
-        //return the number of row affected, 0 if none
-        return $nombre;
+        $statement =$mysqlPDO->prepare($sql);
+        
+        try{
+
+          $mysqlPDO->beginTransaction();
+          $statement->execute(array(':nomContact'=>$contact->getNomContact(), ':photo'=>$contact->getPhoto(), ':prenomContact'=>$contact->getPrenomContact(), ':telContact'=>$contact->getTelContact(), ':fonctionContact'=>$contact->getFonctionContact()));
+          $contact->setIdContact($mysqlPDO->lastInsertId());
+          $mysqlPDO->commit();
+          $nombre= $statement->rowCount();
+          $statement->closeCursor();
+          cnsDao::disconnect($mysqlPDO);
+          //return the number of row affected, 0 if none
+          return $nombre;
+
+        }
+        catch(PDOException $e){
+          $mysqlPDO->rollBack();
+          return 0;
+        }
   }
 
 // Fonction d'appel de la liste de tout les contacts
