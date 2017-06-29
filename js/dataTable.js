@@ -1,3 +1,3 @@
 $(document).ready(function() {
-  $('#listClientTable').DataTable();
+  table = $('#listClientTable').DataTable();
 });

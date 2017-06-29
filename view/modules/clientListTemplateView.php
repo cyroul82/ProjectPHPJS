@@ -1,7 +1,5 @@
 <?php
-
 // Display ONLY a table of Client
-
 function clientTable($data){
  ?>
 

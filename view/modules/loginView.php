@@ -18,18 +18,18 @@ function displayLogin(){
            </div>
           </div>
           <div class="form-group">
-            <a class="pull-right" href="#">Forgot password?</a>
+            <!-- <a class="pull-right" href="#">Forgot password?</a> -->
             <label for="inputPassword">Password</label>
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password" required>
             </div>
           </div>
-          <div class="checkbox pull-right">
+          <!-- <div class="checkbox pull-right">
             <label>
               <input type="checkbox" name="remember">
               Remember me </label>
-          </div>
+          </div> -->
           <button type="sumbit" class="btn btn btn-primary">Log In</button>
         </form>
         <!-- End Login From -->
@@ -40,6 +40,6 @@ function displayLogin(){
   </div>
 
   <script src="js/login.js" charset="utf-8"></script>
-  
+
  </body>
  <?php  } ?>
