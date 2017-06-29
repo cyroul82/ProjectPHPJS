@@ -19,8 +19,12 @@ function displayProfilClient($data){
           <p class="title">Adresse : <?php echo $data['ADRESSE_DU_CLIENT']; ?></p>
           <p class="title">Code Postal : <?php echo $data['CODE_POSTAL']; ?></p>
           <p class="title">Commentaire : <?php echo $data['COMMENTAIRE']; ?></p>
-  
-          <button class="btn btn-default"> <a href="#"><i class="fa fa-dribbble"></i></a> Contact</button>
+
+          <button class="btn btn-default"> <a href="#"><i class="glyphicon glyphicon-edit"></i></a> Modifier</button>
+          <button class="btn btn-default"> <a href="#"><i class="glyphicon glyphicon-remove"></i></a> Supprimer </button>
+          <button class="btn btn-default"> <a href="#"><i class="glyphicon glyphicon-phone-alt"></i></a> Ajouter Contact </button>
+
+
 
 
         </div>
