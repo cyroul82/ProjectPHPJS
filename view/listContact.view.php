@@ -10,7 +10,7 @@ function displayPageListContact($data){
 
   displayHead("Liste Contacts"); ?>
   </head>
-  <?php displayNav(); ?>
+  <?php displayNav(true); ?>
   <body>
     <?php displayListContact($data); ?>
   </body>
