@@ -2,7 +2,7 @@
 
 // Display the table of Contact
 
-function contactTable($data){
+function tableContact($data){
  ?>
 
     <div class="row">

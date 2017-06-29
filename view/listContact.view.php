@@ -12,7 +12,7 @@ function displayPageListContact($data){
   </head>
   <?php displayNav(); ?>
   <body>
-    <?php displayContactList($data); ?>
+    <?php displayListContact($data); ?>
   </body>
 
 <?php displayFooter();  }?>

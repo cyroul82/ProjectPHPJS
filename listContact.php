@@ -3,7 +3,7 @@ require("view/listContact.view.php");
 require("dao/cnsDao.php");
 
 $data = array();
-$data = cnsDao::allContactList();
+$data = cnsDao::listContact();
 
-displayPageListClient($data);
+displayPageListContact($data);
  ?>
