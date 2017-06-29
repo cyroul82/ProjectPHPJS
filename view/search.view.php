@@ -4,9 +4,7 @@
 
 // Module de présentation
 
-
-// Afficher page
-// This controller update a list of all the Clients
+// Afficher page - This controller update a list of all the Clients
 require("view/modules/footerView.php");
 require("view/modules/headView.php");
 require("view/modules/navView.php");
@@ -18,9 +16,10 @@ require("dao/cnsDao.php");
 function displayPageSearchClient(){
 displayHead("Search"); ?>
 </head>
-<?php displayNav(); ?>
+	<?php displayNav(); ?>
 <body>
-  <?php displaySearch(); ?>
+ 	<?php displaySearch(); ?>
 </body>
-
-<?php displayFooter();  }?>
+	<?php displayFooter();
+}
+?>
