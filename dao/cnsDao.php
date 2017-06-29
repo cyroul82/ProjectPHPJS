@@ -136,6 +136,7 @@ public static function addNewClient(&$client){
 }
 
 
+
     // @Nicolas GUIGNARD
     // This Function update a Client comming from copntroller updateClient.php
     // - input: a $client
@@ -208,9 +209,50 @@ public static function GetOneClientDB($idClient){
 }
 
 
+// add a new contact to the db in contact table
+public static function addNewContact($contact){
+        $mysqlPDO = cnsDao::connect();
+
+        $sql = "insert into client (NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT) values(:nomContact, :photo , :prenomContact, :telContact, :fonctionContact)";
+        $result =$mysqlPDO->prepare($sql);
+        $result->execute(array(':nomContact'=>$contact->getNomContact(), ':photo'=>$contact->getPhoto(), ':prenomContact'=>$contact->getPrenomContact(), ':telContact'=>$contact->getTelContact(), ':fonctionContact'=>$contact->getFonctionContact()));
+        $nombre= $result->rowCount();
+
+        $result->closeCursor();
+        cnsDao::disconnect($mysqlPDO);
+        //return the number of row affected, 0 if none
+        return $nombre;
+  }
+
+// Fonction d'appel de la liste de tout les contacts
+  public static function listContact(){
+        // Connection à la BDD
+        $mysqlPDO = cnsDao::connect();
+
+        // Récupère la liste de tous les contacts depuis la table contacts
+        $sql='select ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contact order by ID_CLIENT';
+        // echo $sql; // pour mise au point
+
+      // Préparation requête
+      try {
+            $rs=$mysqlPDO->prepare($sql);
+            // Exécution requête
+            $rs->execute();
+            // Lecture de tous les enregistrements et transformation en tableau associatif PHP
+            $data=$rs->fetchAll();
+            // var_dump($data) ; // pour test
 
 
-
-
+            // pour faire propre
+            $rs->closeCursor();
+            cnsDao::disconnect($mysqlPDO);
+      }
+      catch (Exception $e) {
+            // en cas erreur on affiche un message et on arrete tout
+            die("die('<h1>Erreur de lecture en base de données : </h1>".$e->getMessage());
+      }
+        // retourne le tableau associatif de resultats
+        return $data;
+  }
 }
- ?>
+?>

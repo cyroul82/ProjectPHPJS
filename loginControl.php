@@ -14,7 +14,5 @@ require ("./dao/cnsDao.php");
 
       echo "OK";
    }
-
  }
-
 ?>

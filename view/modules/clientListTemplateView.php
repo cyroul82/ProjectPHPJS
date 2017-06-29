@@ -36,4 +36,4 @@ function clientTable($data){
           </div>
           <script src="js/dataTable.js" charset="utf-8"></script>
       </div>
-      <?php } ?>
+<?php } ?>

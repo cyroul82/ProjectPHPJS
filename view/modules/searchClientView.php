@@ -5,6 +5,7 @@
 <!-- Barre de recherche -->
         <div class="container">
           <fieldset>
+
             <legend>Recherche de clients</legend>
 
             <form class="navbar-form navbar-right inline-form" onsubmit="return search();">
@@ -44,7 +45,8 @@
                   <script src="js/dataTable.js" charset="utf-8"></script>
               </div>
 
+
         </div>
         <script type="text/javascript" src="js/search.js"></script>
-<?php
-    }    ?>
+<?php } ?>
+

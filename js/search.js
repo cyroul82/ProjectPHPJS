@@ -1,7 +1,6 @@
 function search() {
   var searchValue = document.getElementById("select").value;
 
-
   // création de la variable
   var xhr;
 
@@ -36,10 +35,5 @@ function search() {
 
     }
   };
-
-
-
-
-
   return false;
 }

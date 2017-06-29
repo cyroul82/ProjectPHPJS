@@ -1,3 +1,4 @@
+
 <?php
 require ("dao/cnsDao.php");
 require ("view/modules/getListColumn.php");
