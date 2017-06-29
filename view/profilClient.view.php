@@ -4,15 +4,16 @@
   require('modules/footerView.php');
   require ('modules/profilClientView.php');
 
-  function displayPageProfilClient($client){
-
+  function displayPageProfilClient($data){
      displayHead("Profil"); ?>
-    </head>
-    <body>
-      <?php displayNav(); ?>
-      <div class="container">
-        <?php displayProfilClient($client); ?>
-      </div>
+      </head>
+      <body>
+          <?php displayNav(); ?>
+          
+          <div class="container">
+          <?php
+          displayProfilClient($data); ?>
+          </div>
     </body>
 
     <?php displayFooter(); }  ?>
