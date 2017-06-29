@@ -1,6 +1,6 @@
 <?php
 require("view/profilClient.view.php");
-require("model/client.php");
+require("model/client2.php");
 
 displayPageProfilClient(new Client());
 
