@@ -67,22 +67,6 @@ class Contact{
     }
   }
 
-/*  // Check they extention of image
-  $extension = image_type_to_extension($photo);
-    if(strtolower($extension) == '.png'){
-      $img = $this->resize_imagepng($origimg,$w, $h);
-      imagepng($img,$newimg);
-      imagedestroy($img);
-    }elseif(strtolower($extension) == '.jpeg'){
-      $img = $this->resize_imagejpeg($origimg, $w, $h);
-      imagejpeg($img, $newimg);
-      imagedestroy($img);
-    }elseif(strtolower($extension == '.gif')){
-      $img = $this->resize_imagegif($origimg, $w, $h);
-      imagegif($img,$newimg);
-      imagedestroy($img);
-  }*/
-
   public function setPrenomContact($prenomContact){
     if(!is_string($prenomContact)){
         throw new Exception("Error : the contact's first name include invalid characters.");}
