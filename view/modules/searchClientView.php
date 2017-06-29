@@ -23,10 +23,28 @@
               </div>
             </form>
 
-            </fieldset> 
-            <div class="result"></div>
+            </fieldset>
+
+            <div class="row">
+              <div class="col-xs-12 text-center">
+
+                  <table id="listClientTable" class="strip hover row-border order-column" >
+                      <thead>
+                        <tr>
+                          <!-- <th class="text-center">ID CLIENT</th> -->
+                          <th class="text-center">RAISON SOCIALE</th>
+                          <th class="text-center">TELEPHONE</th>
+                          <th class="text-center">CHIFFRE D'AFFAIRE</th>
+                          <th class="text-center">NATURE</th>
+                      </tr>
+                    </thead>
+
+                  </table>
+                  </div>
+                  <script src="js/dataTable.js" charset="utf-8"></script>
+              </div>
+
         </div>
         <script type="text/javascript" src="js/search.js"></script>
 <?php
-    }    ?> 
-
+    }    ?>
