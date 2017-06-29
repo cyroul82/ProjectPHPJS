@@ -13,7 +13,7 @@ displayHead("Accueil"); ?>
 </head>
 <body>
   <?php
-  displayNav();
+  displayNav(true);
   displayHome($erreur);
   ?>
 

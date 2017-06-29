@@ -10,7 +10,7 @@ function displayPageListClient($data){
 
   displayHead("Liste Clients"); ?>
   </head>
-  <?php displayNav(); ?>
+  <?php displayNav(true); ?>
   <body>
     <?php displayClientList($data); ?>
   </body>

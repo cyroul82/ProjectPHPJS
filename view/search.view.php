@@ -16,7 +16,7 @@ require("dao/cnsDao.php");
 function displayPageSearchClient(){
 displayHead("Search"); ?>
 </head>
-	<?php displayNav(); ?>
+	<?php displayNav(true); ?>
 <body>
  	<?php displaySearch(); ?>
 </body>

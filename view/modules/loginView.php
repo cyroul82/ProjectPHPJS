@@ -30,7 +30,7 @@ function displayLogin(){
               <input type="checkbox" name="remember">
               Remember me </label>
           </div> -->
-          <button type="sumbit" class="btn btn btn-primary">Log In</button>
+          <button type="sumbit" class="btn btn btn-success">Log In</button>
         </form>
         <!-- End Login From -->
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-function displayNav(){
+function displayNav($display){
   $bool=false;
   $group=0;
   if(isset($_SESSION["email"])){
@@ -33,15 +33,17 @@ function displayNav(){
            <?php } ?>
            <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Contact</a></li>
         </ul>
+        <?php if($display){ ?>
         <?php if(!$bool){ ?>
          <form id="signin" class="navbar-form navbar-right" role="form" action="login.php" method="post">
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-success">Login</button>
         </form>
         <?php }
         else { ?>
           <form id="signin" class="navbar-form navbar-right" role="form" action="logout.php" method="post">
-           <button type="submit" class="btn btn-primary">Logout</button>
+           <button type="submit" class="btn btn-success">Logout</button>
          </form>
+         <?php } ?>
       <?php  } ?>
       </div>
      </div>

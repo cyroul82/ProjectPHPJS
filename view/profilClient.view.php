@@ -8,8 +8,8 @@
      displayHead("Profil"); ?>
       </head>
       <body>
-          <?php displayNav(); ?>
-          
+          <?php displayNav(true); ?>
+
           <div class="container">
           <?php
           displayProfilClient($data); ?>

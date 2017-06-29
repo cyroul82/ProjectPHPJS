@@ -9,7 +9,7 @@ function displayPageNewClient(){
 displayHead("Accueil");
 ?>
 </head>
-<?php displayNav(); ?>
+<?php displayNav(true); ?>
 <body>
   <?php displayNewClient(); ?>
 </body>

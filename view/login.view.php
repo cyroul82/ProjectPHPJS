@@ -13,7 +13,7 @@ function displayPageLogin(){
 ?>
 <?php displayHead("Contact"); ?>
 </head>
-<?php displayNav(); ?>
+<?php displayNav(false); ?>
 <body>
   <?php displayLogin(""); ?>
   <?php displayMap(); ?>

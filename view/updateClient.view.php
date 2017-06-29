@@ -9,10 +9,10 @@ require('modules/updateClientView.php');
 function displayPageUpdateClient(){
   displayHead("ModifierClient"); ?>
   </head>
-  
+
   <body>
     <?php
-    displayNav();
+    displayNav(true);
     displayUpdateClient();
     ?>
   </body>
