@@ -12,7 +12,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["telephone"]) && !empty($_POST["telephone"])
    && isset($_POST["ca"]) && !empty($_POST["ca"])
    && isset($_POST["effectif"]) && !empty($_POST["effectif"])
-   && isset($_POST["commentaire"]) && !empty($_POST["commentaire"])
+   && isset($_POST["commentaire"]))
  ) {
 
   try{
@@ -54,13 +54,13 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
 
    }
   catch(Exception $e){
-    $arr = array('message' => 'nok', 'error' => $e);
+    $arr = array('message' => 'nok', 'error' => $e->getMessage());
     $json = json_encode($arr);
     echo $json;
 
    }
  }else {
-   $arr = array('message' => "nnok");
+   $arr = array('message' => "nnok", 'error'=>'Champs non valides');
    $json = json_encode($arr);
    echo $json;
  }
