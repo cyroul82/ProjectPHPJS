@@ -21,7 +21,7 @@ function displayNav(){
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="index.php">ABI Project</a>
+         <a class="navbar-brand" href="index.php"><img src="img/ABI.png" alt="logo ABI" class="img-responsive imgNav"></a>
        </div>
        <div id="myNav" class="collapse navbar-collapse">
          <ul class="nav navbar-nav">

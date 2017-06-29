@@ -6,7 +6,7 @@ function displayTitle(){
   ?>
   <div class="row">
     <div class="col-md-3">
-      <a href="#"><img src="#" border="0" class="img-responsive"/></a>
+      <a href="#"><img src="img/ABI.png" border="0" class="img-responsive"/></a>
     </div>
     <div class="col-md-9">
       <div class="row">
