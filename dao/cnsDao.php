@@ -116,11 +116,37 @@ public static function addNewClient($client){
       }
         // retourne le tableau associatif de resultats
         return $data;
-
-
-
 }
 
+// Fonction d'appel de la liste de tout les contacts
+  public static function allContactList(){
+        // Connection à la BDD
+        $mysqlPDO = cnsDao::connect();
+
+        // Récupère la liste de tous les contacts depuis la table contacts
+        $sql='select ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contact order by ID_CLIENT';
+        // echo $sql; // pour mise au point
+
+      // Préparation requête
+      try {
+            $rs=$mysqlPDO->prepare($sql);
+            // Exécution requête
+            $rs->execute();
+            // Lecture de tous les enregistrements et transformation en tableau associatif PHP
+            $data=$rs->fetchAll();
+            // var_dump($data) ; // pour test
+
+            // pour faire propre
+            $rs->closeCursor();
+            cnsDao::disconnect($mysqlPDO);
+      }
+      catch (Exception $e) {
+            // en cas erreur on affiche un message et on arrete tout
+            die("die('<h1>Erreur de lecture en base de données : </h1>".$e->getMessage());
+      }
+        // retourne le tableau associatif de resultats
+        return $data;
+  }
 
 }
- ?>
+?>

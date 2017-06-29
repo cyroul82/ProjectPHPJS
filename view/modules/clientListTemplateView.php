@@ -31,4 +31,4 @@ function clientTable($data){
           </table>
           </div>
       </div>
-      <?php } ?>
+<?php } ?>
