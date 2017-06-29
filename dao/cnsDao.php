@@ -165,7 +165,9 @@ public static function GetOneClientDB($idClient){
       $sql = 'select
               RAISON_SOCIALE,
               TELEPHONE,
-              CA, EFFECTIF, CODE_POSTAL,
+              CA,
+              EFFECTIF,
+              CODE_POSTAL,
               NOM_NATURE,
               TYPE_SOCIETE,
               ADRESSE_DU_CLIENT,
@@ -178,7 +180,7 @@ public static function GetOneClientDB($idClient){
       try {
           $result =$mysqlPDO->prepare($sql);
           $result->execute();//array($idClient));
-          $data=$result->fetchAll();
+          $data=$result->fetch(PDO::FETCH_ASSOC);
 
                   // var_dump($data);
 
