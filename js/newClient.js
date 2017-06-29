@@ -7,7 +7,7 @@ function newClient() {
     xhr = null;
     return;
   }
-  var nature='';
+  var nature = '';
   var natures = document.getElementsByName('nature');
   for (var i = 0; i < natures.length; i++) {
     if (natures[i].checked) {
@@ -15,7 +15,7 @@ function newClient() {
     }
   }
 
-  var type='';
+  var type = '';
   var types = document.getElementsByName('type');
   for (var i = 0; i < types.length; i++) {
     if (types[i].checked) {
@@ -33,31 +33,30 @@ function newClient() {
 
   xhr.open("POST", "newClientControl.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send("raisonSociale=" + raisonSociale + "&nature=" + nature  +
-  "&type=" + type +
-  "&adresse=" + adresse +
-  "&ville=" + ville +
-  "&codePostal=" + codePostal +
-  "&telephone=" + telephone +
-  "&ca=" + ca +
-  "&effectif=" + effectif +
-  "&commentaire=" + commentaire);
+  xhr.send("raisonSociale=" + raisonSociale + "&nature=" + nature +
+    "&type=" + type +
+    "&adresse=" + adresse +
+    "&ville=" + ville +
+    "&codePostal=" + codePostal +
+    "&telephone=" + telephone +
+    "&ca=" + ca +
+    "&effectif=" + effectif +
+    "&commentaire=" + commentaire);
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       console.log(xhr.responseText);
       var response = JSON.parse(xhr.responseText);
-      console.log(response);
-      if(response["message"]==="ok"){
-        window.location.href = "profilClient.php?raisonSociale=";
+      if (response["message"] === "ok") {
+        window.location.href = "profilClient.php?idClient=" + response["idClient"];
       }
-      if(response["message"]==="nok"){
-        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>"+ response["error"] +"</strong></div>";
+      if (response["message"] === "nok") {
+        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + response["error"] + "</strong></div>";
       }
-      if(response["message"]==="nnok"){
-        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>"+ response["error"] +"</strong></div>";
+      if (response["message"] === "nnok") {
+        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + response["error"] + "</strong></div>";
       }
-      if(response["message"]==="bad"){
+      if (response["message"] === "bad") {
         document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error saving into DB</strong></div>";
       }
     }

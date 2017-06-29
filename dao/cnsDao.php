@@ -75,14 +75,25 @@ public static function addNewClient(&$client){
         $mysqlPDO = cnsDao::connect();
 
         $sql = "insert into client (CA, EFFECTIF, RAISON_SOCIALE, CODE_POSTAL, TELEPHONE, NOM_NATURE, TYPE_SOCIETE, ADRESSE_DU_CLIENT, COMMENTAIRE) values(:ca, :effectif , :raisonSociale, :codePostal, :telephone, :nature, :type, :adresse, :commentaire)";
-        $result =$mysqlPDO->prepare($sql);
-        $result->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
-        $nombre= $result->rowCount();
+        $statement =$mysqlPDO->prepare($sql);
+        try{
+          $mysqlPDO->beginTransaction();
+          $statement->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
+          $client->setIdClient($mysqlPDO->lastInsertId());
+          $mysqlPDO->commit();
+          $nombre= $statement->rowCount();
+          $statement->closeCursor();
+          cnsDao::disconnect($mysqlPDO);
+          //return the number of row affected, 0 if none
+          return $nombre;
+        }
+        catch(PDOException $e){
+          $mysqlPDO->rollBack();
+          return 0;
+        }
 
-        $result->closeCursor();
-        cnsDao::disconnect($mysqlPDO);
-        //return the number of row affected, 0 if none
-        return $nombre;
+
+
   }
 
     // Fonction d'appel de la liste de tout les Clients

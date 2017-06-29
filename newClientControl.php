@@ -12,7 +12,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
    && isset($_POST["telephone"]) && !empty($_POST["telephone"])
    && isset($_POST["ca"]) && !empty($_POST["ca"])
    && isset($_POST["effectif"]) && !empty($_POST["effectif"])
-   && isset($_POST["commentaire"]))
+   && isset($_POST["commentaire"])
  ) {
 
   try{
@@ -30,6 +30,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
      $nombre = cnsDao::addNewClient($client);
      if($nombre === 1){
        $arr = array('message' => 'ok',
+                  'idClient' => $client->getIdClient(),
                   'raisonSociale' => $client->getRaisonSociale(),
                   'nature' => $client->getNature(),
                   'type' => $client->getType(),
@@ -46,7 +47,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
         echo $json;
       }
       if($nombre !== 1) {
-        $arr = array('message' => 'bad', 'error' => "failed saving into DB");
+        $arr = array('message' => 'bad', 'error' => 'failed saving into DB');
         $json = json_encode($arr);
         echo $json;
       }
@@ -60,7 +61,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
 
    }
  }else {
-   $arr = array('message' => "nnok", 'error'=>'Champs non valides');
+   $arr = array('message' => 'nnok');
    $json = json_encode($arr);
    echo $json;
  }
