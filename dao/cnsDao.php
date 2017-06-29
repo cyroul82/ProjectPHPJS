@@ -8,7 +8,7 @@ class cnsDao
 // @Nicolas GUIGNARD
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "172.16.0.56";
+        $host = "localhost";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
@@ -217,7 +217,7 @@ public static function addNewContact(&$contact){
         $sql = "insert into client (NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT) values(:nomContact, :photo , :prenomContact, :telContact, :fonctionContact)";
 
         $statement =$mysqlPDO->prepare($sql);
-        
+
         try{
 
           $mysqlPDO->beginTransaction();

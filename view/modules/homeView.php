@@ -7,9 +7,10 @@ function displayHome($erreur){
 
   <div class="container">
     <div class="jumbotron">
-      <header>
-        <?php displayTitle(); ?>
-      </header>
+        <header>
+          <?php displayTitle(); ?>
+        </header>
+
     </div>
   </div>
   <div class="container">

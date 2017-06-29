@@ -2,11 +2,10 @@
 // Display ONLY a table of Client
 function clientTable($data){
  ?>
-
+ 
     <div class="row">
-      <div class="col-xs-12 text-center">
 
-          <table id="listClientTable" class="strip hover row-border order-column" >
+          <table id="listClientTable" class="display nowrap"  >
               <thead>
                 <tr>
                   <!-- <th class="text-center">ID CLIENT</th> -->
@@ -33,7 +32,6 @@ function clientTable($data){
             </tbody>
 
           </table>
-          </div>
-          <script src="js/dataTable.js" charset="utf-8"></script>
+
       </div>
 <?php } ?>
