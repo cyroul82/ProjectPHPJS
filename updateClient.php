@@ -22,14 +22,14 @@ if(
    && isset($_GET["commentaire"]) //&& !empty($_GET["commentaire"])
  ) {
 
-    // var_dump("dans if");
+
     // var_dump($_GET);
 
     try{
 
       $client = new Client();
 
-      $client->setIdClient(4);
+      // $client->setIdClient(trim(htmlentities($_GET["idClient"])));
       $client->setEffectif(trim(htmlentities($_GET["effectif"])));
        $client->setRaisonSociale(trim(htmlentities($_GET["raisonSociale"])));
        $client->setNature(trim(htmlentities($_GET["nature"])));

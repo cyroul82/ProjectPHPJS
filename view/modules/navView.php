@@ -33,8 +33,8 @@ function displayNav($display){
            <?php } ?>
            <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Contact</a></li>
         </ul>
-        <?php if($display){ ?>
-        <?php if(!$bool){ ?>
+        <?php if($display){
+         if(!$bool){ ?>
          <form id="signin" class="navbar-form navbar-right" role="form" action="login.php" method="post">
           <button type="submit" class="btn btn-success">Login</button>
         </form>
@@ -43,8 +43,8 @@ function displayNav($display){
           <form id="signin" class="navbar-form navbar-right" role="form" action="logout.php" method="post">
            <button type="submit" class="btn btn-success">Logout</button>
          </form>
-         <?php } ?>
-      <?php  } ?>
+         <?php } } ?>
+
       </div>
      </div>
    </nav>

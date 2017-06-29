@@ -16,6 +16,7 @@ function displayTitle(){
           <div class="lead">
             Commercial Management
           </div>
+            <h1>Bienvenue !</h1>
         </div>
       </div>
     </div>
