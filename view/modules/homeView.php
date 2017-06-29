@@ -15,8 +15,7 @@ function displayHome($erreur){
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <h1>Bienvenue !</h1>
-        <?php if(!empty($erreur)){ ?>
+          <?php if(!empty($erreur)){ ?>
           <div class="alert alert-danger" role="alert">
             <strong>Damn it !</strong> <?php echo $erreur; ?>
           </div>
