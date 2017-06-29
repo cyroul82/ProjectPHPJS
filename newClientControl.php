@@ -1,5 +1,5 @@
 <?php
-require('model/client2.php');
+require('model/client.php');
 require('dao/cnsDao.php');
 header('Content-Type: application/json');
 
