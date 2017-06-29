@@ -4,16 +4,15 @@ function displayUpdateClient(){
 ?>
 <div class="container">
   <fieldset>
-    <legend>Modifier le client</legend>
+    <legend>Modifier ce client</legend>
       <div class="form">
-        <form action="updateClientControl.php" method="post"> <?php //TODO A FAIRE et qu'ca saute !!!!?>
+        <form action="updateClient.php" method="get">
           <div class="form-group">
             <label for="raisonSociale">Raison Sociale</label>
             <input type="text" class="form-control" name="raisonSociale" placeholder="raison sociale">
           </div>
 
           <div class="form-group">
-
               <label for="nature">Nature</label><br>
               <label class="radio-inline">
                 <input type="radio" name="nature" name="naturePrincipale" value="principale"> Principale
@@ -24,12 +23,9 @@ function displayUpdateClient(){
               <label class="radio-inline">
                 <input type="radio" name="nature" name="natureAncienne" value="ancienne"> Ancienne
               </label>
-
-
           </div>
 
           <div class="form-group">
-
               <label for="raisonSociale">Type</label><br>
               <label class="radio-inline">
                 <input type="radio" name="type" name="typePublic" value="public"> Public
@@ -37,8 +33,6 @@ function displayUpdateClient(){
               <label class="radio-inline">
                 <input type="radio" name="type" name="typePublic" value="privé"> Privé
               </label>
-
-
           </div>
 
           <div class="form-group">

@@ -29,8 +29,7 @@ if(
 
       $client = new Client();
 
-    // $client->setEffectif(trim(htmlentities($_GET["idClient"])));
-
+      $client->setIdClient(4);
       $client->setEffectif(trim(htmlentities($_GET["effectif"])));
        $client->setRaisonSociale(trim(htmlentities($_GET["raisonSociale"])));
        $client->setNature(trim(htmlentities($_GET["nature"])));
@@ -44,11 +43,16 @@ if(
        $client->setCommentaire(trim(htmlentities($_GET["commentaire"])));
 
 // var_dump( (intval($_GET["idClient"]))  );
-// var_dump($client);
+// var_dump($client->getIdClient());
 
-      cnsDao::UpdateClientDB($client);
-
-  //  header("location: profilClient.php");// A MODIFIER
+      $reponse=cnsDao::UpdateClientDB($client);
+      if($reponse=1){echo'Le Client '. $client->getRaisonSociale().' est bien modifié';
+      }
+      else{
+          $mes='Probleme pour mettre a jour le Client. le nombre de Client modifié est : '.$reponse;
+          throw new Exception($mes);
+      }
+      header("location: view/search.view.php");// A MODIFIER
   }
 catch (Exception $e){
        echo 'Exception reçue : ',  $e->getMessage(), "\n";
