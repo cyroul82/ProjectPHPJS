@@ -8,7 +8,6 @@ function displayNav(){
   }
   if(isset($_SESSION["group"])){
     $group = $_SESSION["group"];
-
   }
 
  ?>
