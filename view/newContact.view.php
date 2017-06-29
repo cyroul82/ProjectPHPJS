@@ -9,7 +9,7 @@ function displayPageNewContact(){
 displayHead("Accueil");
 ?>
 </head>
-<?php displayNav(); ?>
+<?php displayNav(true); ?>
 <body>
   <?php displayNewContact(); ?>
 </body>
