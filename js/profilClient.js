@@ -8,8 +8,8 @@ var btnAddContact = document.getElementById('btnAddContact');
 
 
 btnModifier.addEventListener("click", function(e){
-  var idClient = document.getElementById('idClient').innerHTML.value;
-  location.href=
-
-
-},false);
+  var idClient1 = document.getElementById('idClient');
+  var idClient =  idClient1.innerHTML.value;
+  location.href=www.google.com;
+}
+,false);

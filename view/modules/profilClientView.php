@@ -23,9 +23,9 @@ function displayProfilClient($data){
 
           <span id="idClient" style="visibility: hidden;"><?php echo $data['RAISON_SOCIALE']; ?></span>
 
-          <button class="btn btn-default" id="btnModifier"> <a href="#"><i class="glyphicon glyphicon-edit"></i></a> Modifier</button>
-          <button class="btn btn-default" id="btnSupprimer"> <a href="#"><i class="glyphicon glyphicon-remove"></i></a> Supprimer </button>
-          <button class="btn btn-default" id="btnAddContact"> <a href="#"><i class="glyphicon glyphicon-phone-alt"></i></a> Ajouter Contact </button>
+          <button class="btn btn-primary btn-sm" id="btnModifier"> <a href="#"><i class="glyphicon glyphicon-edit"></i></a></button>
+          <button class="btn btn-primary btn-sm" id="btnSupprimer"> <a href="#"><i class="glyphicon glyphicon-trash"></i></a></button>
+
 
 
 

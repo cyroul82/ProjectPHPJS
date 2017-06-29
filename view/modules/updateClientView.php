@@ -1,6 +1,7 @@
 <?php
-function displayUpdateClient(){
-
+function displayUpdateClient($data){
+var_dump("displayUpdateClient")
+var_dump($data);
 ?>
 <div class="container">
   <fieldset>
