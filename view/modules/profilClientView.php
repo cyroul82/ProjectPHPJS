@@ -8,7 +8,7 @@ function displayProfilClient($data){
   <div class="row">
     <div class="col-md-6">
         <div class="containerCard">
-
+<?php var_dump($data); ?>
           <h2><?php echo $data['RAISON_SOCIALE']; ?></h2>
           <hr>
           <p class="title">Téléphone : <?php echo $data['TELEPHONE']; ?></p>
@@ -20,9 +20,12 @@ function displayProfilClient($data){
           <p class="title">Code Postal : <?php echo $data['CODE_POSTAL']; ?></p>
           <p class="title">Commentaire : <?php echo $data['COMMENTAIRE']; ?></p>
 
-          <button class="btn btn-default"> <a href="#"><i class="glyphicon glyphicon-edit"></i></a> Modifier</button>
-          <button class="btn btn-default"> <a href="#"><i class="glyphicon glyphicon-remove"></i></a> Supprimer </button>
-          <button class="btn btn-default"> <a href="#"><i class="glyphicon glyphicon-phone-alt"></i></a> Ajouter Contact </button>
+
+          <span id="idClient" style="visibility: hidden;"><?php echo $data['RAISON_SOCIALE']; ?></span>
+
+          <button class="btn btn-default" id="btnModifier"> <a href="#"><i class="glyphicon glyphicon-edit"></i></a> Modifier</button>
+          <button class="btn btn-default" id="btnSupprimer"> <a href="#"><i class="glyphicon glyphicon-remove"></i></a> Supprimer </button>
+          <button class="btn btn-default" id="btnAddContact"> <a href="#"><i class="glyphicon glyphicon-phone-alt"></i></a> Ajouter Contact </button>
 
 
 
@@ -56,7 +59,9 @@ function displayProfilClient($data){
 </div>
 
 
+<script type="text/javascript" src="js/profilClient.js">
 
+</script>
 
 
 <?php } ?>
