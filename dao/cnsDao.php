@@ -116,10 +116,45 @@ public static function addNewClient(&$client){
       }
         // retourne le tableau associatif de resultats
         return $data;
-
-
-
 }
+
+
+
+    // This Function update a Client comming from copntroller updateClient.php
+    // - input: a $client
+    // - out: the number of row updated
+      public static function UpdateClientDB($client){
+            $mysqlPDO = cnsDao::connect();
+              // var_dump($client->getIdClient());
+            $sql = 'update client set
+              CA = :ca,
+              EFFECTIF=:effectif,
+              RAISON_SOCIALE=:raisonSociale,
+              CODE_POSTAL=:codePostal,
+              TELEPHONE=:telephone,
+              NOM_NATURE=:nature,
+              TYPE_SOCIETE=:type,
+              ADRESSE_DU_CLIENT=:adresse,
+              COMMENTAIRE=:commentaire
+              where ID_CLIENT ='.$client->getIdClient();
+                // var_dump($sql);
+
+            $result =$mysqlPDO->prepare($sql);
+            $result->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
+            $nombre= $result->rowCount();
+
+            $result->closeCursor();
+            cnsDao::disconnect($mysqlPDO);
+            //return the number of row affected, 0 if none
+            return $nombre;
+      }
+
+
+
+
+
+
+
 
 
 }
