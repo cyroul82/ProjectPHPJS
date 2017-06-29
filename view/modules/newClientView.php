@@ -9,7 +9,7 @@ function displayNewClient(){ ?>
           <form action="" onsubmit="return newClient();">
             <div class="form-group">
               <label for="raisonSociale">Raison Sociale</label>
-              <input type="text" class="form-control" name="raisonSociale" id="raisonSociale" placeholder="raison sociale">
+              <input type="text" class="form-control" name="raisonSociale" id="raisonSociale" placeholder="raison sociale" required>
             </div>
 
             <div class="form-group">
@@ -41,28 +41,28 @@ function displayNewClient(){ ?>
 
             <div class="form-group">
               <label for="adresse">Adresse</label>
-              <input type="text" class="form-control" id="adresse" name="adresse" placeholder="adresse">
+              <input type="text" class="form-control" id="adresse" name="adresse" placeholder="adresse" required>
             </div>
 
             <div class="form-group">
               <label for="ville">Ville</label>
-              <input type="text" class="form-control" id="ville" name="ville" placeholder="ville">
+              <input type="text" class="form-control" id="ville" name="ville" placeholder="ville" required>
             </div>
             <div class="form-group">
               <label for="codePostal">Code Postal</label>
-              <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="code Postal">
+              <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="code Postal" required>
             </div>
             <div class="form-group">
               <label for="telephone">Téléphone</label>
-              <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Téléphone">
+              <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Téléphone" required>
             </div>
             <div class="form-group">
               <label for="ca">Chiffre d'Affaires</label>
-              <input type="text" class="form-control" id="ca" name="ca" placeholder="Chiffre d'Affaires">
+              <input type="text" class="form-control" id="ca" name="ca" placeholder="Chiffre d'Affaires" required>
             </div>
             <div class="form-group">
               <label for="effectif">Effectif</label>
-              <input type="text" class="form-control" id="effectif" name="effectif" placeholder="effectif">
+              <input type="text" class="form-control" id="effectif" name="effectif" placeholder="effectif" required>
             </div>
             <div class="form-group">
               <label for="commentaire">Commentaires</label>
