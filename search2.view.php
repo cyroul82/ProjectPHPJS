@@ -6,12 +6,13 @@ require("view/footerView.php");
 require("view/headView.php");
 require("view/navView.php");
 require("view/titleView.php");
+
 require("view/searchClientView.php");
 
  displayHead("Liste Clients"); ?>
 </head>
 <body>
- <?php displayNav(); 
+ <?php displayNav();
  displaySearch2();
  ?>
 

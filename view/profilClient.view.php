@@ -11,7 +11,13 @@
     <body>
       <?php displayNav(); ?>
       <div class="container">
+
+
+
         <?php displayProfilClient($client); ?>
+
+
+        
       </div>
     </body>
 

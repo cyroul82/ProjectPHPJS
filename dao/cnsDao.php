@@ -5,6 +5,7 @@
 class cnsDao
 {
 
+// @Nicolas GUIGNARD
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
         $host = "172.16.0.56";
@@ -24,6 +25,7 @@ class cnsDao
         return $mysqlPDO;
 }
 
+// @Nicolas GUIGNARD
   // DB - Disconnect------------------------------------------------------------------------
   private static function disconnect($mysqlPDO){
         unset($mysqlPDO);// détruit objet PDO
@@ -69,6 +71,7 @@ public static function getGroupUser($email){
       return $group;
 }
 
+// @Nicolas GUIGNARD
 // add a new client to the db in client table
 //return the number of row affected, 0 if none
 public static function addNewClient(&$client){
@@ -85,7 +88,9 @@ public static function addNewClient(&$client){
         return $nombre;
   }
 
-    // Fonction d'appel de la liste de tout les Clients
+
+// @Nicolas GUIGNARD
+// Fonction d'appel de la liste de tout les Clients
   public static function AllClientList(){
       //connection BDD
         $mysqlPDO = cnsDao::connect();
@@ -112,14 +117,14 @@ public static function addNewClient(&$client){
       }
       catch (Exception $e) {
             // en cas erreur on affiche un message et on arrete tout
-            die("die('<h1>Erreur de lecture en base de données : </h1>".$e->getMessage());
+            die('<h1>Erreur de lecture en base de données : </h1>'.$e->getMessage());
       }
         // retourne le tableau associatif de resultats
         return $data;
 }
 
 
-
+    // @Nicolas GUIGNARD
     // This Function update a Client comming from copntroller updateClient.php
     // - input: a $client
     // - out: the number of row updated
@@ -149,8 +154,44 @@ public static function addNewClient(&$client){
             return $nombre;
       }
 
+// @Nicolas GUIGNARD
+// GetOneClientDB -
+ // get the client  id (type integer) from different controllers ,
+// return all values concerning the client which id is $idClient
+public static function GetOneClientDB($idClient){
+      $mysqlPDO = cnsDao::connect();
+              // var_dump($idClient);
 
+      $sql = 'select
+              RAISON_SOCIALE,
+              TELEPHONE,
+              CA, EFFECTIF, CODE_POSTAL,
+              NOM_NATURE,
+              TYPE_SOCIETE,
+              ADRESSE_DU_CLIENT,
+              COMMENTAIRE
+              from client
+              where ID_CLIENT ='.$idClient.';';
 
+                  // var_dump($sql);
+
+      try {
+          $result =$mysqlPDO->prepare($sql);
+          $result->execute();//array($idClient));
+          $data=$result->fetchAll();
+
+                  // var_dump($data);
+
+          $result->closeCursor();
+          cnsDao::disconnect($mysqlPDO);
+          return $data;
+
+      }
+      catch (Exception $e) {
+            // en cas erreur on affiche un message et on arrete tout
+            die('<h1>Erreur de lecture du Client'.$idClient.'en base de données : </h1>'.$e->getMessage());
+      }
+}
 
 
 

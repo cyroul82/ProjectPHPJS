@@ -6,7 +6,7 @@ function displayClientList($data){
 ?>
   <div class="container">
     <fieldset>
-      <legend>Liste de tous les clients</legend>
+      <legend>Liste clients</legend>
             <?php clientTable($data);?>
     </fieldset>
   </div>
