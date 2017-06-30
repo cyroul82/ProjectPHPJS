@@ -7,9 +7,9 @@ require('modules/updateClientView.php');
 
 
 function displayPageUpdateClient($data){
-  displayHead("ModifierClient"); ?>
-  </head>
+  displayHead("upDateClient"); ?>
 
+  </head>
   <body>
     <?php
     displayNav(true);

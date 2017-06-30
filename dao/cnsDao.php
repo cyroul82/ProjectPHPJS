@@ -176,6 +176,7 @@ public static function GetOneClientDB($idClient){
               // var_dump($idClient);
 
       $sql = 'select
+              ID_CLIENT,
               RAISON_SOCIALE,
               TELEPHONE,
               CA,
@@ -217,7 +218,7 @@ public static function addNewContact(&$contact){
         $sql = "insert into client (NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT) values(:nomContact, :photo , :prenomContact, :telContact, :fonctionContact)";
 
         $statement =$mysqlPDO->prepare($sql);
-        
+
         try{
 
           $mysqlPDO->beginTransaction();
