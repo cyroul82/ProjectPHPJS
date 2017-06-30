@@ -2,7 +2,7 @@
 
 // Display the table of Contact
 
-function tableContact($data){
+function tableContact($listContact){
  ?>
           <table id="listClientTable" class="strip hover row-border order-column" >
               <thead>
@@ -16,7 +16,7 @@ function tableContact($data){
             <tbody>
 
                 <?php // liste des Clients issus du recordset
-                foreach($data as $row){
+                foreach($listContact as $row){
                 ?>
                 <tr>
                     <!-- <td><a href="profilContact.php?idContact=<?php echo $row['ID_CONTACT']; ?>"><?php echo $row['ID_CONTACT']?></a></td>

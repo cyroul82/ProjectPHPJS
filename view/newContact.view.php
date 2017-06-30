@@ -5,13 +5,13 @@ require("view/modules/navView.php");
 require("view/modules/titleView.php");
 require("view/modules/newContactView.php");
 
-function displayPageNewContact(){
+function displayPageNewContact($idClient){
 displayHead("Accueil");
 ?>
 </head>
 <?php displayNav(true); ?>
 <body>
-  <?php displayNewContact(); ?>
+  <?php displayNewContact($idClient); ?>
 </body>
 
 <?php displayFooter();  }?>
