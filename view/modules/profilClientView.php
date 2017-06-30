@@ -5,14 +5,14 @@ function displayProfilClient($client){
   <div class="">
     <fieldset>
       <legend>
-            <?php echo $data['RAISON_SOCIALE']; ?>
+            <?php echo $client['RAISON_SOCIALE']; ?>
       </legend>
       <div class="row">
         <div class="col-xs-5">
           <strong>Téléphone : </strong>
         </div>
         <div class="col-xs-7">
-          <span><?php echo $data['TELEPHONE']; ?></span>
+          <span><?php echo $client['TELEPHONE']; ?></span>
         </div>
       </div>
       <div class="row">
@@ -20,7 +20,7 @@ function displayProfilClient($client){
           <strong>Nature : </strong>
         </div>
         <div class="col-xs-7">
-          <span><?php echo $data['NOM_NATURE']; ?></span>
+          <span><?php echo $client['NOM_NATURE']; ?></span>
         </div>
       </div>
       <div class="row">
@@ -28,7 +28,7 @@ function displayProfilClient($client){
             <strong>Type : </strong>
           </div>
           <div class="col-xs-7">
-            <span><?php echo $data['TYPE_SOCIETE']; ?></span>
+            <span><?php echo $client['TYPE_SOCIETE']; ?></span>
           </div>
       </div>
       <div class="row">
@@ -36,7 +36,7 @@ function displayProfilClient($client){
           <strong>Adresse : </strong>
         </div>
         <div class="col-xs-7">
-          <span><?php echo $data['ADRESSE_DU_CLIENT']; ?></span>
+          <span><?php echo $client['ADRESSE_DU_CLIENT']; ?></span>
         </div>
       </div>
       <div class="row">
@@ -44,7 +44,7 @@ function displayProfilClient($client){
           <strong>Code Postal : </strong>
         </div>
         <div class="col-xs-7">
-          <span><?php echo $data['CODE_POSTAL']; ?></span>
+          <span><?php echo $client['CODE_POSTAL']; ?></span>
         </div>
       </div>
       <div class="row">
@@ -52,7 +52,7 @@ function displayProfilClient($client){
           <strong>CA : </strong>
         </div>
         <div class="col-xs-7">
-          <span><?php echo $data['CA']; ?></span>
+          <span><?php echo $client['CA']; ?></span>
         </div>
       </div>
       <div class="row">
@@ -60,7 +60,7 @@ function displayProfilClient($client){
           <strong>Effectif : </strong>
         </div>
         <div class="col-xs-7">
-          <span><?php echo $data['EFFECTIF']; ?></span>
+          <span><?php echo $client['EFFECTIF']; ?></span>
         </div>
       </div>
       <div class="row">
@@ -68,7 +68,7 @@ function displayProfilClient($client){
           <strong>Commentaire : </strong>
         </div>
         <div class="col-xs-7">
-          <span><?php echo $data['COMMENTAIRE']; ?></span>
+          <span><?php echo $client['COMMENTAIRE']; ?></span>
         </div>
       </div>
 
@@ -83,7 +83,7 @@ function displayProfilClient($client){
       </div>
 
 
-      <span id="idClient" style="visibility: hidden;"><?php echo $data['RAISON_SOCIALE']; ?></span>
+      <span id="idClient" style="visibility: hidden;"><?php echo $client['RAISON_SOCIALE']; ?></span>
 
 
     </fieldset>
