@@ -20,7 +20,7 @@ function displayNav($display){
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="index.php"><img src="img/ABI.png" alt="logo ABI" class="img-responsive imgNav"></a>
+         <a class="navbar-brand" href="index.php"><img src="img/ABI5.png" alt="logo ABI" class="img-responsive imgNav"></a>
        </div>
        <div id="myNav" class="collapse navbar-collapse">
          <ul class="nav navbar-nav">
