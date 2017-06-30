@@ -4,7 +4,7 @@ require("contactListTemplateView.php");
 function displayListContact($listContact){
 ?>
     <fieldset>
-      <legend>Liste de tous les contacts</legend>
+      <legend>Liste des contacts</legend>
             <?php tableContact($listContact);?>
     </fieldset>
 

@@ -13,12 +13,12 @@
 
           <div class="container">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <?php
                     displayProfilClient($profilClient); ?>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-8">
                  <?php
                     displayListContact($listContact); ?>
                     <div id="ex1" style="display:none;">

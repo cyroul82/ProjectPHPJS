@@ -188,15 +188,12 @@ public static function GetOneClientDB($idClient){
               from client
               where ID_CLIENT ='.$idClient.';';
 
-                  // var_dump($sql);
-
       try {
           $result =$mysqlPDO->prepare($sql);
           $result->execute();//array($idClient));
           $data=$result->fetch(PDO::FETCH_ASSOC);
-
-                  // var_dump($data);
-
+          if($data["NOM_NATURE"]==="principale")$data["NOM_NATURE"]="Principale";
+          if($data["TYPE_SOCIETE"]==="prive")$data["TYPE_SOCIETE"]="Privé";
           $result->closeCursor();
           cnsDao::disconnect($mysqlPDO);
           return $data;
