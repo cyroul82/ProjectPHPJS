@@ -4,9 +4,8 @@ require("contactListTemplateView.php");
 function displayListContact($profilClient, $listContact){
   $idClient = $profilClient['ID_CLIENT'];
 ?>
-  <div class="container">
     <fieldset>
-      <legend>Liste de tous les contacts</legend>
+      <legend>Liste des contacts</legend>
             <?php tableContact($listContact);?>
     </fieldset>
 
@@ -16,6 +15,4 @@ function displayListContact($profilClient, $listContact){
 
    	<button class="btn btn-default" onclick="location.href='newContact.php?idClient=' + <?php echo $idClient ?>"> <i class="glyphicon glyphicon glyphicon-plus"> </i> Add</button>
 
-
-  </div>
   <?php } ?>

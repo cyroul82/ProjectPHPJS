@@ -4,9 +4,8 @@ function clientTable($data){
  ?>
 
     <div class="row">
-      <div class="col-xs-12 text-center">
 
-          <table id="listClientTable" class="strip hover row-border order-column" >
+          <table id="listClientTable" class="display nowrap"  >
               <thead>
                 <tr>
                   <!-- <th class="text-center">ID CLIENT</th> -->
@@ -24,16 +23,15 @@ function clientTable($data){
                 <tr>
                     <!-- <td><a href="profilClient.php?idClient=<?php echo $row['ID_CLIENT']; ?>"><?php echo $row['ID_CLIENT']?></a></td> -->
 
-                    <td><a href="profilClient.php?idClient=<?php echo $row['ID_CLIENT']; ?>"><?php echo $row['RAISON_SOCIALE']?></a></td>
-                    <td><?php echo $row['TELEPHONE']?></td>
-                    <td><?php echo $row['CA']?></td>
-                    <td><?php echo $row['NOM_NATURE']?></td>
+                    <td class="text-center"><a href="profilClient.php?idClient=<?php echo $row['ID_CLIENT']; ?>"><?php echo $row['RAISON_SOCIALE']?></a></td>
+                    <td class="text-center"><?php echo $row['TELEPHONE']?></td>
+                    <td class="text-center"><?php echo $row['CA']?></td>
+                    <td class="text-center"><?php echo $row['NOM_NATURE']?></td>
                 </tr>
               <?php } ?>
             </tbody>
 
           </table>
-          </div>
-          <script src="js/dataTable.js" charset="utf-8"></script>
+
       </div>
 <?php } ?>

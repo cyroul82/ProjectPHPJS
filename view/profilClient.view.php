@@ -20,11 +20,17 @@
 
               <div class="col-md-8">
                  <?php
-                    displayListContact($profilClient, $listContact); ?>
+
+                    displayListContact($listContact); ?>
+                    <div id="ex1" style="display:none;">
+    <p>Thanks for clicking.  That felt good.  <a href="#" rel="modal:close">Close</a> or press ESC</p>
+  </div>
+   <p><a href="#ex1" rel="modal:open">Open Modal</a></p>
+
               </div>
             </div>
           </div>
-         
+
     </body>
 
     <?php displayFooter(); }  ?>

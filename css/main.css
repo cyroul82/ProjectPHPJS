@@ -1,7 +1,9 @@
 body {
   padding-top: 70px;
 }
-
+.container-fluid{
+  padding:0!important;
+}
 .main {
   max-width: 320px;
   margin: 0 auto;
@@ -9,7 +11,7 @@ body {
 }
 
 .form {
-  max-width: 500px;
+  /*max-width: 500px;*/
   margin: 0 auto 0 auto;
 }
 
@@ -29,7 +31,7 @@ body {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 400px;
-  text-align: center;
+  padding:20px;
 }
 
 .containerCard {
@@ -40,5 +42,12 @@ body {
   color: grey;
   font-size: 18px;
   text-align: left;
-  padding-left: 50px;
+}
+
+.clientDetail{
+  margin-left: 20px;
+}
+
+.actionBtn{
+  margin-top:10px;
 }
