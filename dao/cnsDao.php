@@ -244,13 +244,12 @@ public static function addNewContact(&$contact){
   }
 
 // Fonction d'appel de la liste de tout les contacts
-  public static function listContact(){
+  public static function listContact($idClient){
         // Connection à la BDD
         $mysqlPDO = cnsDao::connect();
 
         // Récupère la liste de tous les contacts depuis la table contacts
-        $sql='select ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contact order by ID_CLIENT';
-        // echo $sql; // pour mise au point
+        $sql="select contacts.ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contacts inner join client on contacts.ID_CLIENT = client.ID_CLIENT where contacts.ID_CLIENT=$idClient;";
 
       // Préparation requête
       try {

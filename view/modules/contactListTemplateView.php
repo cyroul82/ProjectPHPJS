@@ -24,7 +24,7 @@ function tableContact($listContact){
                     <td><?php echo $row['ID_CONTACT_CLIENT']?></td> -->
                     <td class="text-center"><?php echo $row['NOM_CONTACT']?></td>
                     <td class="text-center"><?php echo $row['PRENOM_CONTACT']?></td>
-                    <td class="text-center"><?php echo $row['TELEPHONE']?></td>
+                    <td class="text-center"><?php echo $row['TEL_CONTACT']?></td>
                     <td class="text-center"><?php echo $row['FONCTION_CONTACT']?></td>
               </tr>
               <?php } ?>

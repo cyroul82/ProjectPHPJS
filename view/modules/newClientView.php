@@ -78,8 +78,8 @@ function displayNewClient(){ ?>
         </div>
         </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-default">Submit</button>
-          <button type="reset" class="btn btn-default">Reset</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="reset" class="btn btn-success">Reset</button>
         </div>
 
       </form>
