@@ -1,7 +1,7 @@
 <?php
 function displayProfilClient($client){
   ?>
-
+  
   <div class="">
     <fieldset>
       <legend>

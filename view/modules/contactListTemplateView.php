@@ -32,6 +32,5 @@ function tableContact($listContact){
 
           </table>
 
-          <script src="js/contactTable.js" charset="utf-8"></script>
 
 <?php } ?>

@@ -29,6 +29,7 @@
         }
       };
 
+
   $.modal = function(el, options) {
     var remove, target;
     this.$body = $('body');

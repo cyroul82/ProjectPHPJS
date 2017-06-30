@@ -7,8 +7,11 @@
 
   function displayPageProfilClient($profilClient, $listContact){
      displayHead("Profil"); ?>
+     <script src="js/contactTable.js" charset="utf-8"></script>
       </head>
+
       <body>
+
           <?php displayNav(true); ?>
 
           <div class="container">
@@ -22,11 +25,6 @@
                  <?php
 
                     displayListContact($profilClient, $listContact); ?>
-                    <div id="ex1" style="display:none;">
-    <p>Thanks for clicking.  That felt good.  <a href="#" rel="modal:close">Close</a> or press ESC</p>
-  </div>
-   <p><a href="#ex1" rel="modal:open">Open Modal</a></p>
-
               </div>
             </div>
           </div>

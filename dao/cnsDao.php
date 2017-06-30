@@ -8,7 +8,7 @@ class cnsDao
 // @Nicolas GUIGNARD
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "172.16.0.56";
+        $host = "localhost";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
@@ -185,7 +185,7 @@ public static function GetOneClientDB($idClient){
               NOM_NATURE,
               TYPE_SOCIETE,
               ADRESSE_DU_CLIENT,
-              COMMENTAIRE, 
+              COMMENTAIRE,
               ID_CLIENT
               from client
               where ID_CLIENT ='.$idClient.';';
@@ -220,9 +220,9 @@ public static function addNewContact(&$contact){
         try{
 
           $mysqlPDO->beginTransaction();
-          $statement->execute(array(':nomContact'=>$contact->getNomContact(), 
-                                    ':prenomContact'=>$contact->getPrenomContact(), 
-                                    ':telContact'=>$contact->getTelContact(), 
+          $statement->execute(array(':nomContact'=>$contact->getNomContact(),
+                                    ':prenomContact'=>$contact->getPrenomContact(),
+                                    ':telContact'=>$contact->getTelContact(),
                                     ':fonctionContact'=>$contact->getFonctionContact(),
                                     ':idClient'=>$contact->getIdClient()));
 
