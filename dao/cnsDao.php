@@ -75,6 +75,7 @@ public static function addNewClient(&$client){
           $mysqlPDO->beginTransaction();
           $statement->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
           $client->setIdClient($mysqlPDO->lastInsertId());
+
           $mysqlPDO->commit();
           $nombre= $statement->rowCount();
           $statement->closeCursor();
@@ -89,7 +90,7 @@ public static function addNewClient(&$client){
   }
 
 // Fonction d'appel de la liste de tout les Clients
-  public static function AllClientList(){
+  public static function getClientsList(){
         $mysqlPDO = cnsDao::connect();
         $sql='select ID_CLIENT, RAISON_SOCIALE, TELEPHONE, CA,NOM_NATURE  from client order by RAISON_SOCIALE';
 
@@ -116,7 +117,7 @@ public static function addNewClient(&$client){
     // This Function update a Client comming from copntroller updateClient.php
     // - input: a $client
     // - out: the number of row updated
-      public static function UpdateClientDB($client){
+      public static function updateClient($client){
             $mysqlPDO = cnsDao::connect();
               // var_dump($client->getIdClient());
             $sql = 'update client set
@@ -142,11 +143,10 @@ public static function addNewClient(&$client){
             return $nombre;
       }
 
-// @Nicolas GUIGNARD
 // GetOneClientDB -
  // get the client  id (type integer) from different controllers ,
 // return all values concerning the client which id is $idClient
-public static function GetOneClientDB($idClient){
+public static function getClientById($idClient){
       $mysqlPDO = cnsDao::connect();
               // var_dump($idClient);
 
@@ -182,6 +182,41 @@ public static function GetOneClientDB($idClient){
       }
 }
 
+public static function getClientByRaisonSociale($raisonSociale){
+      $mysqlPDO = cnsDao::connect();
+              // var_dump($idClient);
+
+      $sql = 'select
+              ID_CLIENT,
+              RAISON_SOCIALE,
+              TELEPHONE,
+              CA,
+              EFFECTIF,
+              CODE_POSTAL,
+              NOM_NATURE,
+              TYPE_SOCIETE,
+              ADRESSE_DU_CLIENT,
+              COMMENTAIRE,
+              ID_CLIENT
+              from client
+              where RAISON_SOCIALE ='.$raisonSociale.';';
+
+      try {
+          $result =$mysqlPDO->prepare($sql);
+          $result->execute();//array($idClient));
+          $client=$result->fetch(PDO::FETCH_ASSOC);
+          if($client["NOM_NATURE"]==="principale")$client["NOM_NATURE"]="Principale";
+          if($client["TYPE_SOCIETE"]==="prive")$client["TYPE_SOCIETE"]="Privé";
+          $result->closeCursor();
+          cnsDao::disconnect($mysqlPDO);
+          return $client;
+
+      }
+      catch (Exception $e) {
+            // en cas erreur on affiche un message et on arrete tout
+            die('<h1>Erreur de lecture du Client'.$idClient.'en base de données : </h1>'.$e->getMessage());
+      }
+}
 
 // add a new contact to the db in contact table
 public static function addNewContact(&$contact){
@@ -201,8 +236,6 @@ public static function addNewContact(&$contact){
                                     ':fonctionContact'=>$contact->getFonctionContact(),
                                     ':idClient'=>$contact->getIdClient()));
 
-          var_dump("last inserted id : " . $mysqlPDO->lastInsertId());
-
           $contact->setIdContact($mysqlPDO->lastInsertId());
           $mysqlPDO->commit();
           $nombre= $statement->rowCount();
@@ -219,7 +252,7 @@ public static function addNewContact(&$contact){
   }
 
 // Fonction d'appel de la liste de tout les contacts
-  public static function listContact($idClient){
+  public static function getContactsList($idClient){
         // Connection à la BDD
         $mysqlPDO = cnsDao::connect();
 

@@ -17,18 +17,17 @@ class Client{
 
   // constructor
   public function __constructor(){
-    // $this->effectif = 0;
   }
 
 
   // setters
   public function setIdClient($idClient){
-    if(isset($idClient) && intval($idClient)===0){
-        throw new Exception("La clef primaire Client n'est pas valide");
-    }
-    else{
-        $this->idClient = intval($idClient);
-    }
+    // if(isset($idClient) && intval($idClient)===0){
+    //     throw new Exception("La clef primaire Client n'est pas valide");
+    // }
+    // else{
+        $this->idClient = $idClient;
+    // }
   }
 
   public function setRaisonSociale($raisonSociale){

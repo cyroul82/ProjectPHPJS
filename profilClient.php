@@ -7,8 +7,8 @@ require("view/profilClient.view.php");
 
 if(isset($_GET["idClient"]) && !empty($_GET["idClient"])){
 	$idClient = trim(htmlentities($_GET["idClient"]));
-	$listContact = cnsDao::listContact($idClient);
-  $client = cnsDao::GetOneClientDB($idClient);
+	$listContact = cnsDao::getContactsList($idClient);
+  $client = cnsDao::getClientById($idClient);
   displayPageProfilClient($client, $listContact);
 }
 

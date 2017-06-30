@@ -6,12 +6,10 @@ require('view/updateClient.view.php');
 require('dao/cnsDao.php');
 
 $idClient = trim(htmlentities($_GET["idClient"]));
-    // var_dump($idClient);
-
 
 if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
-    $data=cnsDao::GetOneClientDB($idClient);
-    // var_dump($data);
+    $data=cnsDao::getClientById($idClient);
+
     displayPageUpdateClient($data);
 
 //
