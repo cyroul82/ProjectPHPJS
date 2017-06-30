@@ -9,6 +9,7 @@ require("view/modules/clientListView.php");
 function displayPageListClient($data){
 
   displayHead("Liste Clients"); ?>
+  <script src="js/dataTable.js" charset="utf-8"></script>
   </head>
   <?php displayNav(true); ?>
   <body>

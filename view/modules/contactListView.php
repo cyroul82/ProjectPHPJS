@@ -3,9 +3,8 @@
 require("contactListTemplateView.php");
 function displayListContact($listContact){
 ?>
-  <div class="container">
     <fieldset>
-      <legend>Liste de tous les contacts</legend>
+      <legend>Liste des contacts</legend>
             <?php tableContact($listContact);?>
     </fieldset>
 
@@ -15,6 +14,4 @@ function displayListContact($listContact){
 
    	<button class="btn btn-default"> <a href="newContact.php"><i class="glyphicon glyphicon glyphicon-plus"></i></a> Add</button>
 
-
-  </div>
   <?php } ?>

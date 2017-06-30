@@ -5,7 +5,18 @@ function displayClientList($data){
 ?>
   <div class="container">
     <fieldset>
-      <legend>Liste clients</legend>
+      <legend>Liste clients
+        <p>
+          <button type="button" class="btn btn-warning btn-sm" id="addClient" >
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+          <button type="button" class="btn btn-warning btn-sm" id="editClient" >
+            <i class="glyphicon glyphicon-edit"></i>
+          </button>
+          <button type="button" class="btn btn-warning btn-sm" id="deleteClient" >
+            <i class="glyphicon glyphicon-trash"></i>
+          </button>
+        </p></legend>
             <?php clientTable($data);?>
     </fieldset>
   </div>
