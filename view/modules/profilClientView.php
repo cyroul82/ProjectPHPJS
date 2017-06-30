@@ -79,19 +79,17 @@ function displayProfilClient($client){
         <button type="button" class="btn btn-warning btn-sm" id="deleteClient" >
           <i class="glyphicon glyphicon-trash"></i>
         </button>
+        <button class="btn btn-primary btn-l" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'"> <i class="glyphicon glyphicon-edit"></i></button>
       </div>
 
 
       <span id="idClient" style="visibility: hidden;"><?php echo $data['RAISON_SOCIALE']; ?></span>
 
-      <!-- <button class="btn btn-default" id="btnModifier"> <a href="#"><i class="glyphicon glyphicon-edit"></i></a> Modifier</button>
-      <button class="btn btn-default" id="btnSupprimer"> <a href="#"><i class="glyphicon glyphicon-remove"></i></a> Supprimer </button>
-      <button class="btn btn-default" id="btnAddContact"> <a href="#"><i class="glyphicon glyphicon-phone-alt"></i></a> Ajouter Contact </button> -->
 
     </fieldset>
 
-
   </div>
+
 <script type="text/javascript" src="js/profilClient.js">
 
 </script>

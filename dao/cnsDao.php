@@ -176,6 +176,7 @@ public static function GetOneClientDB($idClient){
               // var_dump($idClient);
 
       $sql = 'select
+              ID_CLIENT,
               RAISON_SOCIALE,
               TELEPHONE,
               CA,

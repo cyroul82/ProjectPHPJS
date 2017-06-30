@@ -8,8 +8,10 @@
 require('dao/cnsDao.php');
 require("view/profilClient.view.php");
 
+
 if(isset($_GET["idClient"]) && !empty($_GET["idClient"])){
 	$listContact = cnsDao::listContact();
+
     $data = cnsDao::GetOneClientDB(trim(htmlentities($_GET["idClient"])));
     displayPageProfilClient($data, $listContact);
 }

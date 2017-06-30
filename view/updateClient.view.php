@@ -6,14 +6,14 @@ require('modules/footerView.php');
 require('modules/updateClientView.php');
 
 
-function displayPageUpdateClient(){
-  displayHead("ModifierClient"); ?>
-  </head>
+function displayPageUpdateClient($data){
+  displayHead("upDateClient"); ?>
 
+  </head>
   <body>
     <?php
     displayNav(true);
-    displayUpdateClient();
+    displayUpdateClient($data);
     ?>
   </body>
 
