@@ -1,24 +1,20 @@
 <?php
-
-//@Nicolas GUIGNARD
 // Controller use to display 1 specific Client
 //- called from different place w/ the idClient
 //- going to home if failed
-
 require('dao/cnsDao.php');
 require("view/profilClient.view.php");
 
-
 if(isset($_GET["idClient"]) && !empty($_GET["idClient"])){
-		$listContact = cnsDao::listContact($_GET["idClient"]);
-    $data = cnsDao::GetOneClientDB(trim(htmlentities($_GET["idClient"])));
-    displayPageProfilClient($data, $listContact);
+	$idClient = trim(htmlentities($_GET["idClient"]));
+	$listContact = cnsDao::listContact($idClient);
+  $client = cnsDao::GetOneClientDB($idClient);
+  displayPageProfilClient($client, $listContact);
 }
 
 else{
-    $err =urlencode("Une erreur c'est produite sur le client");
-
-    header("location: index.php?erreur=$err");
+    $error = urlencode("Une erreur c'est produite sur le client");
+    header("location: index.php?erreur=$error");
     exit();
 }
  ?>

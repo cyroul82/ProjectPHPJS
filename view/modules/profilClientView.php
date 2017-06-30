@@ -1,95 +1,71 @@
 <?php
 function displayProfilClient($client){
   ?>
-  
-  <div class="">
-    <fieldset>
-      <legend>
-            <?php echo $client['RAISON_SOCIALE']; ?>
-      </legend>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Détails</h3>
+    </div>
+    <div class="panel-body">
       <div class="row">
-        <div class="col-xs-5">
-          <strong>Téléphone : </strong>
-        </div>
-        <div class="col-xs-7">
-          <span><?php echo $client['TELEPHONE']; ?></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <strong>Nature : </strong>
-        </div>
-        <div class="col-xs-7">
-          <span><?php echo $client['NOM_NATURE']; ?></span>
-        </div>
-      </div>
-      <div class="row">
-          <div class="col-xs-5">
-            <strong>Type : </strong>
+
+        <div class=" col-xs-12 col-xs-12 ">
+          <table class="table table-user-information">
+            <tbody>
+              <tr>
+                <td><strong>Téléphone:</strong></td>
+                <td><?php echo $client['TELEPHONE']; ?></td>
+              </tr>
+              <tr>
+                <td><strong>Adresse:</strong></td>
+                <td><?php echo $client['ADRESSE_DU_CLIENT']; ?></td>
+              </tr>
+              <tr>
+                <td><strong>Ville:</strong></td>
+                <td>Saint-Raphaël</td>
+              </tr>
+
+                 <tr>
+                     <tr>
+                <td><strong>Code Postal:</strong></td>
+                <td><?php echo $client['CODE_POSTAL']; ?></td>
+              </tr>
+                <tr>
+                <td><strong>Nature:</strong></td>
+                <td><?php echo $client['NOM_NATURE']; ?></td>
+              </tr>
+              <tr>
+                <td><strong>Type:</strong></td>
+                <td><?php echo $client['TYPE_SOCIETE']; ?></td>
+              </tr>
+                <td><strong>Chiffre d'Affaires:</strong></td>
+                <td><?php echo $client['CA']; ?></td>
+              </tr>
+            </tr>
+              <td><strong>Effectif:</strong></td>
+              <td><?php echo $client['EFFECTIF']; ?></td>
+            </tr>
+          </tr>
+            <td><strong>Commentaire:</strong></td>
+            <td><?php echo $client['COMMENTAIRE']; ?></td>
+          </tr>
+
+            </tbody>
+          </table>
+          <div class="text-center">
+            <a href="#" class="btn btn-success">Projets</a>
+            <a href="#" class="btn btn-success">Nouveau Projet</a>
           </div>
-          <div class="col-xs-7">
-            <span><?php echo $client['TYPE_SOCIETE']; ?></span>
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <strong>Adresse : </strong>
-        </div>
-        <div class="col-xs-7">
-          <span><?php echo $client['ADRESSE_DU_CLIENT']; ?></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <strong>Code Postal : </strong>
-        </div>
-        <div class="col-xs-7">
-          <span><?php echo $client['CODE_POSTAL']; ?></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <strong>CA : </strong>
-        </div>
-        <div class="col-xs-7">
-          <span><?php echo $client['CA']; ?></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <strong>Effectif : </strong>
-        </div>
-        <div class="col-xs-7">
-          <span><?php echo $client['EFFECTIF']; ?></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <strong>Commentaire : </strong>
-        </div>
-        <div class="col-xs-7">
-          <span><?php echo $client['COMMENTAIRE']; ?></span>
-        </div>
-      </div>
 
-      <div class="actionBtn">
-        <button class="btn btn-success btn-xs" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'"> <i class="glyphicon glyphicon-edit"></i></button>
-        <button type="button" class="btn btn-success btn-xs" id="deleteClient" >
-          <i class="glyphicon glyphicon-trash"></i>
-        </button>
+        </div>
       </div>
-
-
-      <span id="idClient" style="visibility: hidden;"><?php echo $client['RAISON_SOCIALE']; ?></span>
-
-
-    </fieldset>
+    </div>
+         <div class="panel-footer text-right">
+             <a data-original-title="Editer le client" data-toggle="tooltip" type="button" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+             <a data-original-title="Supprimer le client" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+        </div>
 
   </div>
-
-<script type="text/javascript" src="js/profilClient.js">
-
-</script>
+<script type="text/javascript" src="js/profilClient.js"></script>
 
 
 <?php } ?>

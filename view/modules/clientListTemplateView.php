@@ -1,6 +1,6 @@
 <?php
 // Display ONLY a table of Client
-function clientTable($data){
+function clientTable($clients){
  ?>
 
     <div class="row">
@@ -18,7 +18,7 @@ function clientTable($data){
             <tbody>
 
                 <?php // liste des Clients issus du recordset
-                foreach($data as $row){
+                foreach($clients as $row){
                 ?>
                 <tr>
                     <!-- <td><a href="profilClient.php?idClient=<?php echo $row['ID_CLIENT']; ?>"><?php echo $row['ID_CLIENT']?></a></td> -->

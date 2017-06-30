@@ -31,17 +31,16 @@ function displayNav($display){
              <li><a href="searchClient.php"><i class="glyphicon glyphicon-search"></i> Search </a></li>
 
            <?php } ?>
-           <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Contact</a></li>
         </ul>
         <?php if($display){
          if(!$bool){ ?>
-         <form id="signin" class="navbar-form navbar-right" role="form" action="login.php" method="post">
-          <button type="submit" class="btn btn-success">Login</button>
+         <form class="navbar-form navbar-right loginBtn" role="form" action="login.php" method="post">
+          <button type="submit" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-log-in"></i><strong> Login</strong></button>
         </form>
         <?php }
         else { ?>
-          <form id="signin" class="navbar-form navbar-right" role="form" action="logout.php" method="post">
-           <button type="submit" class="btn btn-success">Logout</button>
+          <form class="navbar-form navbar-right loginBtn" role="form" action="logout.php" method="post">
+           <button type="submit" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-log-out"> </i><strong> Logout</strong></button>
          </form>
          <?php } } ?>
 

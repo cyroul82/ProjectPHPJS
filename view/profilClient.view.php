@@ -5,7 +5,7 @@
   require ('modules/profilClientView.php');
   require('modules/contactListView.php');
 
-  function displayPageProfilClient($profilClient, $listContact){
+  function displayPageProfilClient($client, $contacts){
      displayHead("Profil"); ?>
      <script src="js/contactTable.js" charset="utf-8"></script>
       </head>
@@ -15,16 +15,17 @@
           <?php displayNav(true); ?>
 
           <div class="container">
+            <h2 class="text-center"><?php echo $client["RAISON_SOCIALE"]; ?></h2>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <?php
-                    displayProfilClient($profilClient); ?>
+                    displayProfilClient($client); ?>
               </div>
 
-              <div class="col-md-8">
+              <div class="col-md-6">
                  <?php
 
-                    displayListContact($profilClient, $listContact); ?>
+                    displayListContact($client, $contacts); ?>
               </div>
             </div>
           </div>

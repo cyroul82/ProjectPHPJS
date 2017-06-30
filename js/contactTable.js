@@ -1,7 +1,10 @@
 $(document).ready(function() {
 
     $('#listContactTable').DataTable( {
-        "searching": false,
+      responsive: {
+        details: false
+      },
+        "searching": true,
         "paging":   false,
         "ordering": false,
         "info":     false

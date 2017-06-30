@@ -1,23 +1,30 @@
 <?php
 // This function display the list of Clients of ABI
 require("contactListTemplateView.php");
-function displayListContact($profilClient, $listContact){
-  $idClient = $profilClient['ID_CLIENT'];
+function displayListContact($client, $contacts){
+  $idClient = $client['ID_CLIENT'];
 ?>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Liste des contacts</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class=" col-xs-12 col-xs-12 ">
+                  <?php tableContact($contacts);?>
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                     <a data-original-title="Editer le contact" data-toggle="tootip" onclick="location.href='newContact.php?idClient=' + <?php echo $idClient ?>" type="button"  class="btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i></a>
+                     <span class="pull-right">
+                      <a data-toggle="modal" type="button" data-target="#editClient" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                     <a data-toggle="modal" type="button" data-target="#deleteClient" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                     </span>
+                </div>
 
-
-    <fieldset>
-      <legend>Liste des contacts</legend>
-            <?php tableContact($listContact);?>
-    </fieldset>
-
-   	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addClient"> <i class="glyphicon glyphicon-trash"></i></button>
-
-   	<button class="btn btn-success btn-sm" onclick="location.href='newContact.php'"> <i class="glyphicon glyphicon-pencil"></i></button>
-
-   	<button class="btn btn-success btn-sm" onclick="location.href='newContact.php?idClient=' + <?php echo $idClient ?>"> <i class="glyphicon glyphicon glyphicon-plus"> </i></button>
-
-<div class="modal fade" id="addClient" role="dialog" data-backdrop="false" >
+          </div>
+    <div class="modal fade" id="addClient" role="dialog" data-backdrop="false" >
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"
                 aria-label="Close">
