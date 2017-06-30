@@ -8,7 +8,7 @@ class cnsDao
 // @Nicolas GUIGNARD
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "172.16.0.56";
+        $host = "localhost";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
@@ -185,7 +185,7 @@ public static function GetOneClientDB($idClient){
               NOM_NATURE,
               TYPE_SOCIETE,
               ADRESSE_DU_CLIENT,
-              COMMENTAIRE, 
+              COMMENTAIRE,
               ID_CLIENT
               from client
               where ID_CLIENT ='.$idClient.';';
@@ -220,9 +220,9 @@ public static function addNewContact(&$contact){
         try{
 
           $mysqlPDO->beginTransaction();
-          $statement->execute(array(':nomContact'=>$contact->getNomContact(), 
-                                    ':prenomContact'=>$contact->getPrenomContact(), 
-                                    ':telContact'=>$contact->getTelContact(), 
+          $statement->execute(array(':nomContact'=>$contact->getNomContact(),
+                                    ':prenomContact'=>$contact->getPrenomContact(),
+                                    ':telContact'=>$contact->getTelContact(),
                                     ':fonctionContact'=>$contact->getFonctionContact(),
                                     ':idClient'=>$contact->getIdClient()));
 
@@ -244,13 +244,12 @@ public static function addNewContact(&$contact){
   }
 
 // Fonction d'appel de la liste de tout les contacts
-  public static function listContact(){
+  public static function listContact($idClient){
         // Connection à la BDD
         $mysqlPDO = cnsDao::connect();
 
         // Récupère la liste de tous les contacts depuis la table contacts
-        $sql='select ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contact order by ID_CLIENT';
-        // echo $sql; // pour mise au point
+        $sql="select contacts.ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contacts inner join client on contacts.ID_CLIENT = client.ID_CLIENT where contacts.ID_CLIENT=$idClient;";
 
       // Préparation requête
       try {

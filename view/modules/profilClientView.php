@@ -73,13 +73,10 @@ function displayProfilClient($client){
       </div>
 
       <div class="actionBtn">
-        <button type="button" class="btn btn-warning btn-sm" id="editClient" >
-          <i class="glyphicon glyphicon-edit"></i>
-        </button>
-        <button type="button" class="btn btn-warning btn-sm" id="deleteClient" >
+        <button class="btn btn-success btn-xs" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'"> <i class="glyphicon glyphicon-edit"></i></button>
+        <button type="button" class="btn btn-success btn-xs" id="deleteClient" >
           <i class="glyphicon glyphicon-trash"></i>
         </button>
-        <button class="btn btn-primary btn-l" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'"> <i class="glyphicon glyphicon-edit"></i></button>
       </div>
 
 

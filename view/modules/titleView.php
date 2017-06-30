@@ -9,14 +9,11 @@ function displayTitle(){
       <a href="#"><img src="img/ABI6.png" border="0" class="img-responsive"/></a>
     </div>
     <div class="col-md-9">
-      <div class="row">
-        <h1>ABI</h1>
-        </div>
         <div class="row">
           <div class="lead">
-            Commercial Management
+          <h1>Commercial Management</h1>
           </div>
-            <h1>Bienvenue !</h1>
+            <h2>Bienvenue !</h2>
         </div>
       </div>
     </div>
