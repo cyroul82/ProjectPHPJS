@@ -1,13 +1,19 @@
 <?php
 function displayUpdateClient($data){
-
-var_dump($data);
+//
+// var_dump($data);
 ?>
+
+<?php echo $data["TELEPHONE"];?>
+
 <div class="container">
   <fieldset>
     <legend>Modifier ce client</legend>
       <div class="form">
         <form action="updateClientControl.php" method="get">
+
+            <input type="hidden" name="idClient" value="<?php echo $data["ID_CLIENT"];?>">
+
           <div class="form-group">
             <label for="raisonSociale">Raison Sociale</label>
             <input type="text" class="form-control" name="raisonSociale" value=<?php echo $data["RAISON_SOCIALE"];?>>
@@ -16,23 +22,28 @@ var_dump($data);
           <div class="form-group">
               <label for="nature">Nature</label><br>
               <label class="radio-inline">
-                <input type="radio" name="nature" name="naturePrincipale" value="principale"> Principale
+                <input type="radio" name="nature" name="naturePrincipale" value="principale"
+                <?php if($data["NOM_NATURE"]==="principale"){ echo 'checked';}?>> Principale
               </label>
               <label class="radio-inline">
-                <input type="radio" name="nature" name="natureSecondaire" value="secondaire"> Secondaire
+                <input type="radio" name="nature" name="natureSecondaire" value="secondaire"
+                  <?php if($data["NOM_NATURE"]==="secondaire"){ echo 'checked';}?>> Secondaire
               </label>
               <label class="radio-inline">
-                <input type="radio" name="nature" name="natureAncienne" value="ancienne"> Ancienne
+                <input type="radio" name="nature" name="natureAncienne" value="ancienne"
+                  <?php if($data["NOM_NATURE"]==="ancienne"){ echo 'checked';}?>> Ancienne
               </label>
           </div>
 
           <div class="form-group">
               <label for="type">Type</label><br>
               <label class="radio-inline">
-                <input type="radio" name="type" name="typePublic" value="public"> Public
+                <input type="radio" name="type" name="typePublic" value="public"
+                  <?php if($data["TYPE_SOCIETE"]==="public"){ echo 'checked';}?>> Public
               </label>
               <label class="radio-inline">
-                <input type="radio" name="type" name="typePublic" value="privé"> Privé
+                <input type="radio" name="type" name="typePublic" value="prive"
+                  <?php if($data["TYPE_SOCIETE"]==="prive"){ echo 'checked';}?>> Privé
               </label>
           </div>
 
@@ -51,7 +62,7 @@ var_dump($data);
           </div>
           <div class="form-group">
             <label for="telephone">Téléphone</label>
-            <input type="text" class="form-control" name="telephone" value=<?php echo $data["TELEPHONE"];?>>
+            <input type="text" class="form-control" name="telephone" value="<?php echo $data["TELEPHONE"];?>">
           </div>
           <div class="form-group">
             <label for="ca">Chiffre d'Affaires</label>
@@ -77,20 +88,3 @@ var_dump($data);
 </div>
 <!-- form new client -->
 <?php } ?>
-
-<?php
-
-function showRadio(){
-
-
-
-
-
-}
-
-
-
-
-
-
- ?>
