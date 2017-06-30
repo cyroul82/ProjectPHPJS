@@ -2,7 +2,7 @@
 // Display ONLY a table of Client
 function clientTable($data){
  ?>
- 
+
     <div class="row">
 
           <table id="listClientTable" class="display nowrap"  >
@@ -23,10 +23,10 @@ function clientTable($data){
                 <tr>
                     <!-- <td><a href="profilClient.php?idClient=<?php echo $row['ID_CLIENT']; ?>"><?php echo $row['ID_CLIENT']?></a></td> -->
 
-                    <td><a href="profilClient.php?idClient=<?php echo $row['ID_CLIENT']; ?>"><?php echo $row['RAISON_SOCIALE']?></a></td>
-                    <td><?php echo $row['TELEPHONE']?></td>
-                    <td><?php echo $row['CA']?></td>
-                    <td><?php echo $row['NOM_NATURE']?></td>
+                    <td class="text-center"><a href="profilClient.php?idClient=<?php echo $row['ID_CLIENT']; ?>"><?php echo $row['RAISON_SOCIALE']?></a></td>
+                    <td class="text-center"><?php echo $row['TELEPHONE']?></td>
+                    <td class="text-center"><?php echo $row['CA']?></td>
+                    <td class="text-center"><?php echo $row['NOM_NATURE']?></td>
                 </tr>
               <?php } ?>
             </tbody>

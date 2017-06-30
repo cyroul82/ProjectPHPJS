@@ -11,7 +11,7 @@ body {
 }
 
 .form {
-  max-width: 500px;
+  /*max-width: 500px;*/
   margin: 0 auto 0 auto;
 }
 
@@ -42,4 +42,8 @@ body {
   color: grey;
   font-size: 18px;
   text-align: left;
+}
+
+.clientDetail{
+  margin-left: 20px;
 }

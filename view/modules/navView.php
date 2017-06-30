@@ -26,7 +26,7 @@ function displayNav($display){
          <ul class="nav navbar-nav">
            <li><a href="index.php"><i class="glyphicon glyphicon-home"></i> Home</a></li>
            <?php if($group==1) {?>
-             <li><a href="newClient.php"><i class="glyphicon glyphicon-user"></i> Add Client</a></li>
+             <li><a href="newClient.php"><i class="glyphicon glyphicon-plus"></i> Add Client</a></li>
              <li><a href="listClient.php"><i class="glyphicon glyphicon-th-list"></i> List Clients</a></li>
              <li><a href="searchClient.php"><i class="glyphicon glyphicon-search"></i> Search </a></li>
 

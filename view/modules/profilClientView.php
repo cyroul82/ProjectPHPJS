@@ -6,33 +6,24 @@ function displayProfilClient($data){
   <div class="card">
     <fieldset>
       <legend>
-        <div class="row">
-          <div class="col-xs-6">
             <?php echo $data['RAISON_SOCIALE']; ?>
-          </div>
-          <div class="col-xs-6 text-right">
-            <button type="button" class="btn btn-warning btn-sm" id="editClient" >
-              <i class="glyphicon glyphicon-edit"></i>
-            </button>
-            <button type="button" class="btn btn-warning btn-sm" id="deleteClient" >
-              <i class="glyphicon glyphicon-trash"></i>
-            </button>
-          </div>
-        </div>
-
-
-
-
       </legend>
-      <p class="title"><strong>Téléphone : </strong><?php echo $data['TELEPHONE']; ?></p>
-      <p class="title"><strong>CA : </strong><?php echo $data['CA']; ?></p>
-      <p class="title"><strong>Effectif : </strong><?php echo $data['EFFECTIF']; ?></p>
-      <p class="title"><strong>Nature : </strong><?php echo $data['NOM_NATURE']; ?></p>
-      <p class="title"><strong>Type : </strong><?php echo $data['TYPE_SOCIETE']; ?></p>
-      <p class="title"><strong>Adresse : </strong><?php echo $data['ADRESSE_DU_CLIENT']; ?></p>
-      <p class="title"><strong>Code Postal : </strong><?php echo $data['CODE_POSTAL']; ?></p>
-      <p class="title"><strong>Commentaire : </strong><?php echo $data['COMMENTAIRE']; ?></p>
-
+      <p class="title"><strong>Téléphone : </strong><span class="clientDetail"><?php echo $data['TELEPHONE']; ?></span></p>
+      <p class="title"><strong>CA : </strong><span class="clientDetail"><?php echo $data['CA']; ?></span></p>
+      <p class="title"><strong>Effectif : </strong><span class="clientDetail"><?php echo $data['EFFECTIF']; ?></span></p>
+      <p class="title"><strong>Nature : </strong><span class="clientDetail"><?php echo $data['NOM_NATURE']; ?></span></p>
+      <p class="title"><strong>Type : </strong><span class="clientDetail"><?php echo $data['TYPE_SOCIETE']; ?></span></p>
+      <p class="title"><strong>Adresse : </strong><span class="clientDetail"><?php echo $data['ADRESSE_DU_CLIENT']; ?></span></p>
+      <p class="title"><strong>Code Postal : </strong><span class="clientDetail"><?php echo $data['CODE_POSTAL']; ?></span></p>
+      <p class="title"><strong>Commentaire : </strong><span class="clientDetail"><?php echo $data['COMMENTAIRE']; ?></span></p>
+      <p>
+        <button type="button" class="btn btn-warning btn-sm" id="editClient" >
+          <i class="glyphicon glyphicon-edit"></i>
+        </button>
+        <button type="button" class="btn btn-warning btn-sm" id="deleteClient" >
+          <i class="glyphicon glyphicon-trash"></i>
+        </button>
+      </p>
       <span id="idClient" style="visibility: hidden;"><?php echo $data['RAISON_SOCIALE']; ?></span>
 
       <!-- <button class="btn btn-default" id="btnModifier"> <a href="#"><i class="glyphicon glyphicon-edit"></i></a> Modifier</button>
