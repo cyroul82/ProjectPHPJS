@@ -20,7 +20,7 @@
 
               <div class="col-md-8">
                  <?php
-                    displayListContact($listContact); ?>
+                    displayListContact($profilClient, $listContact); ?>
               </div>
             </div>
           </div>

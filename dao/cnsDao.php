@@ -184,7 +184,8 @@ public static function GetOneClientDB($idClient){
               NOM_NATURE,
               TYPE_SOCIETE,
               ADRESSE_DU_CLIENT,
-              COMMENTAIRE
+              COMMENTAIRE, 
+              ID_CLIENT
               from client
               where ID_CLIENT ='.$idClient.';';
 
@@ -214,14 +215,21 @@ public static function addNewContact(&$contact){
 
         $mysqlPDO = cnsDao::connect();
 
-        $sql = "insert into client (NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT) values(:nomContact, :photo , :prenomContact, :telContact, :fonctionContact)";
+        $sql = "insert into contacts (NOM_CONTACT, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT, ID_CLIENT) values(:nomContact, :prenomContact, :telContact, :fonctionContact, :idClient)";
 
         $statement =$mysqlPDO->prepare($sql);
         
         try{
 
           $mysqlPDO->beginTransaction();
-          $statement->execute(array(':nomContact'=>$contact->getNomContact(), ':photo'=>$contact->getPhoto(), ':prenomContact'=>$contact->getPrenomContact(), ':telContact'=>$contact->getTelContact(), ':fonctionContact'=>$contact->getFonctionContact()));
+          $statement->execute(array(':nomContact'=>$contact->getNomContact(), 
+                                    ':prenomContact'=>$contact->getPrenomContact(), 
+                                    ':telContact'=>$contact->getTelContact(), 
+                                    ':fonctionContact'=>$contact->getFonctionContact(),
+                                    ':idClient'=>$contact->getIdClient()));
+
+          var_dump("last inserted id : " . $mysqlPDO->lastInsertId());
+
           $contact->setIdContact($mysqlPDO->lastInsertId());
           $mysqlPDO->commit();
           $nombre= $statement->rowCount();

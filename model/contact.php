@@ -17,7 +17,8 @@ class Contact{
 
   // setters
   public function setIdClient($idClient){
-    if(!is_int($idClient)){
+
+    if(isset($idClient) && intval($idClient)===0){
       throw new Exception("The idClient is not valid. Someone try to modify the DataBase without passing by the software's interface.");
     }
       else{
@@ -26,7 +27,7 @@ class Contact{
   }
 
   public function setIdContact($idContact){
-    if(!is_int($idContact)){
+    if(isset($idContact) && intval($idContact)===0){
       throw new Exception("The idContact is not valid. Someone try to modify the DataBase without passing by the software's interface.");
     }
     else {
@@ -42,31 +43,6 @@ class Contact{
     }
   }
 
-  public function setPhoto($photo){
-    if(!is_image($photo)) & $extension = image_type_to_extension($photo);
-    if(strtolower($extension) == '.png'){
-      $img = $this->resize_imagepng($origimg,$w, $h);
-      imagepng($img,$newimg);
-      imagedestroy($img);
-    }elseif(strtolower($extension) == '.jpg'){
-      $img = $this->resize_imagejpeg($origimg, $w, $h);
-      imagejpg($img, $newimg);
-      imagedestroy($img);
-    }elseif(strtolower($extension) == '.jpeg'){
-      $img = $this->resize_imagejpeg($origimg, $w, $h);
-      imagejpeg($img, $newimg);
-      imagedestroy($img);
-    }elseif(strtolower($extension == '.gif')){
-      $img = $this->resize_imagegif($origimg, $w, $h);
-      imagegif($img,$newimg);
-      imagedestroy($img);
-      {throw new Exception("Error : the extension's photo is an invalid format.");
-    }
-    else{
-      $this->photo = $photo;
-    }
-  }
-
   public function setPrenomContact($prenomContact){
     if(!is_string($prenomContact)){
         throw new Exception("Error : the contact's first name include invalid characters.");}
@@ -76,8 +52,8 @@ class Contact{
   }
 
   public function setTelContact($telContact){
-      $regex = " \^(\d\d\s){4}(\d\d)$\ ";
-        if(preg_match($regex,$telephone)){
+      $regex = "/^(\d\d\s){4}(\d\d)$/ ";
+        if(preg_match($regex,$telContact)){
             $this->telContact = $telContact;
         }
         else{
@@ -94,7 +70,7 @@ class Contact{
   }
 
   // getters
-  public function getIdClient($idClient){
+  public function getIdClient(){
     return $this->idClient;
   }
   public function getIdContact(){
@@ -115,8 +91,9 @@ class Contact{
   public function getFonctionContact(){
     return $this->fonctionContact;
   }
-/*  public function __toString(){
-    return $this->idContact;
-  }*/
+
+  public function __toString(){
+    return $this->nomContact;
+  }
 
 } ?>
