@@ -8,7 +8,7 @@ class cnsDao
 // @Nicolas GUIGNARD
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "localhost";
+        $host = "172.16.0.56";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
