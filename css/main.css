@@ -2,6 +2,11 @@ body {
   padding-top: 60px;
 }
 
+.jumbotron {
+  background-color: transparent !important;
+  margin-bottom: 0!important;
+}
+
 .container-fluid{
   padding:0!important;
 }

@@ -46,7 +46,6 @@ function newClient() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var response = JSON.parse(xhr.responseText);
-      console.log(response);
       if (response["message"] === "ok") {
         window.location.href = "profilClient.php?idClient=" + response["idClient"];
       }
@@ -57,7 +56,7 @@ function newClient() {
         document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + response["error"] + "</strong></div>";
       }
       if (response["message"] === "bad") {
-        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error saving into DB</strong></div>";
+        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error saving into DB" + response["error"] +"</strong></div>";
       }
     }
   }

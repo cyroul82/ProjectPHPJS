@@ -14,6 +14,7 @@ class Client{
   private $ca;
   private $effectif;
   private $commentaire;
+  private $email;
 
   // constructor
   public function __constructor(){
@@ -118,6 +119,10 @@ class Client{
     $this->commentaire = $commentaire;
   }
 
+  public function setEmail($email){
+    $this->email = $email;
+  }
+
   // getters
   public function getIdClient(){
     return $this->idClient;
@@ -152,7 +157,9 @@ class Client{
   public function getCommentaire(){
     return $this->commentaire;
   }
-
+  public function getEmail(){
+    return $this->email;
+  }
   public function __toString(){
     return $this->raisonSociale;
   }

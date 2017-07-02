@@ -27,8 +27,8 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
      $client->setCa(trim(htmlentities($_POST["ca"])));
      $client->setEffectif(trim(htmlentities($_POST["effectif"])));
      $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
-     $nombre = cnsDao::addNewClient($client);
-     if($nombre === 1){
+     $nombre = cnsDao::addClient($client);
+     if($nombre == 1){
        $arr = array('message' => 'ok',
                   'idClient' => $client->getIdClient(),
                   'raisonSociale' => $client->getRaisonSociale(),
@@ -47,7 +47,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
         echo $json;
       }
       if($nombre !== 1) {
-        $arr = array('message' => 'bad', 'error' => 'failed saving into DB');
+        $arr = array('message' => 'bad', 'error' => $nombre);
         $json = json_encode($arr);
         echo $json;
       }

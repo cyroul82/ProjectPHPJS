@@ -17,12 +17,12 @@
           <div class="container">
             <h2 class="text-center"><?php echo $client["RAISON_SOCIALE"]; ?></h2>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <?php
                     displayProfilClient($client); ?>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-7">
                  <?php
 
                     displayListContact($client, $contacts); ?>

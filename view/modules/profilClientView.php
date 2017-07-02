@@ -21,7 +21,7 @@ function displayProfilClient($client){
               </tr>
               <tr>
                 <td><strong>Ville:</strong></td>
-                <td>Saint-Raphaël</td>
+                <td><?php echo $client['VILLE']; ?></td>
               </tr>
 
                  <tr>
@@ -60,8 +60,8 @@ function displayProfilClient($client){
       </div>
     </div>
          <div class="panel-footer text-right">
-             <a data-original-title="Editer le client" data-toggle="tooltip" type="button" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-             <a data-original-title="Supprimer le client" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+             <button type="button" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></button>
+             <button type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
         </div>
 
   </div>

@@ -4,7 +4,7 @@
 
 function tableContact($contacts){
  ?>
-          <table id="listContactTable" class="strip hover row-border order-column" >
+          <table id="listContactTable" class="display nowrap" >
               <thead>
                 <tr>
                   <th class="text-center">Nom</th>
