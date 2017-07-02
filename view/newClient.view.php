@@ -11,7 +11,14 @@ displayHead("Accueil");
 </head>
 <?php displayNav(true); ?>
 <body>
-  <?php displayNewClient(); ?>
+  <div class="container">
+    <ul class="breadcrumb">
+      <li><a href="index.php">Accueil</a></li>
+      <li class="active">Nouveau Client</li>
+    </ul>
+    <?php displayNewClient(); ?>
+  </div>
+
 </body>
 
 <?php displayFooter();  }?>

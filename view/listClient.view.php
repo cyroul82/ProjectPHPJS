@@ -13,7 +13,14 @@ function displayPageListClient($data){
   </head>
   <?php displayNav(true); ?>
   <body>
-    <?php displayClientList($data); ?>
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a href="index.php">Accueil</a></li>
+        <li class="active">Liste Clients</a></li>
+      </ul>
+      <?php displayClientList($data); ?>
+    </div>
+
   </body>
 
 <?php displayFooter();  }?>

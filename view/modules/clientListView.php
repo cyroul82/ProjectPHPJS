@@ -3,7 +3,6 @@
 require("clientListTemplateView.php");
 function displayClientList($data){
 ?>
-  <div class="container">
     <fieldset>
       <legend>Liste clients
         <p>
@@ -19,5 +18,4 @@ function displayClientList($data){
         </p></legend>
             <?php clientTable($data);?>
     </fieldset>
-  </div>
   <?php } ?>

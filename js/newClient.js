@@ -1,3 +1,10 @@
+$(document).ready(function() {
+  var cancelBtn = $('#cancelBtn');
+  cancelBtn.click(function(){
+    window.location.href = "index.php";
+  });
+});
+
 function newClient() {
 
   var xhr = new XMLHttpRequest();
