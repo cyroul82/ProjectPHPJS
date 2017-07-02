@@ -31,7 +31,7 @@ function displayNewContact($idClient){ ?>
 
             <div class="text-center">
               <button type="submit" class="btn btn-default btn-success">Ajouter</button>
-              <button type="reset" class="btn btn-default btn-success">Annuler</button>
+              <button type="button" class="btn btn-default btn-success" id="cancelContact">Annuler</button>
             </div>
 
           </form>

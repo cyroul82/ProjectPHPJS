@@ -8,6 +8,7 @@ require("view/modules/newContactView.php");
 function displayPageNewContact($idClient){
 displayHead("Accueil");
 ?>
+<script src="js/contact.js" charset="utf-8"></script>
 </head>
 <?php displayNav(true); ?>
 <body>

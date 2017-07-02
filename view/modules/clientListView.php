@@ -5,7 +5,7 @@ function displayClientList($data){
 ?>
     <fieldset>
       <legend>Liste clients
-        <p>
+        <!-- <p>
           <button type="button" class="btn btn-success btn-sm" id="addClient" >
             <i class="glyphicon glyphicon-plus"></i>
           </button>
@@ -15,7 +15,8 @@ function displayClientList($data){
           <button type="button" class="btn btn-danger btn-sm" id="deleteClient" >
             <i class="glyphicon glyphicon-trash"></i>
           </button>
-        </p></legend>
+        </p> -->
+      </legend>
             <?php clientTable($data);?>
     </fieldset>
   <?php } ?>
