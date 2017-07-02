@@ -1,7 +1,6 @@
 <?php
 function displayNewClient(){ ?>
 
-  <div class="container">
     <fieldset>
       <legend>Ajouter un nouveau client</legend>
         <div id="error"></div>
@@ -78,14 +77,13 @@ function displayNewClient(){ ?>
         </div>
         </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-success">Submit</button>
-          <button type="reset" class="btn btn-success">Reset</button>
+          <button type="submit" class="btn btn-success">Ajouter</button>
+          <button type="button" id="cancelBtn" class="btn btn-success">Annuler</button>
         </div>
 
       </form>
       <!-- end form client -->
     </fieldset>
-  </div>
   <script src="js/newClient.js" charset="utf-8"></script>
   <!-- form new client -->
 <?php } ?>

@@ -14,21 +14,21 @@ class Client{
   private $ca;
   private $effectif;
   private $commentaire;
+  private $email;
 
   // constructor
   public function __constructor(){
-    // $this->effectif = 0;
   }
 
 
   // setters
   public function setIdClient($idClient){
-    if(isset($idClient) && intval($idClient)===0){
-        throw new Exception("La clef primaire Client n'est pas valide");
-    }
-    else{
-        $this->idClient = intval($idClient);
-    }
+    // if(isset($idClient) && intval($idClient)===0){
+    //     throw new Exception("La clef primaire Client n'est pas valide");
+    // }
+    // else{
+        $this->idClient = $idClient;
+    // }
   }
 
   public function setRaisonSociale($raisonSociale){
@@ -119,6 +119,10 @@ class Client{
     $this->commentaire = $commentaire;
   }
 
+  public function setEmail($email){
+    $this->email = $email;
+  }
+
   // getters
   public function getIdClient(){
     return $this->idClient;
@@ -153,7 +157,9 @@ class Client{
   public function getCommentaire(){
     return $this->commentaire;
   }
-
+  public function getEmail(){
+    return $this->email;
+  }
   public function __toString(){
     return $this->raisonSociale;
   }

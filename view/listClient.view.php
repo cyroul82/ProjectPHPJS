@@ -9,11 +9,18 @@ require("view/modules/clientListView.php");
 function displayPageListClient($data){
 
   displayHead("Liste Clients"); ?>
-  <script src="js/dataTable.js" charset="utf-8"></script>
+  <script src="js/clientTable.js" charset="utf-8"></script>
   </head>
   <?php displayNav(true); ?>
   <body>
-    <?php displayClientList($data); ?>
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a href="index.php">Accueil</a></li>
+        <li class="active">Liste Clients</a></li>
+      </ul>
+      <?php displayClientList($data); ?>
+    </div>
+
   </body>
 
 <?php displayFooter();  }?>

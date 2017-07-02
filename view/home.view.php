@@ -5,7 +5,7 @@ require('view/modules/headView.php');
 
 require('view/modules/footerView.php');
 require('view/modules/homeView.php');
-
+require("view/modules/mapView.php");
 
 function displayPageHome($erreur){
 
@@ -15,6 +15,7 @@ displayHead("Accueil"); ?>
   <?php
   displayNav(true);
   displayHome($erreur);
+  displayMap();
   ?>
 
 </body>

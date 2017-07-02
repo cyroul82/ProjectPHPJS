@@ -4,7 +4,7 @@ function displayUpdateClient($client){
 
 <div class="container">
   <fieldset>
-    <legend>Modifier le client <?php echo $client["RAISON_SOCIALE"] ?></legend>
+    <legend>Modification du client: <strong><?php echo $client["RAISON_SOCIALE"] ?></strong></legend>
       <div class="form">
         <form action="updateClientControl.php" method="get">
           <div class="row">
@@ -13,7 +13,7 @@ function displayUpdateClient($client){
 
             <div class="form-group">
               <label for="raisonSociale">Raison Sociale</label>
-              <input type="text" class="form-control" name="raisonSociale" value=<?php echo $client["RAISON_SOCIALE"];?>>
+              <input type="text" class="form-control" name="raisonSociale" value="<?php echo $client["RAISON_SOCIALE"];?>">
             </div>
 
             <div class="form-group">
@@ -46,16 +46,16 @@ function displayUpdateClient($client){
 
             <div class="form-group">
               <label for="adresse">Adresse</label>
-              <input type="text" class="form-control" name="adresse" value=<?php echo $client["ADRESSE_DU_CLIENT"];?>>
+              <input type="text" class="form-control" name="adresse" value="<?php echo $client["ADRESSE_DU_CLIENT"];?>">
             </div>
 
             <div class="form-group">
               <label for="ville">Ville</label>
-              <input type="text" class="form-control" name="ville" value=<?php echo "ville";?>>
+              <input type="text" class="form-control" name="ville" value="<?php echo $client["VILLE"];?>">
             </div>
             <div class="form-group">
               <label for="codePostal">Code Postal</label>
-              <input type="text" class="form-control" name="codePostal" value=<?php echo $client["CODE_POSTAL"];?>>
+              <input type="text" class="form-control" name="codePostal" value="<?php echo $client["CODE_POSTAL"];?>">
             </div>
             </div>
             <div class="col-md-6">
@@ -65,19 +65,19 @@ function displayUpdateClient($client){
               </div>
               <div class="form-group">
                 <label for="ca">Chiffre d'Affaires</label>
-                <input type="text" class="form-control" name="ca" value=<?php echo $client["CA"];?>>
+                <input type="text" class="form-control" name="ca" value="<?php echo $client["CA"];?>">
               </div>
               <div class="form-group">
                 <label for="effectif">Effectif</label>
-                <input type="text" class="form-control" name="effectif" value=<?php echo $client["EFFECTIF"];?>>
+                <input type="text" class="form-control" name="effectif" value="<?php echo $client["EFFECTIF"];?>">
               </div>
               <div class="form-group">
                 <label for="commentaire">Commentaires</label>
-                <textarea class="form-control" name="commentaire" rows="3" value=<?php echo $client["COMMENTAIRE"];?>></textarea>
+                <textarea class="form-control" name="commentaire" rows="3"><?php echo $client["COMMENTAIRE"];?>"</textarea>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-success">Valider</button>
-                <button type="reset" class="btn btn-success">Annuler</button>
+                <button type="submit" name="submitted" value="submit" class="btn btn-success">Valider</button>
+                <button type="submit" name="submitted" value="cancel" class="btn btn-success">Annuler</button>
               </div>
             </div>
           </div>

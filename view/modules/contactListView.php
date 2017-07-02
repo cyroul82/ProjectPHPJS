@@ -4,23 +4,31 @@ require("contactListTemplateView.php");
 function displayListContact($client, $contacts){
   $idClient = $client['ID_CLIENT'];
 ?>
+          <input type="hidden" id="idClient" value="<?php echo $idClient ?>" />
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">Liste des contacts</h3>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class=" col-xs-12 col-xs-12 ">
+                <div class=" col-xs-12 col-xs-12">
                   <?php tableContact($contacts);?>
                 </div>
               </div>
             </div>
                  <div class="panel-footer">
-                     <a data-original-title="Editer le contact" data-toggle="tootip" onclick="location.href='newContact.php?idClient=' + <?php echo $idClient ?>" type="button"  class="btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i></a>
-                     <span class="pull-right">
-                      <a data-toggle="modal" type="button" data-target="#editClient" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                     <a data-toggle="modal" type="button" data-target="#deleteClient" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
-                     </span>
+                   <button type="button" class="btn btn-success btn-sm" id="addContact" >
+                     <i class="glyphicon glyphicon-plus"></i>
+                   </button>
+                   <span class="pull-right">
+                     <button type="button" class="btn btn-success btn-sm" id="editContact+" >
+                       <i class="glyphicon glyphicon-edit"></i>
+                     </button>
+                     <button type="button" class="btn btn-success btn-sm" id="deleteContact" >
+                       <i class="glyphicon glyphicon-trash"></i>
+                     </button>
+                    </span>
+                     <!-- <a data-original-title="Editer le contact" data-toggle="tootip" onclick="location.href='newContact.php?idClient=' + <?php echo $idClient ?>" type="button"  class="btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i></a> -->
                 </div>
 
           </div>

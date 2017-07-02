@@ -7,7 +7,7 @@ if(isset($_POST["searchValue"]) && !empty($_POST["searchValue"])){
 	$searchResult = trim(htmlentities($_POST["searchValue"]));
 	switch ($searchResult) {
 		case 1:
-			$clients = cnsDao::AllClientList();
+			$clients = cnsDao::getClientsList();
 			$json = json_encode($clients);
 			echo $json;
 			break;

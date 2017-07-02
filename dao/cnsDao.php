@@ -66,15 +66,16 @@ public static function getGroupUser($email){
 
 // add a new client to the db in client table
 //return the number of row affected, 0 if none
-public static function addNewClient(&$client){
+public static function addClient(&$client){
         $mysqlPDO = cnsDao::connect();
 
-        $sql = "insert into client (CA, EFFECTIF, RAISON_SOCIALE, CODE_POSTAL, TELEPHONE, NOM_NATURE, TYPE_SOCIETE, ADRESSE_DU_CLIENT, COMMENTAIRE) values(:ca, :effectif , :raisonSociale, :codePostal, :telephone, :nature, :type, :adresse, :commentaire)";
+        $sql = "insert into client (CA, EFFECTIF, RAISON_SOCIALE, CODE_POSTAL, VILLE, TELEPHONE, NOM_NATURE, TYPE_SOCIETE, ADRESSE_DU_CLIENT, COMMENTAIRE) values(:ca, :effectif , :raisonSociale, :codePostal, :ville, :telephone, :nature, :type, :adresse, :commentaire)";
         $statement =$mysqlPDO->prepare($sql);
         try{
           $mysqlPDO->beginTransaction();
-          $statement->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
+          $statement->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':ville'=>$client->getVille(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
           $client->setIdClient($mysqlPDO->lastInsertId());
+
           $mysqlPDO->commit();
           $nombre= $statement->rowCount();
           $statement->closeCursor();
@@ -84,12 +85,12 @@ public static function addNewClient(&$client){
         }
         catch(PDOException $e){
           $mysqlPDO->rollBack();
-          return 0;
+          return $e;
         }
   }
 
 // Fonction d'appel de la liste de tout les Clients
-  public static function AllClientList(){
+  public static function getClientsList(){
         $mysqlPDO = cnsDao::connect();
         $sql='select ID_CLIENT, RAISON_SOCIALE, TELEPHONE, CA,NOM_NATURE  from client order by RAISON_SOCIALE';
 
@@ -116,13 +117,14 @@ public static function addNewClient(&$client){
     // This Function update a Client comming from copntroller updateClient.php
     // - input: a $client
     // - out: the number of row updated
-      public static function UpdateClientDB($client){
+      public static function updateClient($client){
             $mysqlPDO = cnsDao::connect();
               // var_dump($client->getIdClient());
             $sql = 'update client set
               CA = :ca,
               EFFECTIF=:effectif,
               RAISON_SOCIALE=:raisonSociale,
+              VILLE=:ville,
               CODE_POSTAL=:codePostal,
               TELEPHONE=:telephone,
               NOM_NATURE=:nature,
@@ -130,10 +132,20 @@ public static function addNewClient(&$client){
               ADRESSE_DU_CLIENT=:adresse,
               COMMENTAIRE=:commentaire
               where ID_CLIENT ='.$client->getIdClient();
-                // var_dump($sql);
 
             $result =$mysqlPDO->prepare($sql);
-            $result->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
+            $result->execute(array(':ca'=>$client->getCa(),
+                                   ':effectif'=>$client->getEffectif(),
+                                   ':raisonSociale'=>$client->getRaisonSociale(),
+                                   ':ville'=>$client->getVille(),
+                                   ':codePostal'=>$client->getCodePostal(),
+                                   ':telephone'=>$client->getTelephone(),
+                                   ':nature'=>$client->getNature(),
+                                   ':type'=>$client->getType(),
+                                   ':adresse'=>$client->getAdresse(),
+                                   ':commentaire' => $client->getCommentaire()
+                                 )
+                              );
             $nombre= $result->rowCount();
 
             $result->closeCursor();
@@ -142,11 +154,9 @@ public static function addNewClient(&$client){
             return $nombre;
       }
 
-// @Nicolas GUIGNARD
-// GetOneClientDB -
  // get the client  id (type integer) from different controllers ,
 // return all values concerning the client which id is $idClient
-public static function GetOneClientDB($idClient){
+public static function getClientById($idClient){
       $mysqlPDO = cnsDao::connect();
               // var_dump($idClient);
 
@@ -156,6 +166,7 @@ public static function GetOneClientDB($idClient){
               TELEPHONE,
               CA,
               EFFECTIF,
+              VILLE,
               CODE_POSTAL,
               NOM_NATURE,
               TYPE_SOCIETE,
@@ -182,6 +193,41 @@ public static function GetOneClientDB($idClient){
       }
 }
 
+public static function getClientByRaisonSociale($raisonSociale){
+      $mysqlPDO = cnsDao::connect();
+              // var_dump($idClient);
+
+      $sql = 'select
+              ID_CLIENT,
+              RAISON_SOCIALE,
+              TELEPHONE,
+              CA,
+              EFFECTIF,
+              CODE_POSTAL,
+              NOM_NATURE,
+              TYPE_SOCIETE,
+              ADRESSE_DU_CLIENT,
+              COMMENTAIRE,
+              ID_CLIENT
+              from client
+              where RAISON_SOCIALE ='.$raisonSociale.';';
+
+      try {
+          $result =$mysqlPDO->prepare($sql);
+          $result->execute();//array($idClient));
+          $client=$result->fetch(PDO::FETCH_ASSOC);
+          if($client["NOM_NATURE"]==="principale")$client["NOM_NATURE"]="Principale";
+          if($client["TYPE_SOCIETE"]==="prive")$client["TYPE_SOCIETE"]="Privé";
+          $result->closeCursor();
+          cnsDao::disconnect($mysqlPDO);
+          return $client;
+
+      }
+      catch (Exception $e) {
+            // en cas erreur on affiche un message et on arrete tout
+            die('<h1>Erreur de lecture du Client'.$idClient.'en base de données : </h1>'.$e->getMessage());
+      }
+}
 
 // add a new contact to the db in contact table
 public static function addNewContact(&$contact){
@@ -201,8 +247,6 @@ public static function addNewContact(&$contact){
                                     ':fonctionContact'=>$contact->getFonctionContact(),
                                     ':idClient'=>$contact->getIdClient()));
 
-          var_dump("last inserted id : " . $mysqlPDO->lastInsertId());
-
           $contact->setIdContact($mysqlPDO->lastInsertId());
           $mysqlPDO->commit();
           $nombre= $statement->rowCount();
@@ -219,7 +263,7 @@ public static function addNewContact(&$contact){
   }
 
 // Fonction d'appel de la liste de tout les contacts
-  public static function listContact($idClient){
+  public static function getContactsList($idClient){
         // Connection à la BDD
         $mysqlPDO = cnsDao::connect();
 

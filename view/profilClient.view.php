@@ -15,14 +15,22 @@
           <?php displayNav(true); ?>
 
           <div class="container">
-            <h2 class="text-center"><?php echo $client["RAISON_SOCIALE"]; ?></h2>
+            <ul class="breadcrumb">
+              <li><a href="index.php">Accueil</a></li>
+              <li><a href="listClient.php">Liste Clients</a></li>
+              <li class="active">Profil Client</li>
+            </ul>
+            <div class="clientTitle">
+              <h2 class="text-center"><?php echo $client["RAISON_SOCIALE"]; ?></h2>
+            </div>
+
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <?php
                     displayProfilClient($client); ?>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-7">
                  <?php
 
                     displayListContact($client, $contacts); ?>

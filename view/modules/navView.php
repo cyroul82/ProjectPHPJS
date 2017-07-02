@@ -24,11 +24,11 @@ function displayNav($display){
        </div>
        <div id="myNav" class="collapse navbar-collapse">
          <ul class="nav navbar-nav">
-           <li><a href="index.php"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+           <li><a href="index.php"><i class="glyphicon glyphicon-home"></i> Accueil</a></li>
            <?php if($group==1) {?>
-             <li><a href="newClient.php"><i class="glyphicon glyphicon-plus"></i> Add Client</a></li>
-             <li><a href="listClient.php"><i class="glyphicon glyphicon-th-list"></i> List Clients</a></li>
-             <li><a href="searchClient.php"><i class="glyphicon glyphicon-search"></i> Search </a></li>
+             <li><a href="newClient.php"><i class="glyphicon glyphicon-plus"></i> Nouveau Client</a></li>
+             <li><a href="listClient.php"><i class="glyphicon glyphicon-th-list"></i> Liste Clients</a></li>
+             <li><a href="searchClient.php"><i class="glyphicon glyphicon-search"></i> Recherche </a></li>
 
            <?php } ?>
         </ul>

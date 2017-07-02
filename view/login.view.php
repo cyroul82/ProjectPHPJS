@@ -5,7 +5,7 @@ require("view/modules/headView.php");
 require("view/modules/navView.php");
 require("view/modules/titleView.php");
 require("dao/cnsDao.php");
-require("view/modules/mapView.php");
+
 
 function displayPageLogin(){
 
@@ -16,7 +16,7 @@ function displayPageLogin(){
 <?php displayNav(false); ?>
 <body>
   <?php displayLogin(""); ?>
-  <?php displayMap(); ?>
+  
 </body>
 
 <?php displayFooter();   }?>
