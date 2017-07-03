@@ -14,22 +14,18 @@ var_dump(count($contacts));
 
 
 if(count($contacts)!=0){
-
-throw new Exception("", 1);
-
-
-
-
+    throw new Exception("Vous ne pouvez détruir le client car il a des contacts");
+}
+else{
+      $clients=cnsDao::deleteClient($idClient);
+      var_dump($idClient);
+      var_dump($clients);
+      alert('Le Client: '.$client.' a bien été détruit!');
+      // displayPageListClient($clients);
 }
 
 
 
-
-    //
-    // $clients=cnsDao::deleteClient($idClient);
-    // Alert('Le Client: '.$client.' a bien été détruit!')
-    // displayPageUpdateClient($clients);
-    //
 
 }
  ?>

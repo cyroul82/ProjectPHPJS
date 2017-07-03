@@ -338,9 +338,7 @@ public static function deleteClient($idClient){
   // Connection à la BDD
   $mysqlPDO = cnsDao::connect();
 
-  // Récupère la liste de tous les contacts depuis la table contacts
 $sql1='delete from client where  ID_CLIENT='.$idClient.';';
-// $sql2="select contacts.ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contacts inner join client on contacts.ID_CLIENT = client.ID_CLIENT where contacts.ID_CLIENT=$idClient;";
 
 try {
       $rs=$mysqlPDO->prepare($sql1);
@@ -355,11 +353,6 @@ catch (Exception $e) {
 }
   // retourne le tableau associatif de resultats
   return $clients;
-
-
-
-
-
 }
 
 
