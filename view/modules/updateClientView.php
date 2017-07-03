@@ -76,7 +76,7 @@ function displayUpdateClient($client){
               </div>
               <div class="form-group">
                 <label for="commentaire">Commentaires</label>
-                <textarea class="form-control" id="commentaire" rows="3"><?php echo $client["COMMENTAIRE"];?>"</textarea>
+                <textarea class="form-control" id="commentaire" rows="3"><?php echo $client["COMMENTAIRE"];?></textarea>
 
               </div>
               <div class="text-center">

@@ -8,9 +8,8 @@ require("view/modules/clientListView.php");
 
 function displayPageListClient($data){
   if(!isset($_SESSION['email'])){
-    session_destroy();
     header("location: index.php?erreur=Déconnecté!");
-    Exit();
+    exit();
   }
   displayHead("Liste Clients"); ?>
   <script src="js/clientTable.js" charset="utf-8"></script>

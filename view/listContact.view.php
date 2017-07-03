@@ -8,9 +8,8 @@ require("view/modules/contactListView.php");
 
 function displayPageListContact($data){
   if(!isset($_SESSION['email'])){
-    session_destroy();
-      header("location: index.php?erreur=Déconnecté!");
-    Exit();
+    header("location: index.php?erreur=Déconnecté!");
+    exit();
   }
   displayHead("Liste Contacts"); ?>
   </head>

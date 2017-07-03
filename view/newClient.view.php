@@ -7,9 +7,8 @@ require("view/modules/newClientView.php");
 
 function displayPageNewClient(){
   if(!isset($_SESSION['email'])){
-    session_destroy();
-      header("location: index.php?erreur=Déconnecté!");
-    Exit();
+    header("location: index.php?erreur=Déconnecté!");
+    exit();
   }
 displayHead("Accueil");
 ?>

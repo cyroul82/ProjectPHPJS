@@ -7,9 +7,8 @@
 
   function displayPageProfilClient($client, $contacts){
     if(!isset($_SESSION['email'])){
-      session_destroy();
-        header("location: index.php?erreur=Déconnecté!");
-      Exit();
+      header("location: index.php?erreur=Déconnecté!");
+      exit();
     }
      displayHead("Profil"); ?>
      <script src="js/contactTable.js" charset="utf-8"></script>
