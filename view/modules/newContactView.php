@@ -2,11 +2,19 @@
 function displayNewContact($idClient){ ?>
 
   <div class="container">
+  <ul class="breadcrumb">
+      <li><a href="index.php">Accueil</a></li>
+      <li><a href="listClient.php">Liste Clients</a></li>
+      <li><a href="profilClient.php">Profil Client</a></li>
+      <li class="active">Nouveau Contact</li>
+  </ul>
 
     <fieldset>
       <legend>Ajouter un nouveau contact</legend>
 
         <div class="form">
+        <div class="col-xs-6 col-sm-push-3">
+
           <form action="newContactControl.php?idClient=<?php echo $idClient ?>" method="post">
 
             <div class="form-group">
@@ -39,8 +47,10 @@ function displayNewContact($idClient){ ?>
           </form>
           <!-- end form contact -->
         </div>
+        </div>
     </fieldset>
-    
+
+      
   </div>
   <!-- form new contact -->
 <?php } ?>

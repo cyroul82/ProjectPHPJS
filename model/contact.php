@@ -47,7 +47,7 @@ class Contact{
     if(!is_string($prenomContact)){
         throw new Exception("Erreur : Le prénom du contact contient des caractères invalides.");}
     else{
-        $this->prenomContact = ucfirst($prenomContact);
+        $this->prenomContact = ucfirst(strtolower($prenomContact));
     }
   }
 
