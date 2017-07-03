@@ -82,21 +82,20 @@ class Client{
 
 
   public function setCa($ca){
-
-    if($ca===""){
-      $this->ca = "";
+    if($ca === ''){
+      $this->ca = '';
     }
-    elseif(isset($ca) && floatval($ca)===0) {
-      
-      throw new Exception("Le CA doit être un décimal");
+    elseif($ca != '' && intval($ca)===0){
+        throw new Exception("L'effectif doit être un nombre ");
     }
-    elseif(isset($ca) && floatval($ca<0)){
-        throw new Exception("Le CA doit être  >0 ");
+  elseif($ca != '' && ($ca<0)){
+          throw new Exception("L'effectif doit être > 0 ");
     }
-    elseif(isset($ca) && floatval($ca)>=0){
-        $this->ca = floatval($ca);
-    }
+        elseif($ca != '' && intval($ca)!=0){
+            $this->ca = intval($ca);
+      }
   }
+
 
   public function setEffectif($effectif){
       if($effectif === ''){
@@ -108,10 +107,7 @@ class Client{
     elseif($effectif != '' && ($effectif<0)){
             throw new Exception("L'effectif doit être >0 ");
       }
-      elseif($effectif != '' && intval($effectif)!=0 && isset($ca) && $ca < 1000000*$effectif ){ //
-          throw new Exception("Le CA doit être < 1M€/Personne");
-      }
-      elseif($effectif != '' && intval($effectif)!=0){
+          elseif($effectif != '' && intval($effectif)!=0){
               $this->effectif = intval($effectif);
         }
     }
