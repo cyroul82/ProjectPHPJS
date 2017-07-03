@@ -6,6 +6,10 @@ $(document).ready(function() {
       responsive: {
         details: false
       },
+    "oLanguage": {
+      "sSearch": "Filtre :",
+      "sEmptyTable": "Veuillez entrer le premier contact",
+      },
         "searching": true,
         "paging":   false,
         "ordering": false,

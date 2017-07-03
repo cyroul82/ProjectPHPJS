@@ -15,7 +15,6 @@ if(isset($_POST["nomContact"]) && !empty($_POST["nomContact"])
      $contact->setNomContact(trim(htmlspecialchars($_POST["nomContact"])));
      $contact->setPrenomContact(trim(htmlspecialchars($_POST["prenomContact"])));
      $contact->setTelContact(trim(htmlentities($_POST["telContact"])));
-
      $contact->setFonctionContact(trim(htmlspecialchars($_POST["fonctionContact"])));
      $contact->setIdClient(trim(htmlentities($_POST["idClient"])));
      $nombre = cnsDao::addNewcontact($contact);

@@ -111,8 +111,6 @@ public static function addClient(&$client){
         return $clients;
 }
 
-
-
     // @Nicolas GUIGNARD
     // This Function update a Client comming from copntroller updateClient.php
     // - input: a $client
@@ -126,7 +124,7 @@ public static function addClient(&$client){
                                    ':effectif'=>$client->getEffectif(),
                                    ':raisonSociale'=>$client->getRaisonSociale(),
                                    ':codePostal'=>$client->getCodePostal(),
-                                   ':telephone'=>$client->getTelephone(),
+                                   ':telephone'=>$client->getTelephone2(),
                                    ':nature'=>$client->getNature(),
                                    ':type'=>$client->getType(),
                                    ':adresse'=>$client->getAdresse(),
