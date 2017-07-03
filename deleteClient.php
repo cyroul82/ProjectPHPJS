@@ -13,7 +13,9 @@ var_dump($contacts);
 var_dump(count($contacts));
 
 
-if(count($contacts)){
+if(count($contacts)!=0){
+
+throw new Exception("", 1);
 
 
 
