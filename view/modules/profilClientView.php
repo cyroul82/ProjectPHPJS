@@ -62,7 +62,7 @@ function displayProfilClient($client){
     </div>
          <div class="panel-footer text-right">
              <button type="button" id="btnUpdate"  onclick="location.href='updateClient.php?idClient=<?php echo $_GET["idClient"]?>'" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></button>
-             <button type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
+             <button type="button" class="btn btn-sm btn-danger"  onclick="location.href='deleteClient.php?idClient=<?php echo $_GET["idClient"]?>'"><i class="glyphicon glyphicon-remove"></i></button>
         </div>
 
   </div>
