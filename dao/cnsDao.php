@@ -181,6 +181,7 @@ public static function getClientById($idClient){
               TYPE_SOCIETE,
               ADRESSE_DU_CLIENT,
               COMMENTAIRE,
+              ID_CLIENT
               from client
               where ID_CLIENT ='.$idClient.';';
 

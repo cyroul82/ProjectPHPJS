@@ -9,11 +9,11 @@ if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
 
 $idClient = trim(htmlentities($_GET["idClient"]));
 $contacts=cnsDao::getContactsList($idClient);
-var_dump($contact);
-var_dump(count($contact));
+var_dump($contacts);
+var_dump(count($contacts));
 
 
-if(count($contact)){
+if(count($contacts)){
 
 
 
