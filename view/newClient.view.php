@@ -6,6 +6,11 @@ require("view/modules/titleView.php");
 require("view/modules/newClientView.php");
 
 function displayPageNewClient(){
+  if(!isset($_SESSION['email'])){
+    session_destroy();
+    header("location=index.php?erreur=Déconnecté");
+    Exit();
+  }
 displayHead("Accueil");
 ?>
 </head>

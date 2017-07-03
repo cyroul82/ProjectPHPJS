@@ -6,11 +6,12 @@ function displayNav($display){
   if(isset($_SESSION["email"])){
     $bool = true;
   }
+
   if(isset($_SESSION["group"])){
     $group = $_SESSION["group"];
   }
+  ?>
 
- ?>
    <nav class="navbar navbar-default navbar-fixed-top">
      <div class="container">
        <div class="navbar-header">

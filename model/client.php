@@ -23,12 +23,12 @@ class Client{
 
   // setters
   public function setIdClient($idClient){
-    // if(isset($idClient) && intval($idClient)===0){
-    //     throw new Exception("La clef primaire Client n'est pas valide");
-    // }
-    // else{
+    if(isset($idClient) && intval($idClient)===0){
+        throw new Exception("La clef primaire Client n'est pas valide");
+    }
+    else{
         $this->idClient = $idClient;
-    // }
+    }
   }
 
   public function setRaisonSociale($raisonSociale){
@@ -83,16 +83,17 @@ class Client{
 
   public function setCa($ca){
 
-    if($ca===''){
-      $this->ca = '';
+    if($ca===""){
+      $this->ca = "";
     }
-    elseif($ca!="" && floatval($ca)===0) {
-        echo "CA"; //throw new Exception("Le CA n'est pas un decimal");
+    elseif(isset($ca) && floatval($ca)===0) {
+      
+      throw new Exception("Le CA doit être un décimal");
     }
-    elseif( $ca!="" && $ca<0){
+    elseif(isset($ca) && floatval($ca<0)){
         throw new Exception("Le CA doit être  >0 ");
     }
-    elseif($ca!="" && floatval($ca)!=0){
+    elseif(isset($ca) && floatval($ca)>=0){
         $this->ca = floatval($ca);
     }
   }
