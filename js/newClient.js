@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var cancelBtn = $('#cancelBtn');
-  cancelBtn.click(function(){
+  cancelBtn.click(function() {
     window.location.href = "index.php";
   });
 });
@@ -63,7 +63,7 @@ function newClient() {
         document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + response["error"] + "</strong></div>";
       }
       if (response["message"] === "bad") {
-        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error saving into DB" + response["error"] +"</strong></div>";
+        document.getElementById('error').innerHTML = "<br><div class=\"alert alert-danger\" role=\"alert\"><strong>Error saving into DB" + response["error"] + "</strong></div>";
       }
     }
   }

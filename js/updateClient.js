@@ -31,9 +31,7 @@ $(document).ready(function() {
         }
         if (result["message"] === "nok") {
           $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong> Error saving the client into the DB !</strong></div>");
-        } else if (result["message"] === "exception") {
-          $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + result["error"] + "</strong></div>");
-        } else if (result["message"] === "fieldMissing") {
+        } else if (result["message"] === "exception" || result["message"] === "fieldMissing") {
           $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + result["error"] + "</strong></div>");
         }
       },
