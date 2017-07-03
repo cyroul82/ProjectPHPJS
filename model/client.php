@@ -57,7 +57,7 @@ class Client{
   }
 
   public function setVille($ville){
-        $this->ville = strtoupper($ville);
+        $this->ville = mb_strtoupper($ville);
   }
 
   public function setCodePostal($codePostal){
@@ -76,9 +76,19 @@ class Client{
             $this->telephone = chunk_split($telephone, 2," ");
         }
         else{
-          throw new Exception("Le numero de telephone est incorrect , ex: 06 60 60 60 60");
+          throw new Exception("Le numero de telephone est incorrect , ex: 0612345678");
         }
       }
+
+   public function setTelephone2($telephone){
+      $regex = "/^[0-9]{9,13}[0-9]$/ ";
+        if(preg_match($regex,$telephone)===1){
+            $this->telephone2 = $telephone;
+        }
+        else{
+          throw new Exception("Le numero de telephone est incorrect , ex: 0612345678");
+        }
+      }    
 
 
   public function setCa($ca){
@@ -144,6 +154,9 @@ class Client{
   }
   public function getTelephone(){
     return $this->telephone;
+  }
+  public function getTelephone2(){
+    return $this->telephone2;
   }
   public function getCa(){
     return $this->ca;

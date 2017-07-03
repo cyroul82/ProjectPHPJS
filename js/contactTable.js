@@ -2,15 +2,21 @@ $(document).ready(function() {
 
   idClient = $('#idClient').val();
 
-  var table = $('#listContactTable').DataTable({
-    responsive: {
-      details: false
-    },
-    "searching": true,
-    "paging": false,
-    "ordering": false,
-    "info": false
-  });
+
+    var table=$('#listContactTable').DataTable( {
+      responsive: {
+        details: false
+      },
+    "oLanguage": {
+      "sSearch": "Filtre :",
+      "sEmptyTable": "Veuillez entrer le premier contact",
+      },
+        "searching": true,
+        "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
+
 
   var contact = null;
 

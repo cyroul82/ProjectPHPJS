@@ -5,8 +5,9 @@ $(document).ready(function() {
       details: false
     },
     "oLanguage": {
-      "sSearch": "Filtre:",
-      "sInfo": "Nombre total de client:  _TOTAL_",
+      "sLengthMenu": "Afficher \u00a0_MENU_\u00a0 clients",
+      "sSearch": "Filtre :",
+      "sInfo": "Nombre total de clients : \u00a0_TOTAL_",
       "sEmptyTable": "Aucun client dans la base de données",
       "sInfoEmpty": "Aucune entrées",
       "oPaginate": {
@@ -14,7 +15,6 @@ $(document).ready(function() {
         "sPrevious": "Précédent"
       }
     }
-
   });
 
 
