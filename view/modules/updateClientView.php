@@ -14,6 +14,7 @@ function displayUpdateClient($client){
             <div class="form-group">
               <label for="raisonSociale">Raison Sociale</label>
               <input type="text" class="form-control" id="raisonSociale" value="<?php echo $client["RAISON_SOCIALE"];?>" required>
+
             </div>
 
             <div class="form-group">
@@ -47,6 +48,7 @@ function displayUpdateClient($client){
             <div class="form-group">
               <label for="adresse">Adresse</label>
               <input type="text" class="form-control" id="adresse" value="<?php echo $client["ADRESSE_DU_CLIENT"];?>" required>
+
             </div>
 
             <div class="form-group">
@@ -55,7 +57,8 @@ function displayUpdateClient($client){
             </div>
             <div class="form-group">
               <label for="codePostal">Code Postal</label>
-              <input type="text" class="form-control" id="codePostal" value="<?php echo $client["CODE_POSTAL"];?>" required>
+              <input type="text" pattern="[0-9]{5}" class="form-control" id="codePostal" value="<?php echo $client["CODE_POSTAL"];?>" required>
+
             </div>
             </div>
             <div class="col-md-6">
@@ -74,6 +77,7 @@ function displayUpdateClient($client){
               <div class="form-group">
                 <label for="commentaire">Commentaires</label>
                 <textarea class="form-control" id="commentaire" rows="3"><?php echo $client["COMMENTAIRE"];?>"</textarea>
+
               </div>
               <div class="text-center">
                 <button type="submit" id="submitBtn" class="btn btn-success">Valider</button>

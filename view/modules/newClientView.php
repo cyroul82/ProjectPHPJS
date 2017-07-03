@@ -52,7 +52,7 @@ function displayNewClient(){ ?>
                 </div>
                 <div class="form-group">
                   <label for="codePostal">Code Postal</label>
-                  <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="code Postal" required>
+                  <input type="text" pattern="[0-9]{5}" class="form-control" id="codePostal" name="codePostal" placeholder="code Postal" required>
                 </div>
           </div>
           <div class="col-md-6">
