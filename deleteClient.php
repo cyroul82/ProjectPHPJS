@@ -12,13 +12,13 @@ $contacts=cnsDao::getContactsList($idClient);
 var_dump($contact);
 var_dump(count($contact));
 
-//
-// if(c($idClient)){
-//
-//
-//
-//
-// }
+
+if(count($contact)){
+
+
+
+
+}
 
 
 
