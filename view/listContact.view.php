@@ -6,7 +6,7 @@ require("view/modules/headView.php");
 require("view/modules/navView.php");
 require("view/modules/contactListView.php");
 
-function displayPageListContact($data){
+function displayPageListContact($listContact){
   if(!isset($_SESSION['email'])){
     header("location: index.php?erreur=Déconnecté!");
     exit();
@@ -15,7 +15,7 @@ function displayPageListContact($data){
   </head>
   <?php displayNav(true); ?>
   <body>
-    <?php displayListContact($data); ?>
+    <?php displayListContact($listContact); ?>
   </body>
 
 <?php displayFooter();  }?>

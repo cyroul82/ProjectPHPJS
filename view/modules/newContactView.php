@@ -43,14 +43,12 @@ function displayNewContact($idClient){ ?>
               <button type="submit" class="btn btn-default btn-success">Ajouter</button>
               <button type="button" class="btn btn-default btn-success" id="cancelContact">Annuler</button>
             </div>
-
-          </form>
-          <!-- end form contact -->
+          </div>
         </div>
-        </div>
+      </form>
     </fieldset>
 
-      
+
   </div>
   <!-- form new contact -->
 <?php } ?>

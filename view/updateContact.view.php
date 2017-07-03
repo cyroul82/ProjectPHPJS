@@ -6,19 +6,19 @@ require('modules/footerView.php');
 require('modules/updateContactView.php');
 
 
-function displayPageUpdateContact($client){
+function displayPageUpdateContact($contact){
   if(!isset($_SESSION['email'])){
     header("location: index.php?erreur=Déconnecté!");
     exit();
   }
-  displayHead("Update Client"); ?>
-  <script src="js/updateClient.js" charset="utf-8"></script>
+  displayHead("Update Contact"); ?>
+  <script src="js/updateContact.js" charset="utf-8"></script>
   </head>
   <body>
     <?php
     displayNav(true);?>
     <div class="container">
-      <?php displayUpdateClient($client); ?>
+      <?php displayUpdateContact($contact); ?>
     </div>
 
   </body>

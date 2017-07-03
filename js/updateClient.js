@@ -6,7 +6,8 @@ $(document).ready(function() {
 
 
 
-  $('#updateClientForm').submit(function() {
+  $('#updateClientForm').submit(function(e) {
+    e.preventDefault();
 
     idClient = $('#idClient').val();
     raisonSociale = $('#raisonSociale').val();
@@ -40,7 +41,6 @@ $(document).ready(function() {
       }
 
     });
-    return false;
   });
 
 });
