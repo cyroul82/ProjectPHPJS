@@ -32,7 +32,7 @@ $(document).ready(function() {
       table.row('.selected').remove().draw(false);
     });
     $('#addContact').click(function() {
-        window.location.href = "newContact.php?idClient=" + idClient; 
+        window.location.href = "newContact.php?idClient=" + idClient;
     });
     $('#editContact').click(function() {
       if (client != null) {

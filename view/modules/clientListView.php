@@ -4,7 +4,7 @@ require("clientListTemplateView.php");
 function displayClientList($data){
 ?>
     <fieldset>
-      <legend>Liste clients
+      <legend>Liste 
         <!-- <p>
           <button type="button" class="btn btn-success btn-sm" id="addClient" >
             <i class="glyphicon glyphicon-plus"></i>
