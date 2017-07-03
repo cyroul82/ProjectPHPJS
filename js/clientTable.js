@@ -3,7 +3,18 @@ $(document).ready(function() {
   var table = $('#listClientTable').DataTable({
     responsive: {
       details: false
+    },
+    "oLanguage": {
+      "sSearch": "Filtre:",
+      "sInfo": "Nombre total de client:  _TOTAL_",
+      "sEmptyTable": "Aucun client dans la base de données",
+      "sInfoEmpty": "Aucune entrées",
+      "oPaginate": {
+        "sNext": "Suivant",
+        "sPrevious": "Précédent"
+      }
     }
+
   });
 
 

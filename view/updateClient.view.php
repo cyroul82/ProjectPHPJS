@@ -8,13 +8,15 @@ require('modules/updateClientView.php');
 
 function displayPageUpdateClient($client){
   displayHead("upDateClient"); ?>
-
+  <script src="js/updateClient.js" charset="utf-8"></script>
   </head>
   <body>
     <?php
-    displayNav(true);
-    displayUpdateClient($client);
-    ?>
+    displayNav(true);?>
+    <div class="container">
+      <?php displayUpdateClient($client); ?>
+    </div>
+
   </body>
 
   <?php  displayFooter(); }?>

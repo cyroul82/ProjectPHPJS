@@ -1,7 +1,7 @@
 <?php
 function displayProfilClient($client){
   ?>
-  
+
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Détails</h3>
@@ -66,7 +66,5 @@ function displayProfilClient($client){
         </div>
 
   </div>
-<script type="text/javascript" src="js/profilClient.js"></script>
-
 
 <?php } ?>
