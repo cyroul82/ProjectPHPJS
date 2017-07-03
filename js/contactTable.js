@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
 
     $('#deleteContact').click(function() {
-      table.row('.selected').remove().draw(false);
+      /*table.row('.selected').remove().draw(false);*/
     });
     $('#addContact').click(function() {
         window.location.href = "newContact.php?idClient=" + idClient;

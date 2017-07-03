@@ -19,7 +19,7 @@ class Contact{
   public function setIdClient($idClient){
 
     if(isset($idClient) && intval($idClient)===0){
-      throw new Exception("The idClient is not valid. Someone try to modify the DataBase without passing by the software's interface.");
+      throw new Exception("Erreur : Le numéro d'identification du client n'est pas valide. Quelqu'un tente de modifier la base de données sans passer par l'interface logiciel.");
     }
       else{
         $this->idClient = $idClient;
@@ -28,7 +28,7 @@ class Contact{
 
   public function setIdContact($idContact){
     if(isset($idContact) && intval($idContact)===0){
-      throw new Exception("The idContact is not valid. Someone try to modify the DataBase without passing by the software's interface.");
+      throw new Exception("Erreur : Le numéro d'identification du contact n'est pas valide. Quelqu'un tente de modifier la base de données sans passer par l'interface logiciel.");
     }
     else {
       $this->idContact = $idContact;
@@ -37,35 +37,35 @@ class Contact{
 
     public function setNomContact($nomContact){
     if(!is_string($nomContact)){
-        throw new Exception("Error : the contact's last name include invalid characters.");}
+        throw new Exception("Erreur : Le nom du contact contient des caractères invalides.");}
     else{
-        $this->nomContact = strtoupper($nomContact);
+        $this->nomContact = mb_strtoupper($nomContact);
     }
   }
 
   public function setPrenomContact($prenomContact){
     if(!is_string($prenomContact)){
-        throw new Exception("Error : the contact's first name include invalid characters.");}
+        throw new Exception("Erreur : Le prénom du contact contient des caractères invalides.");}
     else{
-        $this->prenomContact = strtoupper($prenomContact);
+        $this->prenomContact = ucfirst(strtolower($prenomContact));
     }
   }
 
   public function setTelContact($telContact){
-      $regex = "/^(\d\d\s){4}(\d\d)$/ ";
+      $regex = "/^[0-9]{9,13}[0-9]$/ ";
         if(preg_match($regex,$telContact)){
-            $this->telContact = $telContact;
+            $this->telContact = chunk_split($telContact, 2," ");
         }
         else{
-          throw new Exception("Error : the telephone's number is an invalid format.");
+          throw new Exception("Erreur : Le numéro de téléphone n'est pas un format valide.");
         }
       }
 
   public function setFonctionContact($fonctionContact){
     if(!is_string($fonctionContact)){
-        throw new Exception("Error : the fonction's contact include invalid characters.");}
+        throw new Exception("Erreur : La fonction du contact contient des caractères invalides.");}
     else{
-        $this->fonctionContact = strtoupper($fonctionContact);
+        $this->fonctionContact = mb_strtoupper($fonctionContact);
     }
   }
 

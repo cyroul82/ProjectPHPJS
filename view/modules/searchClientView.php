@@ -4,6 +4,11 @@
 ?>
 <!-- Barre de recherche -->
         <div class="container">
+          <ul class="breadcrumb">
+            <li><a href="index.php">Accueil</a></li>
+            <li class="active">Recherche</li>
+          </ul>
+
           <fieldset>
 
             <legend>Recherche de clients</legend>

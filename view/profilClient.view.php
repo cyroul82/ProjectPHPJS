@@ -25,7 +25,7 @@
               <li class="active">Profil Client</li>
             </ul>
             <div class="clientTitle">
-              <h2 class="text-center"><?php echo $client["RAISON_SOCIALE"]; ?></h2>
+              <h2 class="text-align:left"><?php echo $client["RAISON_SOCIALE"]; ?></h2>
             </div>
 
             <div class="row">
