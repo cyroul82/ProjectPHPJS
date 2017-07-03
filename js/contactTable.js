@@ -35,8 +35,8 @@ $(document).ready(function() {
     window.location.href = "newContact.php?idClient=" + idClient;
   });
   $('#editContact').click(function() {
-    if (client != null) {
-      console.log(client);
+    if (contact != null) {
+      window.location.href = "updateContact.php?idContact=" + contact[4];
     }
   });
 

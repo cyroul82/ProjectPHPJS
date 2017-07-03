@@ -5,7 +5,6 @@ function displayUpdateClient($client){
   <fieldset>
     <legend>Modification du client: <strong><?php echo $client["RAISON_SOCIALE"] ?></strong></legend>
       <div class="form">
-        <!-- <form action="updateClientControl.php" method="get"> -->
         <form id="updateClientForm">
           <div class="row">
             <div class="col-md-6">

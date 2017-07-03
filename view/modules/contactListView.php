@@ -21,14 +21,13 @@ function displayListContact($client, $contacts){
                      <i class="glyphicon glyphicon-plus"></i>
                    </button>
                    <span class="pull-right">
-                     <button type="button" class="btn btn-warning btn-sm" id="editContact+" >
+                     <button type="button" class="btn btn-warning btn-sm" id="editContact" >
                        <i class="glyphicon glyphicon-edit"></i>
                      </button>
                      <button type="button" class="btn btn-danger btn-sm" id="deleteContact" >
                        <i class="glyphicon glyphicon-trash"></i>
                      </button>
                     </span>
-                     <!-- <a data-original-title="Editer le contact" data-toggle="tootip" onclick="location.href='newContact.php?idClient=' + <?php echo $idClient ?>" type="button"  class="btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i></a> -->
                 </div>
 
           </div>

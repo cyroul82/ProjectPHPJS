@@ -118,7 +118,7 @@ public static function addClient(&$client){
     // - out: the number of row updated
       public static function updateClient($client){
             $mysqlPDO = cnsDao::connect();
-              // var_dump($client->getIdClient());
+
             $sql = 'update client set CA = :ca,EFFECTIF=:effectif,RAISON_SOCIALE=:raisonSociale,CODE_POSTAL=:codePostal,TELEPHONE=:telephone,NOM_NATURE=:nature,TYPE_SOCIETE=:type,ADRESSE_DU_CLIENT=:adresse,VILLE=:ville,COMMENTAIRE=:commentaire where ID_CLIENT ='.$client->getIdClient();
             $req =$mysqlPDO->prepare($sql);
             $req->execute(array(':ca'=>$client->getCa(),
@@ -143,16 +143,21 @@ public static function addClient(&$client){
 
       public static function updateContact($contact){
             $mysqlPDO = cnsDao::connect();
-              // var_dump($client->getIdClient());
-            $sql = 'update contact set ID_CLIENT=:idClient, NOM_CONTACT=:nom, PRENOM_CONTACT=:prenom, TEL_CONTACT=:telephone, FONCTION_CONTACT=:fonction where ID_CONTACT_CLIENT ='.$contact->getIdContact();
+            $sql = 'update contacts set
+                    NOM_CONTACT=:nom,
+                    PRENOM_CONTACT=:prenom,
+                    TEL_CONTACT=:telephone,
+                    FONCTION_CONTACT=:fonction
+                    where ID_CONTACT_CLIENT =' . $contact->getIdContact();
             $req =$mysqlPDO->prepare($sql);
-            $req->execute(array(   ':idClient'=>$contact->getIdClient(),
+            $req->execute(array(
                                    ':nom'=>$contact->getNomContact(),
                                    ':prenom'=>$contact->getPrenomContact(),
                                    ':telephone'=>$contact->getTelContact(),
                                    ':fonction'=>$contact->getFonctionContact()
                                  )
                               );
+
 
             $nombre= $req->rowCount();
             $req->closeCursor();
@@ -165,7 +170,6 @@ public static function addClient(&$client){
 // return all values concerning the client which id is $idClient
 public static function getClientById($idClient){
       $mysqlPDO = cnsDao::connect();
-              // var_dump($idClient);
 
       $sql = 'select
               ID_CLIENT,
@@ -179,7 +183,6 @@ public static function getClientById($idClient){
               TYPE_SOCIETE,
               ADRESSE_DU_CLIENT,
               COMMENTAIRE,
-              ID_CLIENT
               from client
               where ID_CLIENT ='.$idClient.';';
 
@@ -197,6 +200,35 @@ public static function getClientById($idClient){
       catch (Exception $e) {
             // en cas erreur on affiche un message et on arrete tout
             die('<h1>Erreur de lecture du Client'.$idClient.'en base de données : </h1>'.$e->getMessage());
+      }
+}
+
+public static function getContactById($idContact){
+      $mysqlPDO = cnsDao::connect();
+
+      $sql = 'select
+              ID_CLIENT,
+              NOM_CONTACT,
+              PRENOM_CONTACT,
+              TEL_CONTACT,
+              FONCTION_CONTACT,
+              ID_CONTACT_CLIENT
+              from contacts
+              where ID_CONTACT_CLIENT =' . $idContact . ';';
+
+      try {
+          $result =$mysqlPDO->prepare($sql);
+          $result->execute();//array($idClient));
+          $contact=$result->fetch(PDO::FETCH_ASSOC);
+
+          $result->closeCursor();
+          cnsDao::disconnect($mysqlPDO);
+          return $contact;
+
+      }
+      catch (Exception $e) {
+            // en cas erreur on affiche un message et on arrete tout
+            die('<h1>Erreur de lecture du Contact' . $idContact . 'en base de données : </h1>'.$e->getMessage());
       }
 }
 
@@ -273,7 +305,7 @@ public static function addNewContact(&$contact){
         $mysqlPDO = cnsDao::connect();
 
         // Récupère la liste de tous les contacts depuis la table contacts
-        $sql="select contacts.ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contacts inner join client on contacts.ID_CLIENT = client.ID_CLIENT where contacts.ID_CLIENT=$idClient;";
+        $sql="select contacts.ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contacts inner join client on contacts.ID_CLIENT = client.ID_CLIENT where contacts.ID_CLIENT=$idClient;";
 
       try {
             $rs=$mysqlPDO->prepare($sql);

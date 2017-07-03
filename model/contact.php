@@ -18,12 +18,12 @@ class Contact{
   // setters
   public function setIdClient($idClient){
 
-    if(isset($idClient) && intval($idClient)===0){
-      throw new Exception("Erreur : Le numéro d'identification du client n'est pas valide. Quelqu'un tente de modifier la base de données sans passer par l'interface logiciel.");
-    }
-      else{
+    // if(isset($idClient) && intval($idClient)===0){
+    //   throw new Exception("Erreur : Le numéro d'identification du client n'est pas valide. Quelqu'un tente de modifier la base de données sans passer par l'interface logiciel.");
+    // }
+      // else{
         $this->idClient = $idClient;
-      }
+      // }
   }
 
   public function setIdContact($idContact){

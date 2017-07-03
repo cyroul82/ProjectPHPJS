@@ -7,9 +7,13 @@ $(document).ready(function() {
 
 
   $('#updateContactForm').submit(function(e) {
+
     event.preventDefault();
+
     var idClient = $('#idClient').val();
     var contact = $(this).serialize();
+    console.log(contact);
+    // var c = contact + "&idClient=" + idClient;
 
     $.ajax({
       url: "updateContactControl.php",
@@ -17,17 +21,19 @@ $(document).ready(function() {
       data: contact,
       dataType: 'json',
       success: function(result, statut) {
+
         if (result["message"] === "ok") {
           window.location.href = "profilClient.php?idClient=" + idClient;
         }
         if (result["message"] === "nok") {
-          $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong> Error saving the contact into the DB !</strong></div>");
+          $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong> Error saving the contact into the DB !" + result["error"] + "</strong></div>");
         } else if (result["message"] === "exception" || result["message"] === "fieldMissing") {
           $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + result["error"] + "</strong></div>");
         }
       },
-      error: function(result, status, erreur) {
-        $("#error").html("error");
+      error: function(result, statut, erreur) {
+        console.log("result: " + result);
+        $("#error").html("Result: " + result["error"]);
       }
 
     });
