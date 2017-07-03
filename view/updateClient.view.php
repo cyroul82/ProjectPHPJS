@@ -3,10 +3,10 @@
 require('modules/navView.php');
 require('modules/headView.php');
 require('modules/footerView.php');
-require('modules/updateContactView.php');
+require('modules/updateClientView.php');
 
 
-function displayPageUpdateContact($client){
+function displayPageUpdateClient($client){
   if(!isset($_SESSION['email'])){
     header("location: index.php?erreur=Déconnecté!");
     exit();
