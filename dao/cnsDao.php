@@ -111,8 +111,6 @@ public static function addClient(&$client){
         return $clients;
 }
 
-
-
     // This Function update a Client comming from copntroller updateClient.php
     // - input: a $client
     // - out: the number of row updated
@@ -316,10 +314,57 @@ public static function addNewContact(&$contact){
       }
       catch (Exception $e) {
             // en cas erreur on affiche un message et on arrete tout
-            die("die('<h1>Erreur de lecture en base de données : </h1>" . $e->getMessage());
+            die('<h1>Erreur de lecture en base de données : </h1>'. $e->getMessage());
       }
         // retourne le tableau associatif de resultats
         return $contacts;
   }
+
+public static function checkContact($idClient){
+
+
+
+
+
+}
+
+
+
+
+
+
+public static function deleteClient($idClient){
+  // Connection à la BDD
+  $mysqlPDO = cnsDao::connect();
+
+  // Récupère la liste de tous les contacts depuis la table contacts
+$sql1='delete from client where  ID_CLIENT='.$idClient.';';
+// $sql2="select contacts.ID_CLIENT, ID_CONTACT_CLIENT, NOM_CONTACT, PHOTO, PRENOM_CONTACT, TEL_CONTACT, FONCTION_CONTACT from contacts inner join client on contacts.ID_CLIENT = client.ID_CLIENT where contacts.ID_CLIENT=$idClient;";
+
+try {
+      $rs=$mysqlPDO->prepare($sql1);
+      $rs->execute();
+      $clients=cnsDAO::getClientsList();
+      $rs->closeCursor();
+      cnsDao::disconnect($mysqlPDO);
+}
+catch (Exception $e) {
+      // en cas erreur on affiche un message et on arrete tout
+      die('<h1>Erreur de destruction de client dans la Base de Données : </h1>' . $e->getMessage());
+}
+  // retourne le tableau associatif de resultats
+  return $clients;
+
+
+
+
+
+}
+
+
+
+
+
+
 }
 ?>

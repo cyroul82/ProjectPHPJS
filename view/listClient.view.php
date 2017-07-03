@@ -6,7 +6,7 @@ require("view/modules/headView.php");
 require("view/modules/navView.php");
 require("view/modules/clientListView.php");
 
-function displayPageListClient($data){
+function displayPageListClient($client){
   if(!isset($_SESSION['email'])){
     header("location: index.php?erreur=Déconnecté!");
     exit();
@@ -21,7 +21,7 @@ function displayPageListClient($data){
         <li><a href="index.php">Accueil</a></li>
         <li class="active">Liste Clients</a></li>
       </ul>
-      <?php displayClientList($data); ?>
+      <?php displayClientList($client); ?>
     </div>
 
   </body>
