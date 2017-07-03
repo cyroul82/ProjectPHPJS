@@ -17,16 +17,16 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
 
   try{
      $client = new Client();
-     $client->setRaisonSociale(trim(htmlentities($_POST["raisonSociale"])));
-     $client->setNature(trim(htmlentities($_POST["nature"])));
-     $client->setType(trim(htmlentities($_POST["type"])));
-     $client->setAdresse(trim(htmlentities($_POST["adresse"])));
-     $client->setVille(trim(htmlentities($_POST["ville"])));
+     $client->setRaisonSociale(trim(htmlspecialchars($_POST["raisonSociale"])));
+     $client->setNature(trim(htmlspecialchars($_POST["nature"])));
+     $client->setType(trim(htmlspecialchars($_POST["type"])));
+     $client->setAdresse(trim(htmlspecialchars($_POST["adresse"])));
+     $client->setVille(trim(htmlspecialchars($_POST["ville"])));
      $client->setCodePostal(trim(htmlentities($_POST["codePostal"])));
      $client->setTelephone(trim(htmlentities($_POST["telephone"])));
      $client->setCa(trim(htmlentities($_POST["ca"])));
      $client->setEffectif(trim(htmlentities($_POST["effectif"])));
-     $client->setCommentaire(trim(htmlentities($_POST["commentaire"])));
+     $client->setCommentaire(trim(htmlspecialchars($_POST["commentaire"])));
      $nombre = cnsDao::addClient($client);
      if($nombre == 1){
        $arr = array('message' => 'ok',
