@@ -2,8 +2,10 @@
 function displayNewContact($idClient){ ?>
 
   <div class="container">
+
     <fieldset>
       <legend>Ajouter un nouveau contact</legend>
+
         <div class="form">
           <form action="newContactControl.php?idClient=<?php echo $idClient ?>" method="post">
 
@@ -38,6 +40,7 @@ function displayNewContact($idClient){ ?>
           <!-- end form contact -->
         </div>
     </fieldset>
+    
   </div>
   <!-- form new contact -->
 <?php } ?>

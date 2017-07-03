@@ -32,7 +32,7 @@ class Client{
   }
 
   public function setRaisonSociale($raisonSociale){
-        $this->raisonSociale = strtoupper($raisonSociale);
+        $this->raisonSociale = mb_strtoupper($raisonSociale);
     }
 
     public function setNature($nature){
@@ -71,9 +71,9 @@ class Client{
   }
 
   public function setTelephone($telephone){
-      $regex = "/^(\d\d\s){4}(\d\d)$/ ";
+      $regex = "/^[0-9]{9,13}[0-9]$/ ";
         if(preg_match($regex,$telephone)===1){
-            $this->telephone = $telephone;
+            $this->telephone = chunk_split($telephone, 2," ");
         }
         else{
           throw new Exception("Le numero de telephone est incorrect , ex: 06 60 60 60 60");

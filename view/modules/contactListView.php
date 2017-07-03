@@ -21,10 +21,10 @@ function displayListContact($client, $contacts){
                      <i class="glyphicon glyphicon-plus"></i>
                    </button>
                    <span class="pull-right">
-                     <button type="button" class="btn btn-success btn-sm" id="editContact+" >
+                     <button type="button" class="btn btn-warning btn-sm" id="editContact+" >
                        <i class="glyphicon glyphicon-edit"></i>
                      </button>
-                     <button type="button" class="btn btn-success btn-sm" id="deleteContact" >
+                     <button type="button" class="btn btn-danger btn-sm" id="deleteContact" >
                        <i class="glyphicon glyphicon-trash"></i>
                      </button>
                     </span>
