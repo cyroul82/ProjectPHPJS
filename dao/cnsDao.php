@@ -113,7 +113,6 @@ public static function addClient(&$client){
 
 
 
-    // @Nicolas GUIGNARD
     // This Function update a Client comming from copntroller updateClient.php
     // - input: a $client
     // - out: the number of row updated
@@ -132,6 +131,26 @@ public static function addClient(&$client){
                                    ':adresse'=>$client->getAdresse(),
                                    ':ville'=>$client->getVille(),
                                    ':commentaire' => $client->getCommentaire()
+                                 )
+                              );
+
+            $nombre= $req->rowCount();
+            $req->closeCursor();
+            cnsDao::disconnect($mysqlPDO);
+
+            return $nombre;
+      }
+
+      public static function updateContact($contact){
+            $mysqlPDO = cnsDao::connect();
+              // var_dump($client->getIdClient());
+            $sql = 'update contact set ID_CLIENT=:idClient, NOM_CONTACT=:nom, PRENOM_CONTACT=:prenom, TEL_CONTACT=:telephone, FONCTION_CONTACT=:fonction where ID_CONTACT_CLIENT ='.$contact->getIdContact();
+            $req =$mysqlPDO->prepare($sql);
+            $req->execute(array(   ':idClient'=>$contact->getIdClient(),
+                                   ':nom'=>$contact->getNomContact(),
+                                   ':prenom'=>$contact->getPrenomContact(),
+                                   ':telephone'=>$contact->getTelContact(),
+                                   ':fonction'=>$contact->getFonctionContact()
                                  )
                               );
 
@@ -183,8 +202,6 @@ public static function getClientById($idClient){
 
 public static function getClientByRaisonSociale($raisonSociale){
       $mysqlPDO = cnsDao::connect();
-              // var_dump($idClient);
-
       $sql = 'select
               ID_CLIENT,
               RAISON_SOCIALE,
