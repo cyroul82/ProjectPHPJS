@@ -13,7 +13,7 @@ function displayUpdateClient($client){
 
             <div class="form-group">
               <label for="raisonSociale">Raison Sociale</label>
-              <input type="text" class="form-control" name="raisonSociale" value="<?php echo $client["RAISON_SOCIALE"];?>">
+              <input type="text" class="form-control" name="raisonSociale" value="<?php echo $client["RAISON_SOCIALE"];?>" required>
             </div>
 
             <div class="form-group">
@@ -46,30 +46,30 @@ function displayUpdateClient($client){
 
             <div class="form-group">
               <label for="adresse">Adresse</label>
-              <input type="text" class="form-control" name="adresse" value="<?php echo $client["ADRESSE_DU_CLIENT"];?>">
+              <input type="text" class="form-control" name="adresse" value="<?php echo $client["ADRESSE_DU_CLIENT"];?>" required>
             </div>
 
             <div class="form-group">
               <label for="ville">Ville</label>
-              <input type="text" class="form-control" name="ville" value="<?php echo $client["VILLE"];?>">
+              <input type="text" class="form-control" name="ville" value="<?php echo $client["VILLE"];?>" required>
             </div>
             <div class="form-group">
               <label for="codePostal">Code Postal</label>
-              <input type="text" class="form-control" name="codePostal" value="<?php echo $client["CODE_POSTAL"];?>">
+              <input type="text" pattern="[0-9]{5}"class="form-control" name="codePostal" value="<?php echo $client["CODE_POSTAL"];?>" pattern="[0-9]{5}" required>
             </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="telephone">Téléphone</label>
-                <input type="text" class="form-control" name="telephone" value="<?php echo $client["TELEPHONE"];?>">
+                <input type="text" class="form-control" name="telephone" value="<?php echo $client["TELEPHONE"];?>" required>
               </div>
               <div class="form-group">
                 <label for="ca">Chiffre d'Affaires</label>
-                <input type="text" class="form-control" name="ca" value="<?php echo $client["CA"];?>">
+                <input type="text" class="form-control" name="ca" value="<?php echo $client["CA"];?>" required>
               </div>
               <div class="form-group">
                 <label for="effectif">Effectif</label>
-                <input type="text" class="form-control" name="effectif" value="<?php echo $client["EFFECTIF"];?>">
+                <input type="text" class="form-control" name="effectif" value="<?php echo $client["EFFECTIF"];?>" required>
               </div>
               <div class="form-group">
                 <label for="commentaire">Commentaires</label>
