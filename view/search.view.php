@@ -16,7 +16,7 @@ require("dao/cnsDao.php");
 function displayPageSearchClient(){
 	if(!isset($_SESSION['email'])){
 		session_destroy();
-		header("location=index.php?erreur=Déconnecté");
+		  header("location: index.php?erreur=Déconnecté!");
 		Exit();
 	}
 displayHead("Search"); ?>

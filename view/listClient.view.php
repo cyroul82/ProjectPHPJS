@@ -9,7 +9,7 @@ require("view/modules/clientListView.php");
 function displayPageListClient($data){
   if(!isset($_SESSION['email'])){
     session_destroy();
-    header("location=index.php?erreur=Déconnecté");
+    header("location: index.php?erreur=Déconnecté!");
     Exit();
   }
   displayHead("Liste Clients"); ?>

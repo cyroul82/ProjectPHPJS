@@ -8,7 +8,7 @@ require("view/modules/newContactView.php");
 function displayPageNewContact($idClient){
   if(!isset($_SESSION['email'])){
     session_destroy();
-    header("location=index.php?erreur=Déconnecté");
+      header("location: index.php?erreur=Déconnecté!");
     Exit();
   }
 
