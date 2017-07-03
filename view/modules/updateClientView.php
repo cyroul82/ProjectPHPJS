@@ -8,11 +8,11 @@ function displayUpdateClient($client){
         <form id="updateClientForm">
           <div class="row">
             <div class="col-md-6">
-              <input type="hidden" id="idClient" value="<?php echo $client["ID_CLIENT"];?>">
+              <input type="hidden" id="idClient" name="idClient" value="<?php echo $client["ID_CLIENT"];?>">
 
             <div class="form-group">
               <label for="raisonSociale">Raison Sociale</label>
-              <input type="text" class="form-control" id="raisonSociale" value="<?php echo $client["RAISON_SOCIALE"];?>" required>
+              <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" value="<?php echo $client["RAISON_SOCIALE"];?>" required>
 
             </div>
 
@@ -46,36 +46,37 @@ function displayUpdateClient($client){
 
             <div class="form-group">
               <label for="adresse">Adresse</label>
-              <input type="text" class="form-control" id="adresse" value="<?php echo $client["ADRESSE_DU_CLIENT"];?>" required>
+              <input type="text" class="form-control" id="adresse" name="adresse" value="<?php echo $client["ADRESSE_DU_CLIENT"];?>" required>
 
             </div>
 
             <div class="form-group">
               <label for="ville">Ville</label>
-              <input type="text" class="form-control" id="ville" value="<?php echo $client["VILLE"];?>" required>
+              <input type="text" class="form-control" id="ville" name="ville" value="<?php echo $client["VILLE"];?>" required>
             </div>
             <div class="form-group">
               <label for="codePostal">Code Postal</label>
-              <input type="text" pattern="[0-9]{5}" class="form-control" id="codePostal" value="<?php echo $client["CODE_POSTAL"];?>" required>
+              <input type="text" pattern="[0-9]{5}" class="form-control" name="codePostal" id="codePostal" value="<?php echo $client["CODE_POSTAL"];?>" required>
 
             </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="telephone">Téléphone</label>
-                <input type="text" class="form-control" id="telephone" value="<?php echo $client["TELEPHONE"];?>" required>
+                <!-- <input type="text" class="form-control" name="telephone" id="telephone" value="<?php echo $client["TELEPHONE"];?>" pattern="^\+?\s*(\d+\s?){8,}$" title="Format: 0601050102" required> -->
+                <input type="text" class="form-control" name="telephone" id="telephone" value="<?php echo $client["TELEPHONE"];?>" required>
               </div>
               <div class="form-group">
                 <label for="ca">Chiffre d'Affaires</label>
-                <input type="text" class="form-control" id="ca" value="<?php echo $client["CA"];?>" required>
+                <input type="text" class="form-control" name="ca" id="ca" value="<?php echo $client["CA"];?>" required>
               </div>
               <div class="form-group">
                 <label for="effectif">Effectif</label>
-                <input type="text" class="form-control" id="effectif" value="<?php echo $client["EFFECTIF"];?>" required>
+                <input type="text" class="form-control" name="effectif" id="effectif" value="<?php echo $client["EFFECTIF"];?>" required>
               </div>
               <div class="form-group">
                 <label for="commentaire">Commentaires</label>
-                <textarea class="form-control" id="commentaire" rows="3"><?php echo $client["COMMENTAIRE"];?></textarea>
+                <textarea class="form-control" name="commentaire" id="commentaire" rows="3"><?php echo $client["COMMENTAIRE"];?></textarea>
 
               </div>
               <div class="text-center">
