@@ -120,37 +120,25 @@ public static function addClient(&$client){
       public static function updateClient($client){
             $mysqlPDO = cnsDao::connect();
               // var_dump($client->getIdClient());
-            $sql = 'update client set
-              CA = :ca,
-              EFFECTIF=:effectif,
-              RAISON_SOCIALE=:raisonSociale,
-              VILLE=:ville,
-              CODE_POSTAL=:codePostal,
-              TELEPHONE=:telephone,
-              NOM_NATURE=:nature,
-              TYPE_SOCIETE=:type,
-              ADRESSE_DU_CLIENT=:adresse,
-              COMMENTAIRE=:commentaire
-              where ID_CLIENT ='.$client->getIdClient();
-
-            $result =$mysqlPDO->prepare($sql);
-            $result->execute(array(':ca'=>$client->getCa(),
+            $sql = 'update client set CA = :ca,EFFECTIF=:effectif,RAISON_SOCIALE=:raisonSociale,CODE_POSTAL=:codePostal,TELEPHONE=:telephone,NOM_NATURE=:nature,TYPE_SOCIETE=:type,ADRESSE_DU_CLIENT=:adresse,VILLE=:ville,COMMENTAIRE=:commentaire where ID_CLIENT ='.$client->getIdClient();
+            $req =$mysqlPDO->prepare($sql);
+            $req->execute(array(':ca'=>$client->getCa(),
                                    ':effectif'=>$client->getEffectif(),
                                    ':raisonSociale'=>$client->getRaisonSociale(),
-                                   ':ville'=>$client->getVille(),
                                    ':codePostal'=>$client->getCodePostal(),
                                    ':telephone'=>$client->getTelephone(),
                                    ':nature'=>$client->getNature(),
                                    ':type'=>$client->getType(),
                                    ':adresse'=>$client->getAdresse(),
+                                   ':ville'=>$client->getVille(),
                                    ':commentaire' => $client->getCommentaire()
                                  )
                               );
-            $nombre= $result->rowCount();
 
-            $result->closeCursor();
+            $nombre= $req->rowCount();
+            $req->closeCursor();
             cnsDao::disconnect($mysqlPDO);
-            //return the number of row affected, 0 if none
+
             return $nombre;
       }
 

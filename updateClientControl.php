@@ -4,46 +4,58 @@
 require('model/client.php');
 require('dao/cnsDao.php');
 
-if(isset($_GET["idClient"]) && !empty($_GET["idClient"])
-   && isset($_GET["raisonSociale"]) && !empty($_GET["raisonSociale"])
-   && isset($_GET["nature"]) && !empty($_GET["nature"])
-   && isset($_GET["type"]) && !empty($_GET["type"])
-   && isset($_GET["adresse"]) && !empty($_GET["adresse"])
-   && isset($_GET["ville"]) && !empty($_GET["ville"])
-   && isset($_GET["codePostal"]) && !empty($_GET["codePostal"])
-   && isset($_GET["telephone"]) && !empty($_GET["telephone"])
-   && isset($_GET["ca"]) && !empty($_GET["ca"])
-   && isset($_GET["effectif"]) && !empty($_GET["effectif"])
-   && isset($_GET["commentaire"]) //&& !empty($_GET["commentaire"])
+if(isset($_POST["idClient"]) && !empty($_POST["idClient"])
+   && isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
+   && isset($_POST["nature"]) && !empty($_POST["nature"])
+   && isset($_POST["type"]) && !empty($_POST["type"])
+   && isset($_POST["adresse"]) && !empty($_POST["adresse"])
+   && isset($_POST["ville"]) && !empty($_POST["ville"])
+   && isset($_POST["codePostal"]) && !empty($_POST["codePostal"])
+   && isset($_POST["telephone"]) && !empty($_POST["telephone"])
+   && isset($_POST["ca"]) && !empty($_POST["ca"])
+   && isset($_POST["effectif"]) && !empty($_POST["effectif"])
+   && isset($_POST["commentaire"]) //&& !empty($_POST["commentaire"])
  ) {
 
-    try{
+      try{
 
-      $client = new Client();
-      $idClient = trim(htmlentities($_GET["idClient"]));
-      $client->setIdClient(trim(htmlentities($idClient)));
-      $client->setEffectif(trim(htmlentities($_GET["effectif"])));
-      $client->setRaisonSociale(trim(htmlentities($_GET["raisonSociale"])));
-      $client->setNature(trim(htmlentities($_GET["nature"])));
-      $client->setType(trim(htmlentities($_GET["type"])));
-      $client->setAdresse(htmlentities($_GET["adresse"]));
-      $client->setVille(trim(htmlentities($_GET["ville"])));
-      $client->setCodePostal(trim(htmlentities($_GET["codePostal"])));
-      $client->setTelephone(trim(htmlentities($_GET["telephone"])));
-      $client->setCa(trim(htmlentities($_GET["ca"])));
-      $client->setCommentaire(trim(htmlentities($_GET["commentaire"])));
+        $client = new Client();
+        $idClient = trim(htmlentities($_POST["idClient"]));
+        $client->setIdClient(trim(htmlentities($idClient)));
+        $client->setEffectif(trim(htmlentities($_POST["effectif"])));
+        $client->setRaisonSociale(trim(htmlspecialchars($_POST["raisonSociale"])));
+        $client->setNature(trim(htmlspecialchars($_POST["nature"])));
+        $client->setType(trim(htmlspecialchars($_POST["type"])));
+        $client->setAdresse(htmlspecialchars($_POST["adresse"]));
+        $client->setVille(trim(htmlspecialchars($_POST["ville"])));
+        $client->setCodePostal(trim(htmlspecialchars($_POST["codePostal"])));
+        $client->setTelephone(trim(htmlspecialchars($_POST["telephone"])));
+        $client->setCa(trim(htmlentities($_POST["ca"])));
+        $client->setCommentaire(trim(htmlspecialchars($_POST["commentaire"])));
+        $response=cnsDao::updateClient($client);
 
-      $reponse=cnsDao::updateClient($client);
-      header("location: profilClient.php?idClient=$idClient");
-
+        if($response == 1){
+          $error = array('message' => 'ok');
+          $json = json_encode($error);
+          echo $json;
+        }
+        else {
+          $error = array('message' => 'nok');
+          $json = json_encode($error);
+          echo $json;
+        }
+        // header("location: profilClient.php?idClient=$idClient");
+    }
+  catch (Exception $e){
+    $error = array('message' => 'exception', 'error' => $e->getMessage());
+    $json = json_encode($error);
+    echo $json;
+    // header("location: index.php?erreur=$erreur");
   }
-catch (Exception $e){
-  $erreur = $e->getMessage();
-  header("location: index.php?erreur=$erreur");
 }
-
-
-
-
+else {
+  $error = array('message' => 'fieldMissing');
+  $json = json_encode($error);
+  echo $json;
 }
  ?>
