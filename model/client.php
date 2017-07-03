@@ -14,7 +14,7 @@ class Client{
   private $ca;
   private $effectif;
   private $commentaire;
-  private $email;
+  // private $email;
 
   // constructor
   public function __constructor(){
@@ -71,39 +71,43 @@ class Client{
   }
 
   public function setTelephone($telephone){
-      $regex = "/^[0-9]{9,13}[0-9]$/ ";
-        if(preg_match($regex,$telephone)===1){
-            $this->telephone = chunk_split($telephone, 2," ");
-        }
-        else{
-          throw new Exception("Le numero de telephone est incorrect , ex: 0612345678");
-        }
-      }
+    $spaceLessTelephone = preg_replace('/\s+/', '', $telephone);
+    // var_dump($spaceLessTelephone);
+    if(strlen($spaceLessTelephone) !== 10 && preg_replace("/[^0-9]/", "",$spaceLessTelephone) ) {
+      throw new Exception("Le numero de telephone doit comporter 10 chiffres");
+    }
+    else {
+      // $this->telephone = $spaceLessTelephone;
+      $this->telephone = wordwrap($spaceLessTelephone, 2, ' ', true);
+      // $this->telephone = chunk_split($spaceLessTelephone, 2," ");
+    }
+  }
 
-   public function setTelephone2($telephone){
-      $regex = "/^[0-9]{9,13}[0-9]$/ ";
-        if(preg_match($regex,$telephone)===1){
-            $this->telephone2 = $telephone;
-        }
-        else{
-          throw new Exception("Le numero de telephone est incorrect , ex: 0612345678");
-        }
-      }    
+  //  public function setTelephone2($telephone){
+  //     $regex = "/^[0-9]{9,13}[0-9]$/ ";
+  //       if(preg_match($regex,$telephone)===1){
+  //           $this->telephone2 = $telephone;
+  //       }
+  //       else{
+  //         throw new Exception("Le numero de telephone est incorrect , ex: 0612345678");
+  //       }
+  //     }
 
 
   public function setCa($ca){
-    if($ca === ''){
-      $this->ca = '';
-    }
-    elseif($ca != '' && intval($ca)===0){
-        throw new Exception("L'effectif doit être un nombre ");
-    }
-  elseif($ca != '' && ($ca<0)){
-          throw new Exception("L'effectif doit être > 0 ");
-    }
-        elseif($ca != '' && intval($ca)!=0){
-            $this->ca = intval($ca);
-      }
+    $this->ca=$ca;
+  //   if($ca === ''){
+  //     $this->ca = '';
+  //   }
+  //   elseif($ca != '' && intval($ca)===0){
+  //       throw new Exception("L'effectif doit être un nombre ");
+  //   }
+  // elseif($ca != '' && ($ca<0)){
+  //         throw new Exception("L'effectif doit être > 0 ");
+  //   }
+  //       elseif($ca != '' && intval($ca)!=0){
+  //           $this->ca = intval($ca);
+  //     }
   }
 
 
@@ -126,9 +130,9 @@ class Client{
     $this->commentaire = $commentaire;
   }
 
-  public function setEmail($email){
-    $this->email = $email;
-  }
+  // public function setEmail($email){
+  //   $this->email = $email;
+  // }
 
   // getters
   public function getIdClient(){
@@ -155,9 +159,9 @@ class Client{
   public function getTelephone(){
     return $this->telephone;
   }
-  public function getTelephone2(){
-    return $this->telephone2;
-  }
+  // public function getTelephone2(){
+  //   return $this->telephone2;
+  // }
   public function getCa(){
     return $this->ca;
   }
@@ -167,9 +171,9 @@ class Client{
   public function getCommentaire(){
     return $this->commentaire;
   }
-  public function getEmail(){
-    return $this->email;
-  }
+  // public function getEmail(){
+  //   return $this->email;
+  // }
   public function __toString(){
     return $this->raisonSociale;
   }

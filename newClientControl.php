@@ -28,7 +28,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
      $client->setEffectif(trim(htmlentities($_POST["effectif"])));
      $client->setCommentaire(trim(htmlspecialchars($_POST["commentaire"])));
      $nombre = cnsDao::addClient($client);
-     if($nombre == 1){
+     if($nombre === 1){
        $arr = array('message' => 'ok',
                   'idClient' => $client->getIdClient(),
                   'raisonSociale' => $client->getRaisonSociale(),

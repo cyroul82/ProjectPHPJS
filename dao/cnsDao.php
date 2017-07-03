@@ -7,7 +7,7 @@ class cnsDao
 
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "172.16.0.56";
+        $host = "localhost";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
@@ -69,13 +69,43 @@ public static function getGroupUser($email){
 public static function addClient(&$client){
         $mysqlPDO = cnsDao::connect();
 
-        $sql = "insert into client (CA, EFFECTIF, RAISON_SOCIALE, CODE_POSTAL, VILLE, TELEPHONE, NOM_NATURE, TYPE_SOCIETE, ADRESSE_DU_CLIENT, COMMENTAIRE) values(:ca, :effectif , :raisonSociale, :codePostal, :ville, :telephone, :nature, :type, :adresse, :commentaire)";
-        $statement =$mysqlPDO->prepare($sql);
-        try{
-          $mysqlPDO->beginTransaction();
-          $statement->execute(array(':ca'=>$client->getCa(), ':effectif'=>$client->getEffectif(), ':raisonSociale'=>$client->getRaisonSociale(), ':codePostal'=>$client->getCodePostal(), ':ville'=>$client->getVille(), ':telephone'=>$client->getTelephone(), ':nature'=>$client->getNature(), ':type'=>$client->getType(), ':adresse'=>$client->getAdresse(), ':commentaire'=>$client->getCommentaire()));
-          $client->setIdClient($mysqlPDO->lastInsertId());
+        $sql = "insert into client (CA,
+                                    EFFECTIF,
+                                    RAISON_SOCIALE,
+                                    CODE_POSTAL,
+                                    VILLE,
+                                    TELEPHONE,
+                                    NOM_NATURE,
+                                    TYPE_SOCIETE,
+                                    ADRESSE_DU_CLIENT,
+                                    COMMENTAIRE)
+                                    values(
+                                      :ca,
+                                      :effectif,
+                                      :raisonSociale,
+                                      :codePostal,
+                                      :ville,
+                                      :telephone,
+                                      :nature,
+                                      :type,
+                                      :adresse,
+                                      :commentaire)";
 
+        try{
+          $statement =$mysqlPDO->prepare($sql);
+          $mysqlPDO->beginTransaction();
+          $statement->execute(array(':ca'=>$client->getCa(),
+                                    ':effectif'=>$client->getEffectif(),
+                                    ':raisonSociale'=>$client->getRaisonSociale(),
+                                    ':codePostal'=>$client->getCodePostal(),
+                                    ':ville'=>$client->getVille(),
+                                    ':telephone'=>$client->getTelephone(),
+                                    ':nature'=>$client->getNature(),
+                                    ':type'=>$client->getType(),
+                                    ':adresse'=>$client->getAdresse(),
+                                    ':commentaire'=>$client->getCommentaire()));
+
+          $client->setIdClient($mysqlPDO->lastInsertId());
           $mysqlPDO->commit();
           $nombre= $statement->rowCount();
           $statement->closeCursor();
@@ -85,7 +115,7 @@ public static function addClient(&$client){
         }
         catch(PDOException $e){
           $mysqlPDO->rollBack();
-          return $e;
+          return $e->getMessage();
         }
   }
 
@@ -118,13 +148,24 @@ public static function addClient(&$client){
       public static function updateClient($client){
             $mysqlPDO = cnsDao::connect();
 
-            $sql = 'update client set CA = :ca,EFFECTIF=:effectif,RAISON_SOCIALE=:raisonSociale,CODE_POSTAL=:codePostal,TELEPHONE=:telephone,NOM_NATURE=:nature,TYPE_SOCIETE=:type,ADRESSE_DU_CLIENT=:adresse,VILLE=:ville,COMMENTAIRE=:commentaire where ID_CLIENT ='.$client->getIdClient();
+            $sql = 'update client set CA=:ca,
+                                      EFFECTIF=:effectif,
+                                      RAISON_SOCIALE=:raisonSociale,
+                                      CODE_POSTAL=:codePostal,
+                                      TELEPHONE=:telephone,
+                                      NOM_NATURE=:nature,
+                                      TYPE_SOCIETE=:type,
+                                      ADRESSE_DU_CLIENT=:adresse,
+                                      VILLE=:ville,
+                                      COMMENTAIRE=:commentaire
+                                      where ID_CLIENT =' . $client->getIdClient();
+
             $req =$mysqlPDO->prepare($sql);
             $req->execute(array(':ca'=>$client->getCa(),
                                    ':effectif'=>$client->getEffectif(),
                                    ':raisonSociale'=>$client->getRaisonSociale(),
                                    ':codePostal'=>$client->getCodePostal(),
-                                   ':telephone'=>$client->getTelephone2(),
+                                   ':telephone'=>$client->getTelephone(),
                                    ':nature'=>$client->getNature(),
                                    ':type'=>$client->getType(),
                                    ':adresse'=>$client->getAdresse(),
@@ -132,7 +173,7 @@ public static function addClient(&$client){
                                    ':commentaire' => $client->getCommentaire()
                                  )
                               );
-
+                              // var_dump($client);
             $nombre= $req->rowCount();
             $req->closeCursor();
             cnsDao::disconnect($mysqlPDO);

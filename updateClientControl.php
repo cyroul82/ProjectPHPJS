@@ -34,27 +34,25 @@ if(isset($_POST["idClient"]) && !empty($_POST["idClient"])
         $client->setCommentaire(trim(htmlspecialchars($_POST["commentaire"])));
         $response=cnsDao::updateClient($client);
 
-        if($response == 1){
+        if($response === 1){
           $error = array('message' => 'ok');
           $json = json_encode($error);
           echo $json;
         }
         else {
-          $error = array('message' => 'nok');
+          $error = array('message' => 'nok', 'error' => 'Client not updated');
           $json = json_encode($error);
           echo $json;
         }
-        // header("location: profilClient.php?idClient=$idClient");
     }
   catch (Exception $e){
     $error = array('message' => 'exception', 'error' => $e->getMessage());
     $json = json_encode($error);
     echo $json;
-    // header("location: index.php?erreur=$erreur");
   }
 }
 else {
-  $error = array('message' => 'fieldMissing');
+  $error = array('message' => 'fieldMissing', 'error' => 'FieldsInput');
   $json = json_encode($error);
   echo $json;
 }
