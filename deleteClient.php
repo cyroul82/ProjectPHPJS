@@ -9,38 +9,15 @@ if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
     $contacts=cnsDao::getContactsList($idClient);
 
     if((count($contacts)!=0)){
-           ?>
-        <div class="container" id="errorInfo"  >
-                <div class="row">
-                  <div class="col-xs-12 text-center">
-                    <br>
-                              <div class="alert alert-danger" role="alert">
-                        <strong>Le Client n'a pas pu être détruit car il contient des contacts<strong>
-                      </div>
-                  </div>
-                </div>
-              </div>
-      <?php
-      $clients=cnsDao::getClientsList();
-      displayPageListClient($clients);
-
+      $rs = array('message' => 'nok');
+      $json = json_encode($rs);
+      echo $json;
     }
-    else{
-          $clients=cnsDao::deleteClient($idClient);
-          ?>
-           <div class="container" id="errorInfo"  >
-                   <div class="row">
-                     <div class="col-xs-12 text-center">
-                       <br>
-                                 <div class="alert alert-success" role="alert">
-                           <strong>Le Client est bien détruit!<strong>
-                         </div>
-                     </div>
-                   </div>
-                 </div>
-         <?php
-          $clients=cnsDao::getClientsList();
-          displayPageListClient($clients);
-        }
+    // else{
+    //   // echo "true";
+    //   $clients=cnsDao::deleteClient($idClient);
+    //   displayPageListClient($clients);
+    //
+    // }
   }
  ?>

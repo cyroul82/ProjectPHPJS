@@ -12,6 +12,7 @@
     }
      displayHead("Profil"); ?>
      <script src="js/contactTable.js" charset="utf-8"></script>
+     <script src="js/profilClient.js" charset="utf-8"></script>
       </head>
 
       <body>

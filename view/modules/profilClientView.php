@@ -2,14 +2,14 @@
 function displayProfilClient($client){
 
   ?>
-
+  <div id="error"></div>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Détails</h3>
     </div>
     <div class="panel-body">
       <div class="row">
-
+        <input type="hidden" id="idClient" value="<?php echo $client["ID_CLIENT"]?>">
         <div class=" col-xs-12 col-xs-12 ">
           <table class="table table-user-information">
             <tbody>
@@ -62,27 +62,9 @@ function displayProfilClient($client){
       </div>
     </div>
          <div class="panel-footer text-right">
-             <button type="button" id="btnUpdate" class="btn btn-sm btn-warning" onclick="location.href='updateClient.php?idClient=<?php echo $client["ID_CLIENT"]?>'" ><i class="glyphicon glyphicon-edit"></i></button>
-             <button type="button" id="btnDelete" class="btn btn-sm btn-danger"  onclick="location.href='deleteClient.php?idClient=<?php echo $client["ID_CLIENT"]?>'"><i class="glyphicon glyphicon-trash"></i></button>
+             <button type="button" id="btnUpdate" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></button>
+             <button type="button" id="btnDelete" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
         </div>
 
   </div>
-
- <!-- onclick="location.href='deleteClient.php?idClient=<?php echo $client["ID_CLIENT"]?>'" -->
-
-  <!-- <div id="txtIdClient" style="visibility:hidden" value="100"></div> -->
-
-<!--
-  <div class="container" id="errorInfo"  style="visibility: hidden">
-    <div class="row">
-      <div class="col-xs-12 text-center">
-                  <div class="alert alert-danger" role="alert">
-            <strong>Le Client n'a pas pu être détruit car il contient des contacts<strong>
-          </div>
-      </div>
-    </div>
-  </div> -->
-
-
-<!-- <script src="js/deleteClient.js" charset="utf-8"></script> -->
 <?php } ?>

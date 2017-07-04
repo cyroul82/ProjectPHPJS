@@ -21,8 +21,6 @@ $(document).ready(function() {
     //commentaire = $('#commentaire').val();
 
     var client = $(this).serialize();
-    console.log(client);
-
     $.ajax({
       url: "updateClientControl.php",
       type: 'POST',
@@ -30,14 +28,13 @@ $(document).ready(function() {
       // data: 'idClient=' + idClient + '&raisonSociale=' + raisonSociale + '&nature=' + nature + '&type=' + type + '&adresse=' + adresse + '&ville=' + ville + '&codePostal=' + codePostal + '&telephone=' + telephone + '&ca=' + ca + '&effectif=' + effectif + '&commentaire=' + commentaire,
       dataType: 'json',
       success: function(result, statut) {
-        console.log("dans success : " + result["message"]);
         if (result["message"] === "ok") {
           window.location.href = "profilClient.php?idClient=" + idClient;
         }
         if (result["message"] === "nok") {
           $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong> Error saving the client into the DB !" + result["error"] + "</strong></div>");
         } else if (result["message"] === "exception" || result["message"] === "fieldMissing") {
-          $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + "Problem : " +  result["error"] + "</strong></div>");
+          $("#error").html("<br><div class=\"alert alert-danger\" role=\"alert\"><strong>" + "Problem : " + result["error"] + "</strong></div>");
         }
       },
       error: function(result, status, erreur) {
