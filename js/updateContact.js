@@ -18,7 +18,7 @@ $(document).ready(function() {
     $.ajax({
       url: "updateContactControl.php",
       type: 'POST',
-      data: contact,
+      data: contact + "&idClient=" + idClient,
       dataType: 'json',
       success: function(result, statut) {
 
@@ -32,8 +32,8 @@ $(document).ready(function() {
         }
       },
       error: function(result, statut, erreur) {
-        console.log("result: " + result);
-        $("#error").html("Result: " + result["error"]);
+        console.log("result: " + result.responseText);
+        $("#error").html("Result: " + result.responseText);
       }
 
     });

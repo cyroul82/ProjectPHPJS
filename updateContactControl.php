@@ -6,7 +6,8 @@ if(isset($_POST["nomContact"]) && !empty($_POST["nomContact"])
    && isset($_POST["prenomContact"]) && !empty($_POST["prenomContact"])
    && isset($_POST["telContact"]) && !empty($_POST["telContact"])
    && isset($_POST["fonctionContact"]) && !empty($_POST["fonctionContact"])
-   && isset($_POST["idContact"] && !empty($_POST["idContact"]))
+   && isset($_POST["idClient"]) && !empty($_POST["idClient"])
+   && isset($_POST["idContact"]) && !empty($_POST["idContact"])
  ){
 
   try{
@@ -19,7 +20,7 @@ if(isset($_POST["nomContact"]) && !empty($_POST["nomContact"])
      $contact->setIdContact(trim(htmlentities($_POST["idContact"])));
      $response = cnsDao::updateContact($contact);
 
-     if($response == 1){
+     if($response == true){
        $error = array('message' => 'ok');
        $json = json_encode($error);
        echo $json;
