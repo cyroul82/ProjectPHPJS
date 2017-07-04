@@ -12,10 +12,11 @@ if(isset($_POST["idClient"]) && !empty($_POST["idClient"])
    && isset($_POST["ville"]) && !empty($_POST["ville"])
    && isset($_POST["codePostal"]) && !empty($_POST["codePostal"])
    && isset($_POST["telephone"]) && !empty($_POST["telephone"])
-   && isset($_POST["ca"]) && !empty($_POST["ca"])
-   && isset($_POST["effectif"]) && !empty($_POST["effectif"])
-   && isset($_POST["commentaire"]) //&& !empty($_POST["commentaire"])
+   && isset($_POST["ca"]) 
+   && isset($_POST["effectif"]) 
+   && isset($_POST["commentaire"]) 
  ) {
+
 
       try{
 

@@ -86,33 +86,41 @@ class Client{
   }
 
   public function setCa($ca){
-    $this->ca=$ca;
-    if($ca === ''){
-      $this->ca = '';
+
+    if(!is_numeric($ca)){
+      throw new Exception("Le chiffre d'affaires doit être un chiffre");
     }
-    elseif($ca != '' && intval($ca)===0){
-        throw new Exception("Le chiffre d'affaires doit être un nombre ");
-    }
-  elseif($ca != '' && ($ca<0)){
-          throw new Exception("Le chiffre d'affaires doit être > 0 ");
-    }
-        elseif($ca != '' && intval($ca)!=0){
-            $this->ca = intval($ca);
+    else{
+      if($ca<0){
+              throw new Exception("Le chiffre d'affaires doit être supérieur 0 ");
+        }
+
+      elseif(strlen($ca)==0) {
+          throw new Exception("Le champs chiffre d'affaires ne peut être vide");
       }
+    
+      elseif($ca != '' && $ca!=0){
+                $this->ca = (float)$ca;
+          }
+      }
+ 
   }
 
 
   public function setEffectif($effectif){
-      if($effectif === ''){
-        $this->effectif = '';
+
+  if($effectif<0){
+            throw new Exception("L'effectif doit être supérieur 0 ");
       }
-      elseif($effectif != '' && intval($effectif)===0){
-          throw new Exception("L'effectif doit être un nombre ");
-      }
-    elseif($effectif != '' && ($effectif<0)){
-            throw new Exception("L'effectif doit être >0 ");
-      }
-          elseif($effectif != '' && intval($effectif)!=0){
+    elseif(!ctype_digit($effectif) ){
+          throw new Exception("L'effectif comporte des caractères non valides.");
+
+     }
+    elseif(strlen($effectif)==0) {
+        throw new Exception("Le champs effectif ne peut être vide");
+    }
+    
+    elseif($effectif != '' && $effectif!=0){
               $this->effectif = intval($effectif);
         }
     }

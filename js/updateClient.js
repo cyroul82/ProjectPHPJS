@@ -8,6 +8,7 @@ $(document).ready(function() {
   $('#updateClientForm').submit(function() {
     //
     idClient = $('#idClient').val();
+
     // raisonSociale = $('#raisonSociale').val();
     // nature = $('input[name="nature"]:checked').val();
     // type = $('input[name="type"]:checked').val();
@@ -15,9 +16,10 @@ $(document).ready(function() {
     // ville = $('#ville').val();
     // codePostal = $('#codePostal').val();
     // telephone = $('#telephone').val();
-    // ca = $('#ca').val();
-    // effectif = $('#effectif').val();
-    // commentaire = $('#commentaire').val();
+    //ca = $('#ca').val();
+    //effectif = $('#effectif').val();
+    //commentaire = $('#commentaire').val();
+
     var client = $(this).serialize();
     console.log(client);
 
