@@ -49,6 +49,8 @@ public static function existLogin($email, $password){
         return ($nombre != 0);
 }
 
+
+//get the group of an email user
 public static function getGroupUser($email){
       $mysqlPDO = cnsDao::connect();
 
@@ -180,6 +182,7 @@ public static function addClient(&$client){
             return $done;
       }
 
+// return true if the contact defined by its id is modified
       public static function updateContact($contact){
             $mysqlPDO = cnsDao::connect();
             $sql = 'update contacts set
@@ -240,7 +243,7 @@ public static function getClientById($idClient){
             die('<h1>Erreur de lecture du Client'.$idClient.'en base de données : </h1>'.$e->getMessage());
       }
 }
-
+//return a a table $contact from its id
 public static function getContactById($idContact){
       $mysqlPDO = cnsDao::connect();
 
@@ -269,7 +272,7 @@ public static function getContactById($idContact){
             die('<h1>Erreur de lecture du Contact' . $idContact . 'en base de données : </h1>'.$e->getMessage());
       }
 }
-
+//return a full Client table, incomming $raisonSociale string
 public static function getClientByRaisonSociale($raisonSociale){
       $mysqlPDO = cnsDao::connect();
       $sql = 'select
@@ -360,19 +363,7 @@ public static function addNewContact(&$contact){
         return $contacts;
   }
 
-public static function checkContact($idClient){
-
-
-
-
-
-}
-
-
-
-
-
-
+// delete a Client with its id
 public static function deleteClient($idClient){
   // Connection à la BDD
   $mysqlPDO = cnsDao::connect();
@@ -393,10 +384,6 @@ catch (Exception $e) {
   // retourne le tableau associatif de resultats
   return $clients;
 }
-
-
-
-
 
 
 }
