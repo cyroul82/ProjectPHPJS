@@ -1,31 +1,47 @@
 <?php
-
-// Controler recevant les donnees de ??
-
 require('dao/cnsDao.php');
 require('view/listClient.view.php');
 
+
 if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
 
-$idClient = trim(htmlentities($_GET["idClient"]));
-$contacts=cnsDao::getContactsList($idClient);
-var_dump($contacts);
-var_dump(count($contacts));
+    $idClient = trim(htmlentities($_GET["idClient"]));
+    $contacts=cnsDao::getContactsList($idClient);
 
+    if((count($contacts)!=0)){
+      echo "string";
+       ?>
+        <div class="container" id="errorInfo"  >
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <br>
+                              <div class="alert alert-danger" role="alert">
+                        <strong>Le Client n'a pas pu être détruit car il contient des contacts<strong>
+                      </div>
+                  </div>
+                </div>
+              </div>
+      <?php
+      $clients=cnsDao::getClientsList();
+      displayPageListClient($clients);
 
-if(count($contacts)!=0){
-    throw new Exception("Vous ne pouvez détruir le client car il a des contacts");
-}
-else{
-      $clients=cnsDao::deleteClient($idClient);
-      var_dump($idClient);
-      var_dump($clients);
-      alert('Le Client: '.$client.' a bien été détruit!');
-      // displayPageListClient($clients);
-}
-
-
-
-
-}
+    }
+    else{
+          $clients=cnsDao::deleteClient($idClient);
+          ?>
+           <div class="container" id="errorInfo"  >
+                   <div class="row">
+                     <div class="col-xs-12 text-center">
+                       <br>
+                                 <div class="alert alert-success" role="alert">
+                           <strong>Le Client est bien détruit!<strong>
+                         </div>
+                     </div>
+                   </div>
+                 </div>
+         <?php
+          $clients=cnsDao::getClientsList();
+          displayPageListClient($clients);
+        }
+  }
  ?>
