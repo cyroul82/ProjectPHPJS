@@ -47,7 +47,7 @@ if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
         echo $json;
       }
       if($nombre !== 1) {
-        $arr = array('message' => 'bad', 'error' => $nombre);
+        $arr = array('message' => 'bad', 'error' => 'salut');
         $json = json_encode($arr);
         echo $json;
       }

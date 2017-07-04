@@ -72,7 +72,8 @@ class Client{
 
   public function setTelephone($telephone){
     $spaceLessTelephone = preg_replace('/\s+/', '', trim($telephone));
-    if(strlen($spaceLessTelephone) !== 10 || preg_replace("/^([0-9]{10})$/", $spaceLessTelephone) === 1) {
+    // || preg_replace("/^([0-9]{10})$/", $spaceLessTelephone) === 1
+    if(strlen($spaceLessTelephone) !== 10 ) {
       throw new Exception("Le numero de telephone doit comporter 10 chiffres");
     }
     else {
