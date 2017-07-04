@@ -52,14 +52,19 @@ class Contact{
   }
 
   public function setTelContact($telContact){
-      $regex = "/^[0-9]{9,13}[0-9]$/ ";
-        if(preg_match($regex,$telContact)){
-            $this->telContact = chunk_split($telContact, 2," ");
-        }
-        else{
-          throw new Exception("Erreur : Le numéro de téléphone n'est pas un format valide.");
-        }
+    $spaceLessTelContact = preg_replace('/\s+/', '', trim($telContact));
+    if(strlen($spaceLessTelContact) !== 10 ){
+      throw new Exception("Le numero de telephone doit comporter 10 chiffres");
+    }
+    else {
+      if(ctype_digit($spaceLessTelContact)==false){
+          throw new Exception("Le numero de telephone doit comporter seulement des chiffres");
       }
+      else {
+      $this->telContact = wordwrap($spaceLessTelContact, 2, " ", true);
+      }     
+    }
+  }
 
   public function setFonctionContact($fonctionContact){
     if(!is_string($fonctionContact)){
