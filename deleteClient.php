@@ -9,8 +9,7 @@ if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
     $contacts=cnsDao::getContactsList($idClient);
 
     if((count($contacts)!=0)){
-      echo "string";
-       ?>
+           ?>
         <div class="container" id="errorInfo"  >
                 <div class="row">
                   <div class="col-xs-12 text-center">
