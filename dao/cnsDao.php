@@ -6,7 +6,7 @@ class cnsDao{
 
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "172.16.0.56";
+        $host = "localhost";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
@@ -367,22 +367,22 @@ public static function addNewContact(&$contact){
 public static function deleteClient($idClient){
   // Connection à la BDD
   $mysqlPDO = cnsDao::connect();
+  $done = false;
+  $sql='delete from client where  ID_CLIENT='.$idClient.';';
 
-$sql1='delete from client where  ID_CLIENT='.$idClient.';';
-
-try {
-      $rs=$mysqlPDO->prepare($sql1);
-      $rs->execute();
-      $clients=cnsDAO::getClientsList();
-      $rs->closeCursor();
-      cnsDao::disconnect($mysqlPDO);
-}
-catch (Exception $e) {
-      // en cas erreur on affiche un message et on arrete tout
-      die('<h1>Erreur de destruction de client dans la Base de Données : </h1>' . $e->getMessage());
-}
+  try {
+        $rs=$mysqlPDO->prepare($sql);
+        $rs->execute();
+        $done = $rs !== false ? true : false;
+        $rs->closeCursor();
+        cnsDao::disconnect($mysqlPDO);
+  }
+  catch (Exception $e) {
+        // en cas erreur on affiche un message et on arrete tout
+        die('<h1>Erreur de destruction de client dans la Base de Données : </h1>' . $e->getMessage());
+  }
   // retourne le tableau associatif de resultats
-  return $clients;
+  return $done;
 }
 
 

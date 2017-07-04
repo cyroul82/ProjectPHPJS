@@ -2,7 +2,9 @@
 function displayProfilClient($client){
 
   ?>
-  <div id="error"></div>
+  <div id="dialog-confirm" title="Supprimer Client ?" style="display:none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Voulez-vous supprimer ce client ?</p>
+  </div>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Détails</h3>
@@ -63,7 +65,7 @@ function displayProfilClient($client){
     </div>
          <div class="panel-footer text-right">
              <button type="button" id="btnUpdate" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></button>
-             <button type="button" id="btnDelete" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+             <button type="button" id="btnDelete" class="btn btn-default btn-sm btn-danger" data-toggle="confirmation"><i class="glyphicon glyphicon-trash"></i></button>
         </div>
 
   </div>
