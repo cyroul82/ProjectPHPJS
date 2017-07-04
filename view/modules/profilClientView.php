@@ -12,7 +12,7 @@ function displayProfilClient($client){
     <div class="panel-body">
       <div class="row">
         <input type="hidden" id="idClient" value="<?php echo $client["ID_CLIENT"]?>">
-        <div class=" col-xs-12 col-xs-12 ">
+        <div class="col-xs-12">
           <table class="table table-user-information">
             <tbody>
               <tr>

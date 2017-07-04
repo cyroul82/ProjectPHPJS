@@ -11,7 +11,6 @@ function displayNav($display){
     $group = $_SESSION["group"];
   }
   ?>
-
    <nav class="navbar navbar-default navbar-fixed-top">
      <div class="container">
        <div class="navbar-header">
@@ -29,7 +28,7 @@ function displayNav($display){
            <?php if($group==1) {?>
              <li><a href="newClient.php"><i class="glyphicon glyphicon-plus"></i> Nouveau Client</a></li>
              <li><a href="listClient.php"><i class="glyphicon glyphicon-th-list"></i> Liste Clients</a></li>
-             <li><a href="searchClient.php"><i class="glyphicon glyphicon-search"></i> Recherche </a></li>
+             <!-- <li><a href="#"><i class="glyphicon glyphicon-search"></i> Recherche </a></li> -->
 
            <?php } ?>
         </ul>
