@@ -2,8 +2,7 @@
 
 //This class is a toolbox to communicate with the DataBase
 //- check incomming data, connect, request, check results, close the database
-class cnsDao
-{
+class cnsDao{
 
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){

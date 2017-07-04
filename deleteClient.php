@@ -1,31 +1,31 @@
 <?php
 
-// Controler recevant les donnees de ??
-
 require('dao/cnsDao.php');
 require('view/listClient.view.php');
+require('profilClient.php');
 
 if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
 
 $idClient = trim(htmlentities($_GET["idClient"]));
 $contacts=cnsDao::getContactsList($idClient);
-var_dump($contacts);
 var_dump(count($contacts));
-
+$client=cnsDao::getClientById($idClient);
 
 if(count($contacts)!=0){
-    throw new Exception("Vous ne pouvez détruir le client car il a des contacts");
+header("location:listClient.php");
 }
+
 else{
+      $client=cnsDao::getClientById($idClient);
       $clients=cnsDao::deleteClient($idClient);
-      var_dump($idClient);
-      var_dump($clients);
-      alert('Le Client: '.$client.' a bien été détruit!');
-      // displayPageListClient($clients);
+        echo alert('Le Client: '.$client["RAISON_SOCIALE"].' a bien été détruit!');
+        displayPageListClient($clients);
+        return "OK";
+        exit();
 }
 
 
-
+// alert('Le Client: '.$client["RAISON_SOCIALE"].' NE PEUT PAS ËTRE D2TRUIT détruit!');
 
 }
  ?>
