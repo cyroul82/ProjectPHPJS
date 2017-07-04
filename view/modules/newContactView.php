@@ -13,7 +13,7 @@ function displayNewContact($idClient){ ?>
       <legend>Ajouter un nouveau contact</legend>
 
         <div class="form row">
-        <div class="col-xs-6 col-sm-push-3"> 
+        <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
 
           <form action="newContactControl.php?idClient=<?php echo $idClient ?>" method="post">
 
@@ -43,10 +43,14 @@ function displayNewContact($idClient){ ?>
               <button type="submit" class="btn btn-default btn-success">Ajouter</button>
               <button type="button" class="btn btn-default btn-success" id="cancelContact">Annuler</button>
             </div>
-          </div>
+
+          </form>
+
         </div>
-      </form>
+        </div>
+    
     </fieldset>
+
   </div>
   <!-- form new contact -->
 <?php } ?>
