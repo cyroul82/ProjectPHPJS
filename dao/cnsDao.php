@@ -197,13 +197,11 @@ public static function addClient(&$client){
                                    ':fonction'=>$contact->getFonctionContact()
                                  )
                               );
-
-
-            $nombre= $req->rowCount();
+            $done = $req !== false ? true : false;
             $req->closeCursor();
             cnsDao::disconnect($mysqlPDO);
 
-            return $nombre;
+            return $done;
       }
 
  // get the client  id (type integer) from different controllers ,
