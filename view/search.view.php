@@ -19,6 +19,7 @@ function displayPageSearchClient(){
 		exit();
 	}
 displayHead("Search"); ?>
+<script src="js/clientTable.js" charset="utf-8"></script>
 </head>
 	<?php displayNav(true); ?>
 <body>
