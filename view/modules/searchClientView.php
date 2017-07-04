@@ -13,7 +13,7 @@
 
             <legend>Recherche de clients</legend>
 
-            <form class="navbar-form navbar-right inline-form" onsubmit="return search();">
+            <form id="searchForm" class="navbar-form navbar-right inline-form">
 
               <select id="select">
                 <option value="1">All</option>
@@ -47,11 +47,10 @@
 
                   </table>
                   </div>
-                  <script src="js/dataTable.js" charset="utf-8"></script>
+
               </div>
 
 
         </div>
         <script type="text/javascript" src="js/search.js"></script>
 <?php } ?>
-

@@ -1,7 +1,6 @@
 
 <?php
 require ("dao/cnsDao.php");
-require ("view/modules/getListColumn.php");
 header('Content-Type: application/json');
 if(isset($_POST["searchValue"]) && !empty($_POST["searchValue"])){
 	$searchResult = trim(htmlentities($_POST["searchValue"]));
