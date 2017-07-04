@@ -34,13 +34,13 @@ if(isset($_POST["idClient"]) && !empty($_POST["idClient"])
         $client->setCommentaire(trim(htmlspecialchars($_POST["commentaire"])));
         $response=cnsDao::updateClient($client);
 
-        if($response === 1){
+        if($response === true){
           $error = array('message' => 'ok');
           $json = json_encode($error);
           echo $json;
         }
         else {
-          $error = array('message' => 'nok', 'error' => 'Client not updated');
+          $error = array('message' => 'nok', 'error' => ' Client not updated');
           $json = json_encode($error);
           echo $json;
         }

@@ -24,7 +24,7 @@ class Client{
   // setters
   public function setIdClient($idClient){
     if(isset($idClient) && intval($idClient)===0){
-        throw new Exception("La clef primaire Client n'est pas valide");
+        throw new Exception("Erreur avec idClient");
     }
     else{
         $this->idClient = $idClient;
@@ -37,7 +37,7 @@ class Client{
 
     public function setNature($nature){
     if($nature!="principale" && $nature!="secondaire" && $nature!="ancienne" ){
-        throw new Exception("Erreur de NATURE de Societe, on essaie de vous pirater!");}
+        throw new Exception("Erreur de NATURE de Societé");}
     else{
         $this->nature = $nature;
     }
@@ -45,7 +45,7 @@ class Client{
 
   public function setType($type){
     if($type!="prive" && $type!="public"){
-      throw new Exception("Erreur de TYPE de Societe, on essaie de vous pirater!");
+      throw new Exception("Erreur de TYPE de Societé");
     }
     else{
       $this->type = $type;
@@ -77,7 +77,12 @@ class Client{
       throw new Exception("Le numero de telephone doit comporter 10 chiffres");
     }
     else {
+      // if(preg_replace("/^([0-9]{10})$/", $spaceLessTelephone) !== 1){
+      //   throw new Exception("Le numero de telephone doit comporter seulement des chiffres");
+      // }
+      // else {
       $this->telephone = wordwrap($spaceLessTelephone, 2, ' ', true);
+      // }
     }
 
   }

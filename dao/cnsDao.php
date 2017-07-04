@@ -173,12 +173,12 @@ public static function addClient(&$client){
                                    ':commentaire' => $client->getCommentaire()
                                  )
                               );
-                              // var_dump($req->errorInfo());
-            $nombre= $req->rowCount();
+
+            $done = $req !== false ? true : false;
             $req->closeCursor();
             cnsDao::disconnect($mysqlPDO);
 
-            return $nombre;
+            return $done;
       }
 
       public static function updateContact($contact){
