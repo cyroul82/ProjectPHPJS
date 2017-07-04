@@ -72,46 +72,33 @@ class Client{
 
   public function setTelephone($telephone){
     $spaceLessTelephone = preg_replace('/\s+/', '', trim($telephone));
-    // || preg_replace("/^([0-9]{10})$/", $spaceLessTelephone) === 1
-    if(strlen($spaceLessTelephone) !== 10 ) {
+    if(strlen($spaceLessTelephone) !== 10 ){
       throw new Exception("Le numero de telephone doit comporter 10 chiffres");
     }
     else {
-      // if(preg_replace("/^([0-9]{10})$/", $spaceLessTelephone) !== 1){
-      //   throw new Exception("Le numero de telephone doit comporter seulement des chiffres");
-      // }
-      // else {
-      $this->telephone = wordwrap($spaceLessTelephone, 2, ' ', true);
-      // }
+      if(ctype_digit($spaceLessTelephone)==false){
+          throw new Exception("Le numero de telephone doit comporter seulement des chiffres");
+      }
+      else {
+      $this->telephone = wordwrap($spaceLessTelephone, 2, " ", true);
+      }     
     }
-
   }
-
-  //  public function setTelephone2($telephone){
-  //     $regex = "/^[0-9]{9,13}[0-9]$/ ";
-  //       if(preg_match($regex,$telephone)===1){
-  //           $this->telephone2 = $telephone;
-  //       }
-  //       else{
-  //         throw new Exception("Le numero de telephone est incorrect , ex: 0612345678");
-  //       }
-  //     }
-
 
   public function setCa($ca){
     $this->ca=$ca;
-  //   if($ca === ''){
-  //     $this->ca = '';
-  //   }
-  //   elseif($ca != '' && intval($ca)===0){
-  //       throw new Exception("L'effectif doit être un nombre ");
-  //   }
-  // elseif($ca != '' && ($ca<0)){
-  //         throw new Exception("L'effectif doit être > 0 ");
-  //   }
-  //       elseif($ca != '' && intval($ca)!=0){
-  //           $this->ca = intval($ca);
-  //     }
+    if($ca === ''){
+      $this->ca = '';
+    }
+    elseif($ca != '' && intval($ca)===0){
+        throw new Exception("Le chiffre d'affaires doit être un nombre ");
+    }
+  elseif($ca != '' && ($ca<0)){
+          throw new Exception("Le chiffre d'affaires doit être > 0 ");
+    }
+        elseif($ca != '' && intval($ca)!=0){
+            $this->ca = intval($ca);
+      }
   }
 
 

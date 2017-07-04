@@ -52,19 +52,20 @@ class Contact{
   }
 
   public function setTelContact($telContact){
-    $spaceLessTelephone = preg_replace('/\s+/', '', trim($telContact));
-    if(strlen($spaceLessTelephone) !== 10 ) {
+
+    $spaceLessTelContact = preg_replace('/\s+/', '', trim($telContact));
+    if(strlen($spaceLessTelContact) !== 10 ){
       throw new Exception("Le numero de telephone doit comporter 10 chiffres");
     }
     else {
-      // if(preg_replace("/^([0-9]{10})$/", $spaceLessTelephone) !== 1){
-      //   throw new Exception("Le numero de telephone doit comporter seulement des chiffres");
-      // }
-      // else {
-      $this->telContact = wordwrap($spaceLessTelephone, 2, ' ', true);
-      // }
-    }
+      if(ctype_digit($spaceLessTelContact)==false){
+          throw new Exception("Le numero de telephone doit comporter seulement des chiffres");
       }
+      else {
+      $this->telContact = wordwrap($spaceLessTelContact, 2, " ", true);
+      }     
+    }
+  }
 
   public function setFonctionContact($fonctionContact){
     if(!is_string($fonctionContact)){

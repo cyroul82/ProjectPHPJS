@@ -1,6 +1,15 @@
 <?php
 function displayUpdateClient($client){
 ?>
+
+<div class="container">
+    <ul class="breadcrumb">
+      <li><a href="index.php">Accueil</a></li>
+      <li><a href="listClient.php">Liste Clients</a></li>
+      <li><a href="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Profil Client</a></li>
+      <li class="active">Modifier Client</li>
+    </ul>
+
   <div id="error"></div>
   <fieldset>
     <legend>Modification du client: <strong><?php echo $client["RAISON_SOCIALE"] ?></strong></legend>
@@ -92,5 +101,7 @@ function displayUpdateClient($client){
         <!-- end form client -->
       </div>
   </fieldset>
+
+</div>  
 <!-- form new client -->
 <?php } ?>
