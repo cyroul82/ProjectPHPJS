@@ -5,7 +5,6 @@ $(document).ready(function() {
   });
 
 
-
   $('#updateClientForm').submit(function() {
     //
     idClient = $('#idClient').val();
@@ -20,6 +19,7 @@ $(document).ready(function() {
     // effectif = $('#effectif').val();
     // commentaire = $('#commentaire').val();
     var client = $(this).serialize();
+    console.log(client);
 
     $.ajax({
       url: "updateClientControl.php",
