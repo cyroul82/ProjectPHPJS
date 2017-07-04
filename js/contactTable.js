@@ -7,6 +7,7 @@ $(document).ready(function() {
       responsive: {
         details: false
       },
+      "autoWidth": false,
     "oLanguage": {
       "sSearch": "Filtre :",
       "sEmptyTable": "Veuillez entrer le premier contact",

@@ -4,6 +4,7 @@ $(document).ready(function() {
     responsive: {
       details: false
     },
+    "autoWidth": false,
     "oLanguage": {
       "sLengthMenu": "Afficher \u00a0_MENU_\u00a0 clients",
       "sSearch": "Filtre :",

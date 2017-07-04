@@ -8,39 +8,29 @@ if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
     $idClient = trim(htmlentities($_GET["idClient"]));
     $contacts=cnsDao::getContactsList($idClient);
 
-    if((count($contacts)!=0)){
-           ?>
-        <div class="container" id="errorInfo"  >
-                <div class="row">
-                  <div class="col-xs-12 text-center">
-                    <br>
-                              <div class="alert alert-danger" role="alert">
-                        <strong>Le Client n'a pas pu être détruit car il contient des contacts<strong>
-                      </div>
-                  </div>
-                </div>
-              </div>
-      <?php
-      $clients=cnsDao::getClientsList();
-      displayPageListClient($clients);
-
+    if(count($contacts)!=0){
+      $rs = array('message' => 'nok', 'error' => 'Le client ne peut être supprimer tant qu\'il possède des contacts');
+      $json = json_encode($rs);
+      echo $json;
     }
-    else{
-          $clients=cnsDao::deleteClient($idClient);
-          ?>
-           <div class="container" id="errorInfo"  >
-                   <div class="row">
-                     <div class="col-xs-12 text-center">
-                       <br>
-                                 <div class="alert alert-success" role="alert">
-                           <strong>Le Client est bien détruit!<strong>
-                         </div>
-                     </div>
-                   </div>
-                 </div>
-         <?php
-          $clients=cnsDao::getClientsList();
-          displayPageListClient($clients);
-        }
+    else {
+      $rs=cnsDao::deleteClient($idClient);
+      if($rs){
+        $rs = array('message' => 'ok', 'error' => 'no contacts');
+        $json = json_encode($rs);
+        echo $json;
+      }
+      else {
+        $rs = array('message' => 'nok', 'error' => 'Error deleting client');
+        $json = json_encode($rs);
+        echo $json;
+      }
+    }
+    // else{
+    //   // echo "true";
+    //   $clients=cnsDao::deleteClient($idClient);
+    //   displayPageListClient($clients);
+    //
+    // }
   }
  ?>
