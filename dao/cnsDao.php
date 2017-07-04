@@ -173,7 +173,7 @@ public static function addClient(&$client){
                                    ':commentaire' => $client->getCommentaire()
                                  )
                               );
-                              // var_dump($client);
+                              // var_dump($req->errorInfo());
             $nombre= $req->rowCount();
             $req->closeCursor();
             cnsDao::disconnect($mysqlPDO);

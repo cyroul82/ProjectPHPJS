@@ -71,16 +71,14 @@ class Client{
   }
 
   public function setTelephone($telephone){
-    $spaceLessTelephone = preg_replace('/\s+/', '', $telephone);
-    // var_dump($spaceLessTelephone);
+    $spaceLessTelephone = preg_replace('/\s+/', '', trim($telephone));
     if(strlen($spaceLessTelephone) !== 10 && preg_replace("/[^0-9]/", "",$spaceLessTelephone) ) {
       throw new Exception("Le numero de telephone doit comporter 10 chiffres");
     }
     else {
-      // $this->telephone = $spaceLessTelephone;
       $this->telephone = wordwrap($spaceLessTelephone, 2, ' ', true);
-      // $this->telephone = chunk_split($spaceLessTelephone, 2," ");
     }
+
   }
 
   //  public function setTelephone2($telephone){
