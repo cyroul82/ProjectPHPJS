@@ -69,10 +69,10 @@ function displayProfilClient($client){
   </div>
 
  <!-- onclick="location.href='deleteClient.php?idClient=<?php echo $client["ID_CLIENT"]?>'" -->
- 
-  <!-- <div id="txtIdClient" style="visibility:hidden" value="100"></div>
 
+  <!-- <div id="txtIdClient" style="visibility:hidden" value="100"></div> -->
 
+<!--
   <div class="container" id="errorInfo"  style="visibility: hidden">
     <div class="row">
       <div class="col-xs-12 text-center">
