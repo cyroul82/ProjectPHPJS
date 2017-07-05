@@ -11,21 +11,21 @@ Sprint de 1 semaine:<br>
 User stories effectuées durant ce sprint : <br>
 
 <ul>
-  <li>Connection d'un utilisateur avec des droits (DB Mysql trés succinte mais suffisante pour la réalisation du projet).</li>
+  <li>Connexion d'un utilisateur avec des droits (DB Mysql trés succincte mais suffisante pour la réalisation du projet).</li>
   <li>Ajout de nouveau clients et de contacts associés.</li>
   <li>Liste des clients</li>
-  <li>mise à jour des clients</li>
-  <li>mise à jour des contacts</li>
-  <li>recherche de clients</li>
+  <li>Mise à jour des clients</li>
+  <li>Mise à jour des contacts</li>
+  <li>Recherche de clients</li>
 </ul>
 <hr>
 <h2>Technologie utilisées:</h2><br>
 <ul>
 <li>Trello pour le SCRUM</li>
-<li>Serveur Web Apache Mysql</li>
+<li>Serveur Web Apache</li>
 <li>Serveur Mysql et PhpMyAdmin pour l'administration de la BDD</li>
 <li>Structure des pages : HTML5</li>
-<li>Présentation: Bootstrap 3.3.7, site Responsive</li>
+<li>Présentation: Bootstrap 3.3.7 => site Responsive</li>
 <li>Côté serveur : PHP (Control, Model, View, DAO)</li>
 <li>Contrôle des champs JAVASCRIPT et JQuery</li>
 <li>Mise en place d'AJAX (JS et JQuery les 2 parties sont étudiées)</li>
