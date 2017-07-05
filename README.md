@@ -32,7 +32,7 @@ Technologie utilisées:<br>
 <li>Utilisation de Google Map API</li>
 <li>DataTable JQuery Plugin pour l'affichage des listes</li>
 <ul>
-<img src="https://github.com/cyroul82/ProjectPHPJS/tree/master/screenshot/index.PNG" witdh="350"/>
+<img src="ProjectPHPJS/screenshot/index.PNG" witdh="350"/>
 
 
 
