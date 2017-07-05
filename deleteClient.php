@@ -26,11 +26,5 @@ if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
         echo $json;
       }
     }
-    // else{
-    //   // echo "true";
-    //   $clients=cnsDao::deleteClient($idClient);
-    //   displayPageListClient($clients);
-    //
-    // }
   }
  ?>
