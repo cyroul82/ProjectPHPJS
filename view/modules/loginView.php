@@ -1,5 +1,6 @@
 <?php
 //Display the login page
+//- in : /
 
 function displayLogin(){
  ?>

@@ -243,6 +243,8 @@ public static function getClientById($idClient){
             die('<h1>Erreur de lecture du Client'.$idClient.'en base de données : </h1>'.$e->getMessage());
       }
 }
+
+
 //return a a table $contact from its id
 public static function getContactById($idContact){
       $mysqlPDO = cnsDao::connect();
