@@ -19,7 +19,7 @@ User stories effectuées : <br>
   <li>recherche de clients</li>
 </ul>
 <hr>
-Technologie utilisées:<br>
+<h2>Technologie utilisées:</h2><br>
 <ul>
 <li>Trello pour le SCRUM</li>
 <li>Serveur Web Apache Mysql</li>
@@ -32,7 +32,46 @@ Technologie utilisées:<br>
 <li>Utilisation de Google Map API</li>
 <li>DataTable JQuery Plugin pour l'affichage des listes</li>
 <ul>
-<img src="/screenshot/index.PNG" witdh="350"/>
+
+<hr>
+
+<h2>Captures d'écran</h2>
+
+<p>
+  <strong>Welcome page</strong>
+  <img src="/screenshot/index.PNG" witdh="350"/>
+</p>
+
+<p>
+  <strong>Login page</strong>
+  <img src="/screenshot/login.PNG" witdh="350"/>
+</p>
+
+<p>
+  <strong>Index page aprés Login</strong>
+  <img src="/screenshot/index2.PNG" witdh="350"/>
+</p>
+
+<p>
+  <strong>Nouveau client</strong>
+  <img src="/screenshot/newClient.PNG" witdh="350"/>
+</p>
+
+<p>
+  <strong>Liste page</strong>
+  <img src="/screenshot/listClient.PNG" witdh="350"/>
+</p>
+
+<p>
+  <strong>Detail Client Page</strong>
+  <img src="/screenshot/detailClient.PNG" witdh="350"/>
+</p>
+
+<p>
+  <strong>Nouveau Contact Page</strong>
+  <img src="/screenshot/newContact.PNG" witdh="350"/>
+</p>
+
 
 
 
