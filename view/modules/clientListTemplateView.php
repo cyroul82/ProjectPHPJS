@@ -1,5 +1,8 @@
 <?php
-// Display ONLY a table of Client
+// function dysplay a list of Clients
+// - in: list of Clients
+// -out: view 
+
 function clientTable($clients){
  ?>
           <table id="listClientTable" class="display nowrap" >

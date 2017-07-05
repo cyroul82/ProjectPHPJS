@@ -1,5 +1,9 @@
 
         <?php
+        // function display the head
+        // - in : title of the page
+        // - out: view
+
         function displayHead($title){ ?>
 
           <!doctype html>

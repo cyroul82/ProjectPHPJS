@@ -1,6 +1,8 @@
 <?php
 
-// Display the table of Contact
+// Display ONLY the table of Contact:
+// - in : list of contacts
+// - out: dysplay the list
 
 function tableContact($contacts){
  ?>
