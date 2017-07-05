@@ -9,14 +9,14 @@ function accessControl($group){
       }
 
       else {
-        header("location: index.php?erreur=DemandezAutorisaton!");
+        header("location: index.php?erreur=Vous n'avez pas l'autorisation");
         exit();
       }
 
     }
 
     else {
-      header("location: index.php?erreur=Pasautorisé!");
+      header("location: index.php?erreur=Vous n'avez pas l'autorisation");
       exit();
     }
   }
