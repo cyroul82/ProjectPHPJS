@@ -84,6 +84,6 @@ function displayNewClient(){ ?>
       </form>
       <!-- end form client -->
     </fieldset>
-  <script src="js/newClient.js" charset="utf-8"></script>
+  
   <!-- form new client -->
 <?php } ?>

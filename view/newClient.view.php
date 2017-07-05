@@ -9,6 +9,7 @@ function displayPageNewClient(){
 
 displayHead("Accueil");
 ?>
+<script src="js/newClient.js" charset="utf-8"></script>
 </head>
 <?php displayNav(true); ?>
 <body>

@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function newClient() {
-
+  alert("test");
   var xhr = new XMLHttpRequest();
   try {
     xhr = new XMLHttpRequest();
@@ -51,7 +51,9 @@ function newClient() {
     "&commentaire=" + commentaire);
 
   xhr.onreadystatechange = function() {
+    alert("salut");
     if (xhr.readyState === 4 && xhr.status === 200) {
+      alert("salut");
       var response = JSON.parse(xhr.responseText);
       if (response["message"] === "ok") {
         window.location.href = "profilClient.php?idClient=" + response["idClient"];

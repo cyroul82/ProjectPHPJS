@@ -1,10 +1,9 @@
 <?php
 require('model/client.php');
 require('dao/cnsDao.php');
-require("accessControl.php");
 header('Content-Type: application/json');
 
-if(accessControl(1)){
+
 
   if(isset($_POST["raisonSociale"]) && !empty($_POST["raisonSociale"])
      && isset($_POST["nature"]) && !empty($_POST["nature"])
@@ -68,4 +67,3 @@ if(accessControl(1)){
      $json = json_encode($arr);
      echo $json;
    }
- }
