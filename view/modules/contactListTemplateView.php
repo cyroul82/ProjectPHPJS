@@ -1,37 +1,34 @@
 <?php
+function tableContact($contacts){ // Display the table of Contact
+?>
+    <table id="listContactTable" class="display nowrap" >
+    
+        <thead>
+            <tr>
 
-// Display the table of Contact
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prénom</th>
+                <th class="text-center">Téléphone</th>
+                <th class="text-center">Fonction</th>
+                <th hidden>idContact</th>
+            </tr>
+        </thead>
 
-function tableContact($contacts){
- ?>
-          <table id="listContactTable" class="display nowrap" >
-              <thead>
-                <tr>
+        <tbody>
+            <?php // List of contacts from recordset
+            foreach($contacts as $row){
+            ?>
 
-                  <th class="text-center">Nom</th>
-                  <th class="text-center">Prénom</th>
-                  <th class="text-center">Téléphone</th>
-                  <th class="text-center">Fonction</th>
-                  <th hidden>idContact</th>
-              </tr>
-            </thead>
-            <tbody>
+            <tr>
+                <td class="text-center"><?php echo $row['NOM_CONTACT']?></td>
+                <td class="text-center"><?php echo $row['PRENOM_CONTACT']?></td>
+                <td class="text-center"><?php echo $row['TEL_CONTACT']?></td>
+                <td class="text-center"><?php echo $row['FONCTION_CONTACT']?></td>
+                <td hidden><?php echo $row['ID_CONTACT_CLIENT'];?></td>
+            </tr>
+            <?php } ?>
+        </tbody>
 
-                <?php // liste des Clients issus du recordset
-                foreach($contacts as $row){
-                ?>
-                <tr>
-
-                    <td class="text-center"><?php echo $row['NOM_CONTACT']?></td>
-                    <td class="text-center"><?php echo $row['PRENOM_CONTACT']?></td>
-                    <td class="text-center"><?php echo $row['TEL_CONTACT']?></td>
-                    <td class="text-center"><?php echo $row['FONCTION_CONTACT']?></td>
-                    <td hidden><?php echo $row['ID_CONTACT_CLIENT'];?></td>
-              </tr>
-              <?php } ?>
-            </tbody>
-
-          </table>
-
+    </table>
 
 <?php } ?>
