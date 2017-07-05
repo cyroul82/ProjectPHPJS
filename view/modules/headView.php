@@ -1,4 +1,5 @@
 
+
         <?php
         // function display the head
         // - in : title of the page
@@ -40,3 +41,4 @@
 
 
         <?php } ?>
+

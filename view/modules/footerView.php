@@ -1,4 +1,5 @@
 <?php
+
 // function display the footer
 // - in : /
 // - out: view
