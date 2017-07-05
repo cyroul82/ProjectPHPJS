@@ -1,5 +1,5 @@
 # ProjectPHPJS
-<h1>Création d'un site Web en PHP</h1>
+<h1>Création d'un site Web PHP</h1>
 Développement en couches MVC
 
 <strong>Réalisation du projet en méthode AGILE SCRUM</strong> <br>
@@ -8,7 +8,7 @@ Le Product Owner et le Scrum Master étant des membres du centre
 <br>
 
 Sprint de 1 semaine:<br>
-User stories effectuées : <br>
+User stories effectuées durant ce sprint : <br>
 
 <ul>
   <li>Connection d'un utilisateur avec des droits (DB Mysql trés succinte mais suffisante pour la réalisation du projet).</li>
