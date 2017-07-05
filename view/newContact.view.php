@@ -6,10 +6,6 @@ require("view/modules/titleView.php");
 require("view/modules/newContactView.php");
 
 function displayPageNewContact($idClient){
-  if(!isset($_SESSION['email'])){
-    header("location: index.php?erreur=Déconnecté!");
-    exit();
-  }
 
 displayHead("Accueil");
 ?>

@@ -7,10 +7,7 @@ require("view/modules/navView.php");
 require("view/modules/contactListView.php");
 
 function displayPageListContact($listContact){
-  if(!isset($_SESSION['email'])){
-    header("location: index.php?erreur=Déconnecté!");
-    exit();
-  }
+
   displayHead("Liste Contacts"); ?>
   </head>
   <?php displayNav(true); ?>

@@ -7,10 +7,7 @@ require('modules/updateContactView.php');
 
 
 function displayPageUpdateContact($contact){
-  if(!isset($_SESSION['email'])){
-    header("location: index.php?erreur=Déconnecté!");
-    exit();
-  }
+
   displayHead("Update Contact"); ?>
   <script src="js/updateContact.js" charset="utf-8"></script>
   </head>

@@ -14,10 +14,7 @@ require("view/modules/mapView.php");
 require("dao/cnsDao.php");
 
 function displayPageSearchClient(){
-	if(!isset($_SESSION['email'])){
-		header("location: index.php?erreur=Déconnecté!");
-		exit();
-	}
+
 displayHead("Search"); ?>
 <script src="js/clientTable.js" charset="utf-8"></script>
 </head>
