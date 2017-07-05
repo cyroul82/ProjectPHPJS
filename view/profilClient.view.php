@@ -6,10 +6,7 @@
   require('modules/contactListView.php');
 
   function displayPageProfilClient($client, $contacts){
-    if(!isset($_SESSION['email'])){
-      header("location: index.php?erreur=Déconnecté!");
-      exit();
-    }
+
      displayHead("Profil"); ?>
      <script src="js/contactTable.js" charset="utf-8"></script>
      <script src="js/profilClient.js" charset="utf-8"></script>
@@ -25,7 +22,7 @@
               <li><a href="listClient.php">Liste Clients</a></li>
               <li class="active">Profil Client</li>
             </ul>
-            
+
             <div id="error"></div>
             <div class="clientTitle">
               <h2 class="text-align:left"><?php echo $client["RAISON_SOCIALE"]; ?></h2>

@@ -1,11 +1,14 @@
 <?php
+
+//  function display the list of Clients of ABI:
+//- in :list of clients
+//-out: call clientTable() of clientListTemplateView.php
+
 require("clientListTemplateView.php");
-function displayClientList($data){ // Function display the list of clients
+function displayClientList($clients){
 ?>
- 	<fieldset>
-      	<legend>Liste</legend>
-        	<?php
-        	clientTable($data)
-        	;?>
+    <fieldset>
+      <legend>Liste</legend>
+            <?php clientTable($clients);?>
     </fieldset>
 <?php } ?>

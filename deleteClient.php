@@ -1,8 +1,9 @@
 <?php
 require('dao/cnsDao.php');
 require('view/listClient.view.php');
+require("accessControl.php");
 
-
+if(accessControl(1)){
 if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
 
     $idClient = trim(htmlentities($_GET["idClient"]));
@@ -27,4 +28,5 @@ if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
       }
     }
   }
+}
  ?>

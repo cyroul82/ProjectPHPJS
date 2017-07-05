@@ -1,6 +1,12 @@
 <?php
-require("contactListTemplateView.php"); 
-function displayListContact($client, $contacts){ // This function display the list of contacts
+
+// This function display a contact detail of Clients  & the list of its contacts
+// - in : A client details, list of contacts of the idClient
+// - out: display list contact frame
+// - call: tableContact
+
+require("contactListTemplateView.php");
+function displayListContact($client, $contacts){
 
 $idClient = $client['ID_CLIENT'];
 ?>

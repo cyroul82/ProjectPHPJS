@@ -3,25 +3,26 @@ $(document).ready(function() {
   idClient = $('#idClient').val();
 
 
-    var table=$('#listContactTable').DataTable( {
-      responsive: {
-        details: false
-      },
-      "autoWidth": false,
+  var table = $('#listContactTable').DataTable({
+    responsive: {
+      details: false
+    },
+    "autoWidth": false,
     "oLanguage": {
       "sSearch": "Filtre :",
       "sEmptyTable": "Veuillez entrer le premier contact",
-      },
-        "searching": true,
-        "paging":   false,
-        "ordering": false,
-        "info":     false
-    } );
+    },
+    "searching": true,
+    "paging": false,
+    "ordering": false,
+    "info": false
+  });
 
 
   var contact = null;
 
   $('#listContactTable tbody').on('click', 'tr', function() {
+
     if (contact === table.row(this).data()) {
       contact = null;
     } else {

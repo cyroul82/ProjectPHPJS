@@ -1,7 +1,10 @@
 <?php
-function displayFooter(){ // Fonction for the end of page
+
+// function display the footer
+// - in : /
+// - out: view
+
+function displayFooter(){
 ?>
-
-	 </html>
-
+  </html>
 <?php } ?>

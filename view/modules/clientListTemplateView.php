@@ -1,9 +1,14 @@
 <?php
-function clientTable($clients){ // Display a table of Client
-?>
-    <table id="listClientTable" class="display nowrap" >
 
-        <thead>
+// function dysplay a list of Clients
+// - in: list of Clients
+// -out: view 
+
+function clientTable($clients){
+ ?>
+          <table id="listClientTable" class="display nowrap" >
+              
+       <thead>
             <tr>
                 <th class="text-center">RAISON SOCIALE</th>
                 <th class="text-center">TELEPHONE</th>

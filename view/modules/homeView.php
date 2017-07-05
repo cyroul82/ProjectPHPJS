@@ -1,4 +1,9 @@
 <?php
+
+// function display the home page incl. error
+// - in : error;
+// - out: view
+
 require('titleView.php');
 function displayHome($erreur){ // Display homepage without map but with title
 ?>

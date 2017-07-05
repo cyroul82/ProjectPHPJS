@@ -7,10 +7,7 @@ require('modules/updateClientView.php');
 
 
 function displayPageUpdateClient($client){
-  if(!isset($_SESSION['email'])){
-    header("location: index.php?erreur=Déconnecté!");
-    exit();
-  }
+
   displayHead("Update Client"); ?>
   <script src="js/updateClient.js" charset="utf-8"></script>
   </head>

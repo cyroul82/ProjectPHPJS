@@ -7,10 +7,7 @@ require("view/modules/navView.php");
 require("view/modules/clientListView.php");
 
 function displayPageListClient($client){
-  if(!isset($_SESSION['email'])){
-    header("location: index.php?erreur=Déconnecté!");
-    exit();
-  }
+
   displayHead("Liste Clients"); ?>
   <script src="js/clientTable.js" charset="utf-8"></script>
   </head>

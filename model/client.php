@@ -81,7 +81,7 @@ class Client{
       }
       else {
       $this->telephone = wordwrap($spaceLessTelephone, 2, " ", true);
-      }     
+      }
     }
   }
 
@@ -98,31 +98,29 @@ class Client{
       elseif(strlen($ca)==0) {
           throw new Exception("Le champs chiffre d'affaires ne peut être vide");
       }
-    
+
       elseif($ca != '' && $ca!=0){
                 $this->ca = (float)$ca;
           }
       }
- 
-  }
+   }
 
 
   public function setEffectif($effectif){
-
-  if($effectif<0){
-            throw new Exception("L'effectif doit être supérieur 0 ");
-      }
-    elseif(!ctype_digit($effectif) ){
-          throw new Exception("L'effectif comporte des caractères non valides.");
-
-     }
-    elseif(strlen($effectif)==0) {
-        throw new Exception("Le champs effectif ne peut être vide");
-    }
-    
-    elseif($effectif != '' && $effectif!=0){
-              $this->effectif = intval($effectif);
+    if($effectif<0){
+              throw new Exception("L'effectif doit être supérieur 0 ");
         }
+      elseif(!ctype_digit($effectif) ){
+            throw new Exception("L'effectif comporte des caractères non valides.");
+
+       }
+      elseif(strlen($effectif)==0) {
+          throw new Exception("Le champs effectif ne peut être vide");
+      }
+
+      elseif($effectif != '' && $effectif!=0){
+              $this->effectif = intval($effectif);
+      }
     }
 
   public function setCommentaire($commentaire){

@@ -1,6 +1,9 @@
 <?php
-function displayLogin(){ //Display the login page
+//Display the login page
+//- in : /
+function displayLogin(){ 
 ?>
+
 
     <div class="container">
         <div id="error"></div>

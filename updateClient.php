@@ -4,13 +4,16 @@
 
 require('view/updateClient.view.php');
 require('dao/cnsDao.php');
+require("accessControl.php");
 
-if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
-  $idClient = trim(htmlentities($_GET["idClient"]));
+if(accessControl(1)){
 
-    $client=cnsDao::getClientById($idClient);
-    displayPageUpdateClient($client);
+  if(isset($_GET["idClient"]) && !empty($_GET["idClient"])) {
+    $idClient = trim(htmlentities($_GET["idClient"]));
 
+      $client=cnsDao::getClientById($idClient);
+      displayPageUpdateClient($client);
 
+  }
 }
  ?>
