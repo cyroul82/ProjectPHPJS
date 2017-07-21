@@ -6,13 +6,13 @@ class cnsDao{
 
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "127.0.0.1:52682";
+        $host = "127.0.0.1";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
 
         try {
-          $mysqlPDO = new PDO("mysql:host=$host;dbname=$bdd;charset=utf8",
+          $mysqlPDO = new PDO("mysql:host=$host;port=52628;dbname=$bdd;charset=utf8",
                               $user, $password,
                               array(PDO::ERRMODE_EXCEPTION => PDO::ERRMODE_EXCEPTION));
         }
