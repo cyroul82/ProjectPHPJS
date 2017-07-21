@@ -12,7 +12,7 @@ class cnsDao{
         $password = "cns";
 
         try {
-          $mysqlPDO = new PDO("mysql:host=$host;port=52628;dbname=$bdd;charset=utf8",
+          $mysqlPDO = new PDO("mysql:host=$host;dbname=$bdd;charset=utf8",
                               $user, $password,
                               array(PDO::ERRMODE_EXCEPTION => PDO::ERRMODE_EXCEPTION));
         }
