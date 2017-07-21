@@ -6,31 +6,15 @@ class cnsDao{
 
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-    $connectstr_dbhost = '';
-$connectstr_dbname = '';
-$connectstr_dbusername = '';
-$connectstr_dbpassword = '';
-
-foreach ($_SERVER as $key => $value) {
-    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
-        continue;
-    }
-    
-    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
-    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
-    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
-  echo($connectstr_dbhost);
-}
-
-        /*$host = "localhost";
+  
+        $host = "127.0.0.1";
         $bdd = "db-cns";
-        $user = "cns";
-        $password = "cns";*/
+        $user = "azure";
+        $password = "6#vWHD_$";
 
         try {
-          $mysqlPDO = new PDO("mysql:host=$connectstr_dbhost;dbname=$bdd;charset=utf8",
-                              $connectstr_dbusername, $connectstr_dbpassword,
+          $mysqlPDO = new PDO("mysql:host=$host;dbname=$bdd;charset=utf8",
+                              $user, $password,
                               array(PDO::ERRMODE_EXCEPTION => PDO::ERRMODE_EXCEPTION));
         }
         catch (Exception $e) {
