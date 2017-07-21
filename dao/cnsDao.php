@@ -6,7 +6,7 @@ class cnsDao{
 
   // DB - Connection to DB------------------------------------------------------------
   private static function connect(){
-        $host = "MYSQLCONNSTR_localdb";
+        $host = "localhost";
         $bdd = "db-cns";
         $user = "cns";
         $password = "cns";
